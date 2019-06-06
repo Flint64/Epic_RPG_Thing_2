@@ -1,4 +1,4 @@
-package example.epic_rpg_thing;
+package chimera.epic_rpg_thing;
 
 import androidx.appcompat.app.AppCompatActivity;
 

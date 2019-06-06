@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="example.epic_rpg_thing">
+    package="chimera.epic_rpg_thing">
 
     <application
         android:allowBackup="true"
@@ -9,18 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".selectSkillsActivity"
+        <activity android:name="chimera.epic_rpg_thing.selectSkillsActivity"
             android:screenOrientation="sensorLandscape">
         </activity>
 
         <activity
-            android:name=".newCharacterActivity"
+            android:name="chimera.epic_rpg_thing.newCharacterActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name=".newGameActivity"
+            android:name="chimera.epic_rpg_thing.newGameActivity"
             android:screenOrientation="sensorLandscape"></activity>
         <activity
-            android:name=".MainActivity"
+            android:name="chimera.epic_rpg_thing.MainActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
