@@ -453,29 +453,32 @@
 
     <TextView
         android:id="@+id/points"
-        android:layout_width="0dp"
+        android:layout_width="23dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:text="10"
         android:textSize="18sp"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/dex_down"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/dex_down"
-        app:layout_constraintTop_toBottomOf="@+id/dex_down"
+        app:layout_constraintEnd_toEndOf="@+id/pointsLabel"
+        app:layout_constraintStart_toStartOf="@+id/pointsLabel"
+        app:layout_constraintTop_toBottomOf="@+id/pointsLabel"
         tools:visibility="invisible" />
 
     <TextView
         android:id="@+id/pointsLabel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
         android:text="Points to Spend"
         android:textSize="18sp"
         android:visibility="invisible"
-        app:layout_constraintEnd_toEndOf="@+id/points"
-        app:layout_constraintStart_toStartOf="@+id/points"
-        app:layout_constraintTop_toBottomOf="@+id/points"
+        app:layout_constraintBottom_toTopOf="@+id/intelligenceValue"
+        app:layout_constraintStart_toEndOf="@+id/intelligenceLabel"
+        app:layout_constraintTop_toTopOf="@+id/intelligenceLabel"
+        app:layout_constraintVertical_bias="1.0"
         tools:visibility="invisible" />
 
     <TextView
