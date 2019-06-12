@@ -17,7 +17,9 @@ public class Character extends Creature{
 
     @Override
     public void generateDefense() {
-
+        int d = 50;
+        int fence = 20;
+        int defense = d + fence;
     }
 
     @Override

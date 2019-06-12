@@ -9,9 +9,12 @@ import static org.junit.Assert.*;
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
-public class ExampleUnitTest {
+public class GenerateDefenseTest {
     @Test
-    public void addition_isCorrect() {
-        assertEquals(4, 2 + 2);
-    }
+  public void generateDefenseTest() {
+      int d = 50;
+      int fence = 20;
+      int defense = d + fence;
+      assertEquals(defense,70);
+  }
 }
