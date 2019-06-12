@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "424308345270",
+    "firebase_url": "https://rpg-app-678ee.firebaseio.com",
+    "project_id": "rpg-app-678ee",
+    "storage_bucket": "rpg-app-678ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:424308345270:android:1c07a157bb39b01a",
+        "android_client_info": {
+          "package_name": "example.epic_rpg_thing"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "424308345270-mddibotbbcoo734kdjp01pguiint16a5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnO1_T_fOxKfun8mEmE-_TsTrWCmsJcDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "424308345270-mddibotbbcoo734kdjp01pguiint16a5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
