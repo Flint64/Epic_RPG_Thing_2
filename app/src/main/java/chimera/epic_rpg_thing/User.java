@@ -36,16 +36,16 @@ public class User {
     private void loadCharacters(){
         ArrayList<Character> tmpCharacters = new ArrayList<>();
         ArrayList<String> fileNames = new ArrayList<>(4);
-        Gson gson;
+        Gson gson = new Gson();
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader("CharacterDirectory"));
             fileNames = gson.fromJson(reader, ArrayList.class);
             reader.close();
         }
+        catch (Exception e){
 
-
-
+        }
     }
 
     /**
