@@ -7,7 +7,7 @@ import java.util.List;
  * @Version 1.0
  * @Author Shane Mecham
  */
-public abstract class Creature implements Skill {
+public abstract class Creature {
     // Stats for hp indicator
     private int baseHp;
     private int currentHP;
@@ -30,8 +30,9 @@ public abstract class Creature implements Skill {
     short strength;
     short mana;
     short dexterity;
+    String name;
 
-    public Creature(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti){
+    public Creature(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti, String name){
         this.baseHp = baseHp;
         this.baseMana = baseMana;
         this.attack = attack;
@@ -43,6 +44,7 @@ public abstract class Creature implements Skill {
         this.manaMulti = manaMulti;
         this.maxHP = this.baseHp + this.strength * this.hpMulti;
         this.maxMana = this.baseMana + this.mana * this.manaMulti;
+        this.name = name;
         generateDefense();
         generateEvasion();
     }
@@ -51,7 +53,7 @@ public abstract class Creature implements Skill {
      * @return int
      */
     int getMaxHP(){
-        return 100 + strength * 5;
+        return maxHP = this.baseHp + this.strength * this.hpMulti;
     }
 
     /**
@@ -60,7 +62,7 @@ public abstract class Creature implements Skill {
      * @return void
      */
     void setMaxHP(int bonus){
-        maxHP = baseHp + strength * 5 + bonus;
+        maxHP = this.baseHp + this.strength * this.hpMulti + bonus;
     }
 
     /**
@@ -218,4 +220,16 @@ public abstract class Creature implements Skill {
     public void setDexterity(short dexterity) {
         this.dexterity = dexterity;
     }
+
+    /**
+     * Returns the name of the character
+     * @return string
+     */
+    public String getName() {return name;}
+
+    /**
+     * Sets the character name
+     * @param name
+     */
+    public void setName(String name){this.name = name;}
 }

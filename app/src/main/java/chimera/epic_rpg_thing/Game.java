@@ -3,4 +3,8 @@ public class Game {
     User user;
     Monster monster;
     Story story;
+
+    public User getUser(){
+        return user;
+    }
 }
