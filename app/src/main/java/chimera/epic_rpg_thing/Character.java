@@ -1,8 +1,5 @@
 package chimera.epic_rpg_thing;
-import java.io.File;
-import java.util.ArrayList;
 import java.util.List;
-import com.google.gson.Gson;
 
 public class Character extends Creature{
     int level;
@@ -14,9 +11,8 @@ public class Character extends Creature{
     // carry slot limit
     int carrySlots;
 
-    public Character(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti) {
-        super(baseHp, baseMana, attack, skills, strength, mana, dexterity, hpMulti, manaMulti);
-
+    public Character(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti, String name) {
+        super(baseHp, baseMana, attack, skills, strength, mana, dexterity, hpMulti, manaMulti, name);
     }
 
     @Override

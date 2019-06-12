@@ -5,7 +5,7 @@ import java.util.List;
 public class CharacterPresenter {
     private User user;
 
-    public CharacterPresenter(Game presenter){
+    public CharacterPresenter(GamePresenter presenter){
         user = presenter.getUser();
     }
 
