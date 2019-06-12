@@ -1,5 +1,8 @@
 package chimera.epic_rpg_thing;
+import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
+import com.google.gson.Gson;
 
 public class Character extends Creature{
     int level;
@@ -8,9 +11,6 @@ public class Character extends Creature{
     // ArrayLists for skills and items
     List<Item> items;
 
-    // Money!!!
-    int gold;
-    // Base defense
     // carry slot limit
     int carrySlots;
 
