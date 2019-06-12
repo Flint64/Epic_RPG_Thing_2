@@ -9,11 +9,12 @@ import android.view.View;
 import android.widget.Toast;
 
 public class newGameActivity extends AppCompatActivity {
-
+    private boolean characterLoaded;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_game);
+        characterLoaded = false;
     }
 
     /***********************************************************************************
@@ -65,5 +66,14 @@ public class newGameActivity extends AppCompatActivity {
 
          Toast toast = Toast.makeText(context, text, duration);
          toast.show();
+         characterLoaded = true;
+     }
+
+     public boolean getCharacterLoaded(){
+         return characterLoaded;
+     }
+
+     public void setCharacterLoaded(boolean bool){
+         characterLoaded  = bool;
      }
 }
