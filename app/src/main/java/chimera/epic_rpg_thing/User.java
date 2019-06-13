@@ -31,22 +31,21 @@ public class User {
      * uses the CharacterDirectory file to find the different
      * files for the characters.
      */
+
+
     private void loadCharacters(){
         ArrayList<Character> tmpCharacters = new ArrayList<>();
         ArrayList<String> fileNames = new ArrayList<>(4);
         Gson gson = new Gson();
+
         try {
             BufferedReader reader = new BufferedReader(new FileReader("CharacterDirectory"));
             fileNames = gson.fromJson(reader, ArrayList.class);
             reader.close();
-        } catch (java.io.FileNotFoundException f){
-
-        } catch (java.io.IOException i){
-            i.printStackTrace();
         }
+        catch (Exception e){
 
-
-
+        }
     }
 
     /**

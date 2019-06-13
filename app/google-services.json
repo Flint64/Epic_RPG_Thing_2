@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:424308345270:android:1c07a157bb39b01a",
+        "mobilesdk_app_id": "1:424308345270:android:8af3c8f9cc181646",
         "android_client_info": {
-          "package_name": "example.epic_rpg_thing"
+          "package_name": "chimera.epic_rpg_thing"
         }
       },
       "oauth_client": [
