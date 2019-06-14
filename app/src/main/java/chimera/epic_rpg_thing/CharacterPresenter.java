@@ -12,4 +12,6 @@ public class CharacterPresenter {
     public List<Character> getCharacters(){
         return user.getCharacters();
     }
+
+    public void addCharacter(Character c) { user.addCharacter(c);}
 }

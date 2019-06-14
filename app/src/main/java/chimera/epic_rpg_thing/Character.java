@@ -7,7 +7,7 @@ public class Character extends Creature{
     boolean charactersLoaded;
     // ArrayLists for skills and items
     List<Item> items;
-
+    CharacterClass cClass;
     // carry slot limit
     int carrySlots;
 
@@ -17,9 +17,7 @@ public class Character extends Creature{
 
     @Override
     public void generateDefense() {
-        int d = 50;
-        int fence = 20;
-        int defense = d + fence;
+
     }
 
     @Override
