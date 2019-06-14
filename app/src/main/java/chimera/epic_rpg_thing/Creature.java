@@ -3,7 +3,7 @@ import java.util.List;
 
 /**
  * Creature Class
- * *Description: Parent class for living creatures.
+ * Description: Parent class for living creatures.
  * @Version 1.0
  * @Author Shane Mecham
  */

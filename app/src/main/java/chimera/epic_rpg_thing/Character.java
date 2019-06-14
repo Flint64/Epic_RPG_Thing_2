@@ -17,11 +17,11 @@ public class Character extends Creature{
 
     @Override
     public void generateDefense() {
-
+        defense = 10 + strength * cClass.getClassMod("defense");
     }
 
     @Override
     public void generateEvasion() {
-
+        evasion = 10 + dexterity * cClass.getClassMod("evasion");
     }
 }
