@@ -1,4 +1,4 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.model;
 import java.util.List;
 
 /**
@@ -28,22 +28,22 @@ public abstract class Creature {
     int evasion;
     // Character attributes
     short strength;
-    short mana;
+    short intelligence;
     short dexterity;
     String name;
 
-    public Creature(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti, String name){
+    public Creature(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short intelligence, short dexterity, int hpMulti, int manaMulti, String name){
         this.baseHp = baseHp;
         this.baseMana = baseMana;
         this.attack = attack;
         this.skills = skills;
         this.strength = strength;
-        this.mana = mana;
+        this.intelligence = intelligence;
         this.dexterity = dexterity;
         this.hpMulti = hpMulti;
         this.manaMulti = manaMulti;
         this.maxHP = this.baseHp + this.strength * this.hpMulti;
-        this.maxMana = this.baseMana + this.mana * this.manaMulti;
+        this.maxMana = this.baseMana + this.intelligence * this.manaMulti;
         this.name = name;
         generateDefense();
         generateEvasion();
@@ -79,7 +79,7 @@ public abstract class Creature {
      * @return
      */
     void setMaxMana(int bonus){
-        maxMana = baseMana + mana * 5 + bonus;
+        maxMana = baseMana + intelligence * 5 + bonus;
     }
     /**
      * Getter for baseHP
@@ -190,19 +190,19 @@ public abstract class Creature {
     }
 
     /**
-     * Getter for the mana stat.
+     * Getter for the intelligence stat.
      * @return short
      */
-    public short getMana() {
-        return mana;
+    public short getIntelligence() {
+        return intelligence;
     }
 
     /**
-     * Setter for the mana stat
+     * Setter for the intelligence stat
      * @param
      */
-    public void setMana(short mana) {
-        this.mana = mana;
+    public void setIntelligence(short intelligence) {
+        this.intelligence = intelligence;
     }
 
     /**

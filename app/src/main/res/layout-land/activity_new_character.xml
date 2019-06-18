@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:onClick="selectSkills"
-    tools:context=".newCharacterActivity">
+    tools:context=".view.newCharacterActivity">
 
     <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
 

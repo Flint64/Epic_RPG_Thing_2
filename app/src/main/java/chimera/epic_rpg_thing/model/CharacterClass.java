@@ -1,6 +1,8 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.model;
 
 import java.util.HashMap;
+
+import chimera.epic_rpg_thing.model.Skill;
 
 public abstract class CharacterClass {
     // HashMap of the class modifiers
@@ -8,7 +10,7 @@ public abstract class CharacterClass {
     // Level of the class
     private int classLevel;
     // HashMap of the class skills
-    private HashMap<String,Skill> classSkills;
+    private HashMap<String, Skill> classSkills;
     /**
      * Get's the classMod from the classMods HashMap given a key
      * @return int

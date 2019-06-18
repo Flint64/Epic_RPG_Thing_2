@@ -1,4 +1,5 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.model;
+
 public interface Item {
     /**
      * returns the item's name
@@ -90,5 +91,15 @@ public interface Item {
      */
     boolean isArmor();
 
+    /**
+     * gets the benefit of the item
+     * @return
+     */
     Benefit getBenefit();
+
+    /**
+     * sets the benefit of the item
+     * @param benefit
+     */
+    void setBenefit(Benefit benefit);
 }

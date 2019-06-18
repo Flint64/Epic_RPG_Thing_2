@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".selectSkillsActivity">
+    tools:context=".view.selectSkillsActivity">
 
     <TextView
         android:id="@+id/skill_1_label"

@@ -1,6 +1,9 @@
 package chimera.epic_rpg_thing;
 
 import org.junit.Test;
+
+import chimera.epic_rpg_thing.model.Character;
+
 import static org.junit.Assert.assertEquals;
 
 public class Character_Tests {

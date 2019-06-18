@@ -1,13 +1,13 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.model;
 
 public class Weapon implements Item {
-    String name;
-    int value;
-    int slots;
-    ItemType itemType;
-    boolean equippable;
-    boolean equipped;
-    Benefit benefit;
+    private String name;
+    private int value;
+    private int slots;
+    private ItemType itemType;
+    private boolean equippable;
+    private boolean equipped;
+    private Benefit benefit;
     /**
      * Weapon Constructor.
      * @param name
@@ -112,5 +112,10 @@ public class Weapon implements Item {
     @Override
     public boolean isArmor() {
         return false;
+    }
+
+    @Override
+    public void setBenefit(Benefit benefit) {
+        this.benefit = benefit;
     }
 }

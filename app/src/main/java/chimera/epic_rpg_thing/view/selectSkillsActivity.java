@@ -1,8 +1,10 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import chimera.epic_rpg_thing.R;
 
 public class selectSkillsActivity extends AppCompatActivity {
 

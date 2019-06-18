@@ -1,4 +1,4 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.view;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +11,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import chimera.epic_rpg_thing.R;
 
 public class newCharacterActivity extends AppCompatActivity {
 

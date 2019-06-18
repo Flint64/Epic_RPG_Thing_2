@@ -1,4 +1,4 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.model;
 import java.util.ArrayList;
 import java.util.List;
 

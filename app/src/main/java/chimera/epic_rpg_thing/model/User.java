@@ -1,4 +1,4 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.model;
 
 import android.util.Log;
 

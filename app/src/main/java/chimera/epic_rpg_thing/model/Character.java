@@ -1,4 +1,4 @@
-package chimera.epic_rpg_thing;
+package chimera.epic_rpg_thing.model;
 import java.util.List;
 
 public class Character extends Creature{
@@ -13,6 +13,7 @@ public class Character extends Creature{
 
     public Character(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti, String name) {
         super(baseHp, baseMana, attack, skills, strength, mana, dexterity, hpMulti, manaMulti, name);
+        inventory = new CharacterInventory(strength * 5);
     }
 
     @Override
