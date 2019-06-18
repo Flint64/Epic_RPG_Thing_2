@@ -6,8 +6,8 @@ public class Character extends Creature{
     int XP;
     boolean charactersLoaded;
     // ArrayLists for skills and items
-    List<Item> items;
     CharacterClass cClass;
+    Inventory inventory;
     // carry slot limit
     int carrySlots;
 
