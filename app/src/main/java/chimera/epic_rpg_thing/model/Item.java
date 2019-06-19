@@ -41,25 +41,13 @@ public interface Item {
      * gets the type of the item
      * @return armorType
      */
-    ArmorType getArmorType();
+    Type getType();
 
     /**
      * sets the type of the item
      * @param type
      */
-    void setArmorType(ArmorType type);
-
-    /**
-     * Gets the item of the type
-     * @return itemType
-     */
-    ItemType getItemType();
-
-    /**
-     * Sets the item type.
-     * @param type
-     */
-    void setItemType(ItemType type);
+    void setType(Type type);
 
     /**
      * gets the equipable status of the item

@@ -8,6 +8,8 @@ public class Weapon implements Item {
     private boolean equippable;
     private boolean equipped;
     private Benefit benefit;
+    private ElementalEffect effect;
+
     /**
      * Weapon Constructor.
      * @param name
@@ -17,7 +19,7 @@ public class Weapon implements Item {
      * @param equippable
      * @param equipped
      */
-    Weapon(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit){
+    Weapon(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
         this.name = name;
         this.value = value;
         this.slots = slots;
@@ -25,7 +27,9 @@ public class Weapon implements Item {
         this.equippable = equippable;
         this.equipped = equipped;
         this.benefit = benefit;
+        this.effect = effect;
     }
+
     @Override
     public String getName() {
         return name;
@@ -61,8 +65,8 @@ public class Weapon implements Item {
      * @return
      */
     @Override
-    public ArmorType getArmorType() {
-        return null;
+    public Type getType() {
+        return itemType;
     }
 
     /**
@@ -70,18 +74,10 @@ public class Weapon implements Item {
      * @param type
      */
     @Override
-    public void setArmorType(ArmorType type) {
-        return;
-    }
-
-    @Override
-    public ItemType getItemType() {
-        return itemType;
-    }
-
-    @Override
-    public void setItemType(ItemType type) {
-        this.itemType = type;
+    public void setType(Type type) {
+        if(type instanceof ItemType){
+            this.itemType = (ItemType) type;
+        }
     }
 
     @Override
@@ -117,5 +113,21 @@ public class Weapon implements Item {
     @Override
     public void setBenefit(Benefit benefit) {
         this.benefit = benefit;
+    }
+
+    /**
+     * Gets the elemental effect
+     * @return
+     */
+    public ElementalEffect getEffect(){
+        return effect;
+    }
+
+    /**
+     * sets the elemental effect
+     * @param effect
+     */
+    public void setEffect(ElementalEffect effect){
+        this.effect = effect;
     }
 }

@@ -8,12 +8,12 @@ public class Character extends Creature{
     // ArrayLists for skills and items
     CharacterClass cClass;
     Inventory inventory;
-    // carry slot limit
-    int carrySlots;
+    int baseSlots = 20;
+    int baseSlotMod = 5;
 
-    public Character(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti, String name) {
-        super(baseHp, baseMana, attack, skills, strength, mana, dexterity, hpMulti, manaMulti, name);
-        inventory = new CharacterInventory(strength * 5);
+    public Character(List<Skill> currentSkills, short strength, short mana, short dexterity, String name, CharacterClass cClass) {
+        super(cClass.getClassMod("baseHp"), cClass.getClassMod("baseMana"), cClass.getClassMod("attack"), currentSkills, strength, mana, dexterity, cClass.getClassMod("hpMulti"), cClass.getClassMod("manaMulti"), name);
+        inventory = new CharacterInventory(baseSlots + strength * baseSlotMod);
     }
 
     @Override

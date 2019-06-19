@@ -76,6 +76,10 @@ public class User {
         }
     }
 
+    /**
+     * Adds characters
+     * @param c
+     */
     public void addCharacter(Character c){
         characters.add(c);
     }

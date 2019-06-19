@@ -1,5 +1,5 @@
 package chimera.epic_rpg_thing.model;
 
-public enum ItemType {
-    CONSUMABLE, WEAPON_ONE_HANDED, WEAPON_TWO_HANDED
+public enum ItemType implements Type{
+    CONSUMABLE, WEAPON_ONE_HANDED, WEAPON_TWO_HANDED, QUEST_ITEM
 }

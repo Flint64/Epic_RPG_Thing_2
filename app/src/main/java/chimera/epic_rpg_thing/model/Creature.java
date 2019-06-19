@@ -46,7 +46,6 @@ public abstract class Creature {
         this.maxMana = this.baseMana + this.intelligence * this.manaMulti;
         this.name = name;
         generateDefense();
-        generateEvasion();
     }
     /**
      * Getter for the maxHP

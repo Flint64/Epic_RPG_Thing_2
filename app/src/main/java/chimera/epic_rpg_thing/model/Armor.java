@@ -8,6 +8,17 @@ public class Armor implements Item {
     boolean equippable;
     boolean equipped;
     Benefit benefit;
+
+    /**
+     * Creates armor
+     * @param name
+     * @param value
+     * @param slots
+     * @param armorType
+     * @param equippable
+     * @param equipped
+     * @param benefit
+     */
     Armor(String name, int value, int slots, ArmorType armorType, boolean equippable, boolean equipped, Benefit benefit){
         this.name = name;
         this.value = value;
@@ -48,31 +59,15 @@ public class Armor implements Item {
     }
 
     @Override
-    public ArmorType getArmorType() {
+    public Type getType() {
         return armorType;
     }
 
     @Override
-    public void setArmorType(ArmorType type) {
-        this.armorType = type;
-    }
-
-    /**
-     * Don't call this function with armor
-     * @return
-     */
-    @Override
-    public ItemType getItemType() {
-        return null;
-    }
-
-    /**
-     * Don't call this function with armor
-     * @param type
-     */
-    @Override
-    public void setItemType(ItemType type) {
-        return;
+    public void setType(Type type) {
+        if(type instanceof ArmorType) {
+            this.armorType = (ArmorType) type;
+        }
     }
 
     @Override
