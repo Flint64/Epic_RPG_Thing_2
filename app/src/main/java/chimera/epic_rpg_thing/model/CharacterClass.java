@@ -7,11 +7,11 @@ import chimera.epic_rpg_thing.model.Skill;
 public abstract class CharacterClass {
     // HashMap of the class modifiers
     String className;
-    HashMap<String, Integer> classMods;
+    HashMap<String, Integer> classMods = new HashMap<>();
     // Level of the class
     int classLevel;
     // HashMap of the class skills
-    HashMap<String, Skill> classSkills;
+    HashMap<String, Skill> classSkills = new HashMap<>();
 
     /**
      * Gets the class name
