@@ -1,14 +1,16 @@
 package chimera.epic_rpg_thing.model;
+import android.util.Log;
+
 import java.util.List;
 
 public class Character extends Creature{
-    int level;
-    int XP;
+    private int level;
+    private int XP;
     // ArrayLists for skills and items
-    CharacterClass cClass;
-    Inventory inventory;
-    int baseSlots = 20;
-    int baseSlotMod = 5;
+    private CharacterClass cClass;
+    private Inventory inventory;
+    private int baseSlots = 20;
+    private int baseSlotMod = 5;
 
 
     public Character(){
