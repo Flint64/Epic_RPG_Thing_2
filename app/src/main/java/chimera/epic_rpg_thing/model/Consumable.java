@@ -1,13 +1,13 @@
 package chimera.epic_rpg_thing.model;
 
 public class Consumable implements Item {
-    String name;
-    int value;
-    int slots;
-    ItemType itemType;
-    boolean equippable;
-    boolean equipped;
-    Benefit benefit;
+    private String name;
+    private int value;
+    private int slots;
+    private ItemType itemType;
+    private boolean equippable;
+    private boolean equipped;
+    private Benefit benefit;
     Consumable(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit){
         this.name = name;
         this.value = value;
@@ -47,24 +47,16 @@ public class Consumable implements Item {
         this.slots = slots;
     }
 
-    @Override
-    public ArmorType getArmorType() {
-        return null;
-    }
+
 
     @Override
-    public void setArmorType(ArmorType type) {
-
-    }
-
-    @Override
-    public ItemType getItemType() {
+    public Type getType() {
         return itemType;
     }
 
     @Override
-    public void setItemType(ItemType type) {
-        this.itemType = type;
+    public void setType(Type type) {
+        if(type instanceof ItemType) this.itemType = (ItemType) type;
     }
 
     @Override

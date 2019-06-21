@@ -10,6 +10,13 @@ public class Character extends Creature{
     int baseSlots = 20;
     int baseSlotMod = 5;
 
+
+    public Character(){
+        super(0,0,0,null,(short)0, (short)0, (short)0, 0,0, null);
+        inventory = null;
+        level = 0;
+        XP = 0;
+    }
     /**
      * Creates a character by passing values to the super constructor and by initializing the CharacterInventory
      * @param currentSkills

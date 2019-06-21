@@ -3,10 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Monster extends Creature {
-    String name;
-    int maxHP;
     int currentHP;
-    int attack;
     int XPvalue;
     int goldValue;
     ArrayList<Skill> skills;
@@ -17,7 +14,9 @@ public class Monster extends Creature {
     public void generateEvasion() {
 
     }
-
+    public Monster(){
+        super(0, 0,0,null,(short) 0, (short)0, (short) 0, 0,0,null);
+    }
     public Monster(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti, String name) {
         super(baseHp, baseMana, attack, skills, strength, mana, dexterity, hpMulti, manaMulti, name);
     }
