@@ -21,4 +21,6 @@ public interface Skill {
 
     // Function that will decrement the duration at the end of a turn.
     void endOfTurn();
+    // Runs the skill effect based on the EffectType
+    void skillEffect();
 }

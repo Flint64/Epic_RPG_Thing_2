@@ -6,6 +6,14 @@ public class AOESkill implements Skill {
     ElementalEffect elementalEffect;
     EffectType effectType;
     int currentDuration;
+    int maxDuration;
+    int hpCost;
+    int manaCost;
+    List<Creature> targets;
+    public AOESkill(int hpCost, int manaCost){
+        this.hpCost = hpCost;
+        this.manaCost = manaCost;
+    }
 
     @Override
     public ElementalEffect getElementalEffect() {
@@ -52,15 +60,6 @@ public class AOESkill implements Skill {
         currentDuration--;
     }
 
-    int maxDuration;
-    int hpCost;
-    int manaCost;
-    List<Creature> targets;
-    public AOESkill(int hpCost, int manaCost){
-        this.hpCost = hpCost;
-        this.manaCost = manaCost;
-    }
-
     @Override
     public int getHpCost() {
         return hpCost;
@@ -89,6 +88,12 @@ public class AOESkill implements Skill {
      */
     public void setTargets(List<Creature> targets){
         this.targets = targets;
+    }
+
+    public void skillEffect(){
+        if(effectType == EffectType.BUFF){
+
+        }
     }
 
 }

@@ -2,6 +2,7 @@ package chimera.epic_rpg_thing.model;
 
 public class WarriorClass extends CharacterClass {
     public WarriorClass(){
+        this.classLevel = 0;
         this.setName("Warrior");
         this.addClassMod("baseHp", 10);
         this.addClassMod("baseMana", 50);
