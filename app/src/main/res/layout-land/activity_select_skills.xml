@@ -8,100 +8,127 @@
 
     <TextView
         android:id="@+id/skill_1_label"
-        android:layout_width="425dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_width="422dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="12dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/selectSkill_1"
-        app:layout_constraintEnd_toStartOf="@+id/selectSkill_1"
-        app:layout_constraintTop_toTopOf="@+id/selectSkill_1"
-        app:layout_constraintVertical_bias="1.0" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/skill_2_label"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.763" />
 
     <CheckBox
         android:id="@+id/selectSkill_1"
-        android:layout_width="64dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginRight="44dp"
-        android:layout_marginBottom="28dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/selectSkill_2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:visibility="invisible" />
+        android:layout_marginStart="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skill_1_label"
+        app:layout_constraintEnd_toStartOf="@+id/skill_1_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/skill_1_label"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/skill_2_label"
         android:layout_width="425dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="44dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/selectSkill_2"
-        app:layout_constraintEnd_toStartOf="@+id/selectSkill_2"
-        app:layout_constraintTop_toTopOf="@+id/selectSkill_2"
-        app:layout_constraintVertical_bias="1.0" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/skill_3_label"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <CheckBox
         android:id="@+id/selectSkill_2"
-        android:layout_width="64dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_marginBottom="28dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/selectSkill_3"
-        app:layout_constraintEnd_toEndOf="@+id/selectSkill_1"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/selectSkill_1"
-        tools:visibility="invisible" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skill_2_label"
+        app:layout_constraintEnd_toStartOf="@+id/skill_2_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/skill_2_label"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/skill_3_label"
         android:layout_width="425dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="24dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/selectSkill_3"
-        app:layout_constraintEnd_toStartOf="@+id/selectSkill_3"
-        app:layout_constraintTop_toTopOf="@+id/selectSkill_3"
-        app:layout_constraintVertical_bias="1.0" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/skill_4_label"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <CheckBox
         android:id="@+id/selectSkill_3"
-        android:layout_width="64dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_marginBottom="28dp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toTopOf="@+id/selectSkill_4"
-        app:layout_constraintEnd_toEndOf="@+id/selectSkill_2"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/selectSkill_2"
-        tools:visibility="invisible" />
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skill_3_label"
+        app:layout_constraintEnd_toStartOf="@+id/skill_3_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/skill_3_label"
+        tools:visibility="visible" />
 
     <TextView
         android:id="@+id/skill_4_label"
         android:layout_width="425dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="240dp"
+        android:layout_marginBottom="128dp"
         android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="@+id/selectSkill_4"
-        app:layout_constraintEnd_toStartOf="@+id/selectSkill_4"
-        app:layout_constraintTop_toTopOf="@+id/selectSkill_4"
-        app:layout_constraintVertical_bias="1.0" />
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <CheckBox
         android:id="@+id/selectSkill_4"
-        android:layout_width="64dp"
+        android:layout_width="wrap_content"
         android:layout_height="37dp"
-        android:layout_marginBottom="100dp"
-        android:visibility="invisible"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="@+id/skill_4_label"
+        app:layout_constraintEnd_toStartOf="@+id/skill_4_label"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/skill_4_label"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="108dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Choose 2 skills:"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:onClick="createCharacter"
+        android:text="Create Character"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/selectSkill_3"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/selectSkill_3"
-        tools:visibility="invisible" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

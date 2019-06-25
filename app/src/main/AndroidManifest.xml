@@ -12,7 +12,6 @@
         <activity android:name="chimera.epic_rpg_thing.view.selectSkillsActivity"
             android:screenOrientation="sensorLandscape">
         </activity>
-
         <activity
             android:name="chimera.epic_rpg_thing.view.newCharacterActivity"
             android:screenOrientation="sensorLandscape" />

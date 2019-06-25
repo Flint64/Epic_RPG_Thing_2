@@ -17,6 +17,9 @@ public abstract class Inventory {
         this.inventoryCapacity = capacity;
     }
 
+    public Inventory(int slots) {
+    }
+
     /**
      * returns the inventory capacity
      * @return

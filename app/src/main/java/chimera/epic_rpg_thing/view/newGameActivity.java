@@ -2,6 +2,9 @@ package chimera.epic_rpg_thing.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,6 +15,7 @@ import chimera.epic_rpg_thing.R;
 
 public class newGameActivity extends AppCompatActivity {
     private boolean characterLoaded;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
