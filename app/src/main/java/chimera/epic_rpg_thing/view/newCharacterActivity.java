@@ -23,7 +23,7 @@ public class newCharacterActivity extends AppCompatActivity {
     private short finalIntelligence;
     private short finalDexterity;
     private short finalStrength;
-    private short finalHealth;
+    private int finalHealth;
     private double finalDamage;
     private double finalMana;
     private double finalEvasion;
@@ -80,27 +80,27 @@ public class newCharacterActivity extends AppCompatActivity {
         /***********************************************************************************
          *  These next 4 listeners let you select a class button and will change the displayed
          *  stats based on the class selection.
-         *  //TODO: Will have to set the values back to the default when changing class to prevent issues
+         *  //TODO: Will have to ` the values back to the default when changing class to prevent issues
          ************************************************************************************/
         clericButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                     displayInfo("cleric");
-                    choice = "cleric";
+                    setChoice("Cleric");
             }});
         warriorButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                     displayInfo("warrior");
-                choice = "warrior";
+                setChoice("Warrior");
             }});
         mageButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                     displayInfo("mage");
-                choice = "mage";
+                setChoice("Mage");
             }});
         rogueButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 displayInfo("rogue");
-                choice = "rogue";
+                setChoice("Rogue");
             }});
 
         /*********************************************************************************
@@ -744,7 +744,7 @@ public class newCharacterActivity extends AppCompatActivity {
         this.finalStrength = finalStrength;
     }
 
-    public short getFinalHealth() {
+    public int getFinalHealth() {
         return finalHealth;
     }
 
@@ -783,4 +783,7 @@ public class newCharacterActivity extends AppCompatActivity {
     public void setName(String name) {
         this.name = name;
     }
+
+    public void setChoice(String choice) {this.choice = choice;}
+    public String getChoice() { return choice; }
 }
