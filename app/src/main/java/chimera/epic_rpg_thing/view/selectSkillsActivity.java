@@ -40,6 +40,7 @@ public class selectSkillsActivity extends AppCompatActivity{
         setChoice(getIntent().getStringExtra("class"));
 
         choice = getChoice();
+        Log.d("deubg", getChoice());
 
 //        name = getIntent().getStringExtra("name");
 //        finalIntelligence = Short.parseShort(getIntent().getStringExtra("intelligence"));
@@ -152,28 +153,28 @@ public class selectSkillsActivity extends AppCompatActivity{
         final TextView skill_4_label = findViewById(R.id.skill_4_label);
 
         switch (choice){
-            case "cleric":
+            case "Cleric":
                 skill_1_label.setText("Heal - Heals single party member");
                 skill_2_label.setText("Divine Light - Single target holy damage");
                 skill_3_label.setText("Power Bash - Chance to stun enemy");
                 skill_4_label.setText("Imbue Weapon - Add holy damage to target's weapon");
                 break;
 
-            case "mage":
+            case "Mage":
                  skill_1_label.setText("Firebolt - Single target fire attack");
                  skill_2_label.setText("Icicle - Single target ice attack");
                  skill_3_label.setText("Meditate - Increase damage of next magic attack and regen some mana");
                  skill_4_label.setText("Magic Barrier - Increased magic defense on target");
                 break;
 
-            case "warrior":
+            case "Warrior":
                 skill_1_label.setText("Valiant Defense - Increased physical defense on target");
                 skill_2_label.setText("Shield Bash - Chance to stun enemy, can bash with anything");
                 skill_3_label.setText("Power Attack - Lower hit chance, increased damage");
                 skill_4_label.setText("Taunt - More likely to be targeted by enemies");
                 break;
 
-            case "rogue":
+            case "Rogue":
                 skill_1_label.setText("Sneak Attack - High crit chance attack");
                 skill_2_label.setText("Hide - Dodge a single physical attack next turn");
                 skill_3_label.setText("Poison Blade - Next attack deals normal damage and poisons");
