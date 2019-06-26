@@ -696,26 +696,26 @@ public class newCharacterActivity extends AppCompatActivity {
 
      public void selectSkills(View view){
 
-//         TextView nameField = findViewById(R.id.characterName);
+         TextView nameField = findViewById(R.id.characterName);
 
-//         if (nameField.getText().equals(null) || nameField.getText().equals("")) {
-//            //do nothing
-//             return;
-//         } else {
-//             name = nameField.getText().toString();
-//         }
+         if (nameField.getText().equals(null) || nameField.getText().equals("")) {
+          //do nothing
+             return;
+         } else {
+             name = nameField.getText().toString();
+         }
 
              Intent i = new Intent(this, selectSkillsActivity.class);
 
-//             i.putExtra("class", choice);
-//             i.putExtra("name", name);
-//             i.putExtra("intelligence", finalIntelligence);
-//             i.putExtra("dexterity", finalDexterity);
-//             i.putExtra("strength", finalStrength);
-//             i.putExtra("health", finalHealth);
-//             i.putExtra("mana", finalMana);
-//             i.putExtra("evasion", finalEvasion);
-//             i.putExtra("damage", finalDamage);
+             i.putExtra("class", choice);
+             i.putExtra("name", name);
+             i.putExtra("intelligence", finalIntelligence);
+             i.putExtra("dexterity", finalDexterity);
+             i.putExtra("strength", finalStrength);
+             i.putExtra("health", finalHealth);
+             i.putExtra("mana", finalMana);
+             i.putExtra("evasion", finalEvasion);
+             i.putExtra("damage", finalDamage);
 
              startActivity(i);
          }

@@ -35,7 +35,7 @@ public class selectSkillsActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_skills);
 
-//        choice = getIntent().getStringExtra("class");
+    //    choice = getIntent().getStringExtra("class");
         setChoice(getIntent().getStringExtra("class"));
 
         choice = getChoice();
@@ -44,7 +44,7 @@ public class selectSkillsActivity extends AppCompatActivity{
 //        finalIntelligence = Short.parseShort(getIntent().getStringExtra("intelligence"));
 //        finalDexterity = Short.parseShort(getIntent().getStringExtra("dexterity"));
 //        finalStrength = Short.parseShort(getIntent().getStringExtra("strength"));
-//        finalHealth = Double.parseDouble(getIntent().getStringExtra("health"));
+//       finalHealth = Double.parseDouble(getIntent().getStringExtra("health"));
 //        finalMana = Float.parseFloat(getIntent().getStringExtra("mana"));
 //        finalDamage = Float.parseFloat(getIntent().getStringExtra("damage"));
 //        finalEvasion = Double.parseDouble(getIntent().getStringExtra("evasion"));
