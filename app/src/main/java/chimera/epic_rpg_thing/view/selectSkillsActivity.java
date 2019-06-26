@@ -3,6 +3,7 @@ package chimera.epic_rpg_thing.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -185,8 +186,9 @@ public class selectSkillsActivity extends AppCompatActivity{
     // (until we do database at least) and then redirects you to the selectCharacter activity with
     // the list of all of your saved characters where you can select one
     public void createCharacter(View view){
+/*
+        Intent i = new Intent(this, selectSkillsActivity.class);
 
-        /*
              i.putExtra("class", choice);
              i.putExtra("name", name);
              i.putExtra("intelligence", finalIntelligence);
@@ -196,8 +198,7 @@ public class selectSkillsActivity extends AppCompatActivity{
              i.putExtra("mana", finalMana);
              i.putExtra("evasion", finalEvasion);
              i.putExtra("damage", finalDamage);
-         */
-
+*/
         presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
     }
 
