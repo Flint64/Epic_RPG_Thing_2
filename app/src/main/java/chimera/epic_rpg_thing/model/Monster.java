@@ -6,23 +6,26 @@ public class Monster extends Creature {
     int currentHP;
     int XPvalue;
     int goldValue;
-    ArrayList<Skill> skills;
+    ArrayList<BaseSkill> baseSkills;
     boolean canRun;
     boolean isAlive;
+    Benefit benefit;
 
-    @Override
-    public void generateEvasion() {
-
-    }
     public Monster(){
-        super(0, 0,0,null,(short) 0, (short)0, (short) 0, 0,0,null);
+
+        super(0, 0,0,null,(short) 0, (short)0, (short) 0, 0,0,0,null, null);
     }
-    public Monster(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short mana, short dexterity, int hpMulti, int manaMulti, String name) {
-        super(baseHp, baseMana, attack, skills, strength, mana, dexterity, hpMulti, manaMulti, name);
+    public Monster(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, short strength, short mana, short dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weakness) {
+        super(baseHp, baseMana, attack, baseSkills, strength, mana, dexterity, evasion, hpMulti, manaMulti, name, weakness);
     }
 
     @Override
     public void generateDefense() {
+
+    }
+
+    @Override
+    public void effectBuff(Benefit buff) {
 
     }
 }

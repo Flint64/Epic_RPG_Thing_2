@@ -1,8 +1,7 @@
 package chimera.epic_rpg_thing.model;
 
 import java.util.HashMap;
-
-import chimera.epic_rpg_thing.model.Skill;
+import java.util.List;
 
 public abstract class CharacterClass {
     // HashMap of the class modifiers
@@ -10,8 +9,9 @@ public abstract class CharacterClass {
     HashMap<String, Integer> classMods = new HashMap<>();
     // Level of the class
     int classLevel;
-    // HashMap of the class skills
-    HashMap<String, Skill> classSkills = new HashMap<>();
+    // HashMap of the class baseSkills
+    HashMap<String, BaseSkill> classSkills = new HashMap<>();
+    List<ElementalEffect> weaknesses;
 
     /**
      * Gets the class name
@@ -47,14 +47,48 @@ public abstract class CharacterClass {
      * Sets classSkills given a HashMap set
      * @param set
      */
-    public void setClassSkills(HashMap<String,Skill> set){
+    public void setClassSkills(HashMap<String, BaseSkill> set){
         classSkills = set;
     }
     /**
-     * Gets a classSkill through the HashSet<Skill> classSkills
+     * Gets a classSkill through the HashSet<BaseSkill> classSkills
      * @param skillName
      */
-    public Skill getClassSkill(String skillName){
+    public BaseSkill getClassSkill(String skillName){
         return classSkills.get(skillName);
+    }
+
+    /**
+     * Gets the list of weaknesses
+     * @return
+     */
+    public List<ElementalEffect> getWeaknesses(){
+        return weaknesses;
+    }
+
+    /**
+     * Sets the list of weaknesses
+     * @param weaknesses
+     */
+    public void setWeaknesses(List<ElementalEffect> weaknesses){
+        this.weaknesses = weaknesses;
+    }
+
+    /**
+     * Adds an weakness to the list of weaknesses
+     * @param weakness
+     */
+    public void addWeaknesses(ElementalEffect weakness){
+        this.weaknesses.add(weakness);
+    }
+
+    /**
+     * Remove a weakness to the list of weaknesses
+     * @param weakness
+     */
+    public void removeWeakness(ElementalEffect weakness){
+        if(weaknesses.contains(weakness)){
+            weaknesses.remove(weakness);
+        }
     }
 }

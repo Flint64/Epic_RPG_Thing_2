@@ -2,23 +2,61 @@ package chimera.epic_rpg_thing.model;
 
 public class Benefit {
     private short strengthBonus;
-    private short manaBonus;
+    private short intelligenceBonus;
     private short dexterityBonus;
     private int baseHealthBonus;
     private int baseManaBonus;
     private int attackBonus;
-    private Skill skill;
+    private BaseSkill baseSkill;
+    private boolean expired;
+    private int turns;
 
-    Benefit(short strengthBonus, short manaBonus, short dexterityBonus, int baseHealthBonus, int baseManaBonus, int attackBonus, Skill skill){
+    Benefit(){
+        strengthBonus = 0;
+        intelligenceBonus = 0;
+        dexterityBonus = 0;
+        baseHealthBonus = 0;
+        baseManaBonus = 0;
+        attackBonus = 0;
+    }
+
+    /**
+     * Non-Default Constructor
+     * @param strengthBonus
+     * @param intelligenceBonus
+     * @param dexterityBonus
+     * @param baseHealthBonus
+     * @param baseManaBonus
+     * @param attackBonus
+     * @param baseSkill
+     */
+    Benefit(short strengthBonus, short intelligenceBonus, short dexterityBonus, int baseHealthBonus, int baseManaBonus, int attackBonus, BaseSkill baseSkill, int turns){
         this.strengthBonus = strengthBonus;
-        this.manaBonus = manaBonus;
+        this.intelligenceBonus = intelligenceBonus;
         this.dexterityBonus = dexterityBonus;
         this.baseHealthBonus = baseHealthBonus;
         this.baseManaBonus = baseManaBonus;
         this.attackBonus = attackBonus;
-        this.skill = skill;
+        this.baseSkill = baseSkill;
     }
 
+    public void addBenefit(Benefit ben){
+        this.baseManaBonus += ben.getBaseManaBonus();
+        this.baseHealthBonus += ben.getBaseHealthBonus();
+        this.strengthBonus += ben.getStrengthBonus();
+        this.intelligenceBonus += ben.getIntelligenceBonus();
+        this.dexterityBonus += ben.getDexterityBonus();
+        this.attackBonus += ben.getAttackBonus();
+    }
+
+    public void removeBenefit(Benefit ben){
+        this.baseManaBonus -= ben.getBaseManaBonus();
+        this.baseHealthBonus -= ben.getBaseHealthBonus();
+        this.strengthBonus -= ben.getStrengthBonus();
+        this.intelligenceBonus -= ben.getIntelligenceBonus();
+        this.dexterityBonus -= ben.getDexterityBonus();
+        this.attackBonus -= ben.getAttackBonus();
+    }
     /**
      * returns the strength bonus
      * @return strengthBonus
@@ -26,7 +64,9 @@ public class Benefit {
     public short getStrengthBonus() {
         return strengthBonus;
     }
-
+    public boolean isExpired(){
+        return expired;
+    }
     /**
      * sets the strength bonus
      * @param strengthBonus
@@ -36,19 +76,19 @@ public class Benefit {
     }
 
     /**
-     * gets the mana bonus
+     * gets the intelligence bonus
      * @return strengthBonus
      */
-    public short getManaBonus() {
-        return manaBonus;
+    public short getIntelligenceBonus() {
+        return intelligenceBonus;
     }
 
     /**
      * sets the mana bonus
-     * @param manaBonus
+     * @param intelligenceBonus
      */
-    public void setManaBonus(short manaBonus) {
-        this.manaBonus = manaBonus;
+    public void setIntelligenceBonus(short intelligenceBonus) {
+        this.intelligenceBonus = intelligenceBonus;
     }
 
     /**
@@ -116,18 +156,28 @@ public class Benefit {
     }
 
     /**
-     * gets the skill
+     * gets the baseSkill
      * @return
      */
-    public Skill getSkill() {
-        return skill;
+    public BaseSkill getBaseSkill() {
+        return baseSkill;
     }
 
     /**
-     * sets the skill
-     * @param skill
+     * sets the baseSkill
+     * @param baseSkill
      */
-    public void setSkill(Skill skill) {
-        this.skill = skill;
+    public void setBaseSkill(BaseSkill baseSkill) {
+        this.baseSkill = baseSkill;
+    }
+
+    public void endOfTurn(){
+        if(turns == -46){
+            return;
+        }else if(turns > 0){
+            turns--;
+        }else {
+            expired = true;
+        }
     }
 }

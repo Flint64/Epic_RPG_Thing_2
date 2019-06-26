@@ -750,7 +750,7 @@ public class newCharacterActivity extends AppCompatActivity {
         return finalHealth;
     }
 
-    public void setFinalHealth(short finalHealth) {
+    public void setFinalHealth(int finalHealth) {
         this.finalHealth = finalHealth;
     }
 

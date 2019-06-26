@@ -9,42 +9,61 @@ import java.util.List;
  */
 public abstract class Creature {
     // Stats for hp indicator
-    private int baseHp;
-    private int currentHP;
-    private int maxHP;
-    private int hpMulti;
+    protected int baseHp;
+    protected int currentHP;
+    protected int maxHP;
+    protected int hpMulti;
     // Stats for mana indicator
-    private int baseMana;
-    private int maxMana;
-    private int currentMana;
-    private int manaMulti;
+    protected double baseMana;
+    protected double maxMana;
+    protected double currentMana;
+    protected double manaMulti;
     // Base attack
-    int attack;
-    // List for skills
-    List<Skill> skills;
+    protected double attack;
+    // List for baseSkills
+    protected List<BaseSkill> baseSkills;
     // Amount of damage you can absorb.
-    int defense;
+    protected double defense;
     // Evasion: Chance to dodge an attack
-    int evasion;
+    protected double evasion;
     // Character attributes
-    short strength;
-    short intelligence;
-    short dexterity;
-    String name;
+    protected short strength;
+    protected short intelligence;
+    protected short dexterity;
+    protected String name;
+    protected List<ElementalEffect> weakeness;
 
-    public Creature(int baseHp, int baseMana, int attack, List<Skill> skills, short strength, short intelligence, short dexterity, int hpMulti, int manaMulti, String name){
+    /**
+     * Base Creature class constructor
+     * @param baseHp
+     * @param baseMana
+     * @param attack
+     * @param baseSkills
+     * @param strength
+     * @param intelligence
+     * @param dexterity
+     * @param evasion
+     * @param hpMulti
+     * @param manaMulti
+     * @param name
+     * @param weaknesses
+     */
+    public Creature(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, short strength, short intelligence, short dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weaknesses){
         this.baseHp = baseHp;
         this.baseMana = baseMana;
         this.attack = attack;
-        this.skills = skills;
+        this.baseSkills = baseSkills;
         this.strength = strength;
         this.intelligence = intelligence;
         this.dexterity = dexterity;
         this.hpMulti = hpMulti;
         this.manaMulti = manaMulti;
+        this.attack = attack;
+        this.evasion = evasion;
         this.maxHP = this.baseHp + this.strength * this.hpMulti;
         this.maxMana = this.baseMana + this.intelligence * this.manaMulti;
         this.name = name;
+        this.weakeness = weaknesses;
         generateDefense();
     }
     /**
@@ -68,17 +87,17 @@ public abstract class Creature {
      * Getter for the maxMana
      * @return int
      */
-    int getMaxMana(){
+    double getMaxMana(){
         return maxMana;
     }
 
     /**
      * Sets the maxMana;
-     * @param bonus
+     * @param maxMana
      * @return
      */
-    void setMaxMana(int bonus){
-        maxMana = baseMana + intelligence * 5 + bonus;
+    void setMaxMana(double maxMana){
+        this.maxMana = maxMana;
     }
     /**
      * Getter for baseHP
@@ -116,7 +135,7 @@ public abstract class Creature {
      * Getter for baseMana that returns the baseMana
      * @return int
      */
-    public int getBaseMana(){
+    public double getBaseMana(){
         return baseMana;
     }
 
@@ -124,7 +143,7 @@ public abstract class Creature {
      * Setter for baseMana that will set the baseMana given an input.
      * @param
      */
-    public void setBaseMana(int baseMana){
+    public void setBaseMana(double baseMana){
         this.baseMana = baseMana;
     }
 
@@ -132,7 +151,7 @@ public abstract class Creature {
      * Getter for currentMana
      * @return int
      */
-    public int getCurrentMana() {
+    public double getCurrentMana() {
         return currentMana;
     }
 
@@ -140,7 +159,7 @@ public abstract class Creature {
      * Setter for currentMana
      * @param
      */
-    public void setCurrentMana(int currentMana) {
+    public void setCurrentMana(double currentMana) {
         this.currentMana = currentMana;
     }
 
@@ -148,7 +167,7 @@ public abstract class Creature {
      * Getter for the attack damage
      * @return int
      */
-    public int getAttack() {
+    public double getAttack() {
         return attack;
     }
 
@@ -156,7 +175,7 @@ public abstract class Creature {
      * Setter for the attack damage
      * @param
      */
-    public void setAttack(int attack) {
+    public void setAttack(double attack) {
         this.attack = attack;
     }
 
@@ -167,11 +186,17 @@ public abstract class Creature {
     public abstract void generateDefense();
 
     /**
-     * Runs the algorith to generate the Evasion Stat
-     * @return int
+     * Effect hp
      */
-    public abstract void generateEvasion();
+    public void effectHp(int amount, ElementalEffect effect){
+        if(weakeness.contains(effect)){
+            this.currentHP += 2* effect.getLevel() + amount;
+        } else {
+            this.currentHP += amount;
+        }
+    }
 
+    public abstract void effectBuff(Benefit buff);
     /**
      * Getter for the Strength stat.
      * @return short
@@ -231,4 +256,16 @@ public abstract class Creature {
      * @param name
      */
     public void setName(String name){this.name = name;}
+
+    public List<ElementalEffect> getWeakeness(){
+        return weakeness;
+    }
+    public void setWeakeness(ElementalEffect weakeness){
+        this.weakeness.add(weakeness);
+    }
+    public void removeWeakness(ElementalEffect weakeness){
+        if(this.weakeness.contains(weakeness)){
+            this.weakeness.remove(weakeness);
+        }
+    }
 }
