@@ -2,18 +2,15 @@ package chimera.epic_rpg_thing.model;
 
 import java.util.List;
 
-public class AOESkill implements Skill {
-    ElementalEffect elementalEffect;
-    EffectType effectType;
-    int currentDuration;
-    int maxDuration;
-    int hpCost;
-    int manaCost;
-    List<Creature> targets;
-    public AOESkill(int hpCost, int manaCost){
-        this.hpCost = hpCost;
-        this.manaCost = manaCost;
-    }
+public abstract class AOEBaseSkill implements BaseSkill {
+    private ElementalEffect elementalEffect;
+    private int currentDuration;
+    private int maxDuration;
+    private int hpCost;
+    private int manaCost;
+    private int maxTargets;
+    private String description;
+    private List<Creature> targets;
 
     @Override
     public ElementalEffect getElementalEffect() {
@@ -24,22 +21,26 @@ public class AOESkill implements Skill {
     public void setElementalEffect(ElementalEffect elementalEffect) {
         this.elementalEffect = elementalEffect;
     }
-
-    @Override
-    public EffectType getEffectType() {
-        return effectType;
-    }
-
-    @Override
-    public void setEffectType(EffectType effectType) {
-        this.effectType = effectType;
-    }
-
     @Override
     public int getCurrentDuration() {
         return currentDuration;
     }
 
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public int getMaxTargets(){
+        return maxTargets;
+    }
+    public void setMaxTargets(int maxTargets){
+        this.maxTargets = maxTargets;
+    }
     @Override
     public void setCurrentDuration(int currentDuration) {
         this.currentDuration = currentDuration;
@@ -90,10 +91,12 @@ public class AOESkill implements Skill {
         this.targets = targets;
     }
 
-    public void skillEffect(){
-        if(effectType == EffectType.BUFF){
-
-        }
+    public List<Creature> getTargets(){
+        return targets;
     }
 
+    /**
+     * Effects the targets.
+     */
+    public abstract void effectTargets();
 }
