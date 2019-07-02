@@ -72,7 +72,6 @@ public class newCharacterActivity extends AppCompatActivity {
 
         selectSkills.setEnabled(true); //TODO: Set this to false until stuff has been selected
 
-        //TODO: Not sure what exactly this is needed for, might have to rework if this isn't a good way of doing thing
             clericButton.setBackground(getDrawable(R.drawable.black_border));
             warriorButton.setBackground(getDrawable(R.drawable.black_border));
             rogueButton.setBackground(getDrawable(R.drawable.black_border));

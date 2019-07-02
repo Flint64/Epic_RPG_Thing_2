@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import chimera.epic_rpg_thing.R;
@@ -17,6 +18,11 @@ import chimera.epic_rpg_thing.presenter.CharacterPresenter;
 public class selectSkillsActivity extends AppCompatActivity{
 
     int skillCount = 0;
+    int elementCount = 0;
+    int fireCount = 1;
+    int earthCount = 1;
+    int iceCount = 1;
+    int lightningCount = 1;
     CharacterPresenter presenter = new CharacterPresenter();
 
     private String choice;
@@ -24,7 +30,7 @@ public class selectSkillsActivity extends AppCompatActivity{
     private short finalIntelligence;
     private short finalDexterity;
     private short finalStrength;
-    private short finalHealth;
+    private int finalHealth;
     private double finalDamage;
     private double finalMana;
     private double finalEvasion;
@@ -46,9 +52,9 @@ public class selectSkillsActivity extends AppCompatActivity{
 //        finalIntelligence = Short.parseShort(getIntent().getStringExtra("intelligence"));
 //        finalDexterity = Short.parseShort(getIntent().getStringExtra("dexterity"));
 //        finalStrength = Short.parseShort(getIntent().getStringExtra("strength"));
-//       finalHealth = Double.parseDouble(getIntent().getStringExtra("health"));
-//        finalMana = Float.parseFloat(getIntent().getStringExtra("mana"));
-//        finalDamage = Float.parseFloat(getIntent().getStringExtra("damage"));
+//        finalHealth = Integer.parseInt(getIntent().getStringExtra("health"));
+//        finalMana = Double.parseDouble(getIntent().getStringExtra("mana"));
+//        finalDamage = Double.parseDouble(getIntent().getStringExtra("damage"));
 //        finalEvasion = Double.parseDouble(getIntent().getStringExtra("evasion"));
 
 
@@ -181,6 +187,133 @@ public class selectSkillsActivity extends AppCompatActivity{
                 skill_4_label.setText("Set Trap - Place trap in front of character, damages when attacked");
                 break;
         }
+
+        final ImageButton fireButton = findViewById(R.id.elementFire);
+        final ImageButton earthButton = findViewById(R.id.elementEarth);
+        final ImageButton iceButton = findViewById(R.id.elementIce);
+        final ImageButton lightningButton = findViewById(R.id.elementLightning);
+        final TextView fireLabel = findViewById(R.id.fireLabel);
+        final TextView iceLabel = findViewById(R.id.iceLabel);
+        final TextView earthLabel = findViewById(R.id.earthLabel);
+        final TextView lightningLabel = findViewById(R.id.lightningLabel);
+        final CheckBox fireCheck = findViewById(R.id.fireCheck);
+        final CheckBox earthCheck = findViewById(R.id.earthCheck);
+        final CheckBox iceCheck = findViewById(R.id.iceCheck);
+        final CheckBox lightningCheck = findViewById(R.id.lightningCheck);
+
+        if (getChoice().equals("Mage")){
+            fireButton.setVisibility(View.VISIBLE);
+            earthButton.setVisibility(View.VISIBLE);
+            iceButton.setVisibility(View.VISIBLE);
+            lightningButton.setVisibility(View.VISIBLE);
+            fireLabel.setVisibility(View.VISIBLE);
+            iceLabel.setVisibility(View.VISIBLE);
+            lightningLabel.setVisibility(View.VISIBLE);
+            earthLabel.setVisibility(View.VISIBLE);
+        }
+
+        fireButton.setBackground(getDrawable(R.drawable.black_border));
+        earthButton.setBackground(getDrawable(R.drawable.black_border));
+        lightningButton.setBackground(getDrawable(R.drawable.black_border));
+        iceButton.setBackground(getDrawable(R.drawable.black_border));
+
+        fireCheck.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (elementCount == 2 && fireCheck.isChecked()){
+                    fireCheck.setChecked(false);
+                    fireButton.setBackground(getDrawable(R.drawable.black_border));
+                    return;
+                } else if (elementCount == 2 && !fireCheck.isChecked()){
+                    elementCount--;
+                    fireButton.setBackground(getDrawable(R.drawable.black_border));
+                    return;
+                }
+                if (fireCheck.isChecked() && elementCount + 1 <= 2){
+                    elementCount++;
+                    fireButton.setBackground(getDrawable(R.drawable.red_border));
+                    Log.d("debug", Integer.toString(elementCount));
+                } else if (!fireCheck.isChecked() && elementCount - 1 >= 0){
+                    elementCount--;
+                    fireButton.setBackground(getDrawable(R.drawable.black_border));
+                    Log.d("debug", Integer.toString(elementCount));
+                }
+            }
+        });
+
+        //TODO: Next up, save the elements in a string or the enum or something so they can be passed in, rework layout to work better
+
+        iceCheck.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (elementCount == 2 && iceCheck.isChecked()){
+                    iceCheck.setChecked(false);
+                    iceButton.setBackground(getDrawable(R.drawable.black_border));
+                    return;
+                } else if (elementCount == 2 && !iceCheck.isChecked()){
+                    elementCount--;
+                    iceButton.setBackground(getDrawable(R.drawable.black_border));
+                    return;
+                }
+                if (iceCheck.isChecked() && elementCount + 1 <= 2){
+                    elementCount++;
+                    iceButton.setBackground(getDrawable(R.drawable.red_border));
+                    Log.d("debug", Integer.toString(elementCount));
+                } else if (!iceCheck.isChecked() && elementCount - 1 >= 0){
+                    elementCount--;
+                    iceButton.setBackground(getDrawable(R.drawable.black_border));
+                    Log.d("debug", Integer.toString(elementCount));
+                }
+            }
+        });
+
+        earthCheck.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (elementCount == 2 && earthCheck.isChecked()){
+                    earthCheck.setChecked(false);
+                    earthButton.setBackground(getDrawable(R.drawable.black_border));
+                    return;
+                } else if (elementCount == 2 && !earthCheck.isChecked()){
+                    elementCount--;
+                    earthButton.setBackground(getDrawable(R.drawable.black_border));
+                    return;
+                }
+                if (earthCheck.isChecked() && elementCount + 1 <= 2){
+                    elementCount++;
+                    earthButton.setBackground(getDrawable(R.drawable.red_border));
+                    Log.d("debug", Integer.toString(elementCount));
+                } else if (!earthCheck.isChecked() && elementCount - 1 >= 0){
+                    elementCount--;
+                    earthButton.setBackground(getDrawable(R.drawable.black_border));
+                    Log.d("debug", Integer.toString(elementCount));
+                }
+            }
+        });
+
+        lightningCheck.setOnCheckedChangeListener(new CheckBox.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (elementCount == 2 && lightningCheck.isChecked()){
+                    lightningCheck.setChecked(false);
+                    lightningButton.setBackground(getDrawable(R.drawable.black_border));
+                    return;
+                } else if (elementCount == 2 && !lightningCheck.isChecked()){
+                    lightningButton.setBackground(getDrawable(R.drawable.black_border));
+                    elementCount--;
+                    return;
+                }
+                if (lightningCheck.isChecked() && elementCount + 1 <= 2){
+                    elementCount++;
+                    lightningButton.setBackground(getDrawable(R.drawable.red_border));
+                    Log.d("debug", Integer.toString(elementCount));
+                } else if (!lightningCheck.isChecked() && elementCount - 1 >= 0){
+                    elementCount--;
+                    lightningButton.setBackground(getDrawable(R.drawable.black_border));
+                    Log.d("debug", Integer.toString(elementCount));
+                }
+            }
+        });
     }
 
     // Saves the new character into the new character object to be created and into shared prefs

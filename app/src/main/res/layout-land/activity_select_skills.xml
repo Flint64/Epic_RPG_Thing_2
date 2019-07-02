@@ -122,4 +122,133 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.955"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageButton
+        android:id="@+id/elementLightning"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="72dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/lightning" />
+
+    <ImageButton
+        android:id="@+id/elementFire"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/iceLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/fire" />
+
+    <ImageButton
+        android:id="@+id/elementIce"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/lightningLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ice" />
+
+    <ImageButton
+        android:id="@+id/elementEarth"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="4dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/fireLabel"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/earth" />
+
+    <TextView
+        android:id="@+id/earthLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Earth"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/elementEarth"
+        app:layout_constraintEnd_toEndOf="@+id/elementEarth"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="@+id/elementEarth"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/fireLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Fire"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/elementFire"
+        app:layout_constraintEnd_toEndOf="@+id/elementFire"
+        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintStart_toStartOf="@+id/elementFire"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/iceLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Ice"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/elementIce"
+        app:layout_constraintEnd_toEndOf="@+id/elementIce"
+        app:layout_constraintHorizontal_bias="0.548"
+        app:layout_constraintStart_toStartOf="@+id/elementIce"
+        tools:visibility="invisible" />
+
+    <TextView
+        android:id="@+id/lightningLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:text="Lightning"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toTopOf="@+id/elementLightning"
+        app:layout_constraintEnd_toEndOf="@+id/elementLightning"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/elementLightning"
+        tools:visibility="invisible" />
+
+    <CheckBox
+        android:id="@+id/earthCheck"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="40dp"
+        app:layout_constraintBottom_toTopOf="@+id/fireCheck"
+        app:layout_constraintEnd_toStartOf="@+id/elementEarth" />
+
+    <CheckBox
+        android:id="@+id/fireCheck"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/iceCheck"
+        app:layout_constraintEnd_toStartOf="@+id/elementFire" />
+
+    <CheckBox
+        android:id="@+id/iceCheck"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/lightningCheck"
+        app:layout_constraintEnd_toStartOf="@+id/elementIce" />
+
+    <CheckBox
+        android:id="@+id/lightningCheck"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="84dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/elementLightning" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

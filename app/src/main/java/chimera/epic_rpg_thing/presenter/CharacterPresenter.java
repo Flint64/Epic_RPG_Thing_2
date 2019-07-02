@@ -33,7 +33,5 @@ public class CharacterPresenter {
         WarriorClass warriorClass = new WarriorClass();
 
         Character character = new Character(list, strength, (short)mana, dexterity, name, warriorClass);
-
-//        Character character = new Character(list, (short) 10, (short) 5, (short) 0, "Kal-El", warriorClass);
     }
 }
