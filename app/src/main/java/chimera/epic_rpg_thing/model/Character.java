@@ -2,6 +2,8 @@ package chimera.epic_rpg_thing.model;
 
 import java.util.List;
 
+import chimera.epic_rpg_thing.model.Classes.CharacterClass;
+
 public class Character extends Creature{
     private int level;
     private int XP;
@@ -10,8 +12,7 @@ public class Character extends Creature{
     private CharacterInventory inventory;
     private int baseSlots = 20;
     private int baseSlotMod = 5;
-    private Benefit totalBenefit;
-    private List<Benefit> listBenefits;
+
 
 
     public Character() {
@@ -19,7 +20,6 @@ public class Character extends Creature{
         inventory = null;
         level = 0;
         XP = 0;
-        totalBenefit = new Benefit();
     }
     /**
      * Creates a character by passing values to the super constructor and by initializing the CharacterInventory
@@ -36,19 +36,33 @@ public class Character extends Creature{
         level = 0;
         XP = 0;
     }
+
+    /**
+     * Methods to be run at the beginning of Combat
+     */
     public void combatStart(){
         generateBenefit();
     }
+
+    /**
+     * Method to be called to flush all temporary effects.
+     */
+    public void combatEnd(){
+        setTotalBenefit(new Benefit());
+        setListBenefits(null);
+        currentHP = maxHP;
+        currentMana = maxMana;
+    }
     public void generateBenefit(){
-        totalBenefit = inventory.getEquippedBenefit();
-        listBenefits = inventory.getAllEquippedBenefits();
+        setTotalBenefit(inventory.getEquippedBenefit());
+        setListBenefits(inventory.getAllEquippedBenefits());
     }
     @Override
     public void generateDefense() {
         defense = 10 + strength * cClass.getClassMod("defense");
     }
     public void endTurn(){
-        for(Benefit ben : listBenefits){
+        for(Benefit ben : getListBenefits()){
             if(ben.isExpired()){
                 ben.removeBenefit(ben);
             }
@@ -56,15 +70,5 @@ public class Character extends Creature{
                 ben.endOfTurn();
             }
         }
-    }
-    @Override
-    public void effectHp(int amount, ElementalEffect effect) {
-        this.currentHP += amount;
-    }
-
-    @Override
-    public void effectBuff(Benefit buff) {
-        totalBenefit.addBenefit(buff);
-        listBenefits.add(buff);
     }
 }

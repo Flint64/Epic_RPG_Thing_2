@@ -1,11 +1,13 @@
-package chimera.epic_rpg_thing.model;
+package chimera.epic_rpg_thing.model.AOE_Skills;
 
 import java.util.List;
 
+import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.Creature;
+import chimera.epic_rpg_thing.model.ElementalEffect;
+
 public abstract class AOEBaseSkill implements BaseSkill {
     private ElementalEffect elementalEffect;
-    private int currentDuration;
-    private int maxDuration;
     private int hpCost;
     private int manaCost;
     private int maxTargets;
@@ -20,10 +22,6 @@ public abstract class AOEBaseSkill implements BaseSkill {
     @Override
     public void setElementalEffect(ElementalEffect elementalEffect) {
         this.elementalEffect = elementalEffect;
-    }
-    @Override
-    public int getCurrentDuration() {
-        return currentDuration;
     }
 
     @Override
@@ -40,25 +38,6 @@ public abstract class AOEBaseSkill implements BaseSkill {
     }
     public void setMaxTargets(int maxTargets){
         this.maxTargets = maxTargets;
-    }
-    @Override
-    public void setCurrentDuration(int currentDuration) {
-        this.currentDuration = currentDuration;
-    }
-
-    @Override
-    public int getMaxDuration() {
-        return maxDuration;
-    }
-
-    @Override
-    public void setMaxDuration(int maxDuration) {
-        this.maxDuration = maxDuration;
-    }
-
-    @Override
-    public void endOfTurn() {
-        currentDuration--;
     }
 
     @Override

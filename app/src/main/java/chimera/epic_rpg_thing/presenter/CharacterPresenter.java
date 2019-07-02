@@ -4,10 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import chimera.epic_rpg_thing.model.Character;
-import chimera.epic_rpg_thing.model.CharacterClass;
 import chimera.epic_rpg_thing.model.BaseSkill;
 import chimera.epic_rpg_thing.model.User;
-import chimera.epic_rpg_thing.model.WarriorClass;
+import chimera.epic_rpg_thing.model.Classes.WarriorClass;
 
 public class CharacterPresenter {
     private User user;

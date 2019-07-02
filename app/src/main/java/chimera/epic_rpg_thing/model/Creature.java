@@ -1,6 +1,6 @@
 package chimera.epic_rpg_thing.model;
 import java.util.List;
-
+import java.util.ArrayList;
 /**
  * Creature Class
  * Description: Parent class for living creatures.
@@ -30,8 +30,13 @@ public abstract class Creature {
     protected short strength;
     protected short intelligence;
     protected short dexterity;
+    // Character name
     protected String name;
+    // List of weaknesses
     protected List<ElementalEffect> weakeness;
+    // Benefits handling
+    private Benefit totalBenefit;
+    private List<Benefit> listBenefits;
 
     /**
      * Base Creature class constructor
@@ -64,6 +69,8 @@ public abstract class Creature {
         this.maxMana = this.baseMana + this.intelligence * this.manaMulti;
         this.name = name;
         this.weakeness = weaknesses;
+        listBenefits = new ArrayList<Benefit>();
+        totalBenefit = new Benefit();
         generateDefense();
     }
     /**
@@ -196,7 +203,26 @@ public abstract class Creature {
         }
     }
 
-    public abstract void effectBuff(Benefit buff);
+    public void effectBuff(Benefit buff, boolean positive){
+        if(positive){
+            totalBenefit.addBenefit(buff);
+            listBenefits.add(buff);
+        }else {
+            totalBenefit.removeBenefit(buff);
+        }
+    }
+    public Benefit getTotalBenefit(){
+        return totalBenefit;
+    }
+    public void setTotalBenefit(Benefit benefit){
+        totalBenefit = benefit;
+    }
+    public List<Benefit> getListBenefits(){
+        return listBenefits;
+    }
+    public void setListBenefits(List<Benefit> listBenefits){
+        this.listBenefits = listBenefits;
+    }
     /**
      * Getter for the Strength stat.
      * @return short

@@ -9,7 +9,6 @@ public class Monster extends Creature {
     ArrayList<BaseSkill> baseSkills;
     boolean canRun;
     boolean isAlive;
-    Benefit benefit;
 
     public Monster(){
 
@@ -24,8 +23,4 @@ public class Monster extends Creature {
 
     }
 
-    @Override
-    public void effectBuff(Benefit buff) {
-
-    }
 }

@@ -1,33 +1,19 @@
-package chimera.epic_rpg_thing.model;
+package chimera.epic_rpg_thing.model.Items;
 
-public class Armor implements Item {
-    String name;
-    int value;
-    int slots;
-    ArmorType armorType;
-    boolean equippable;
-    boolean equipped;
-    Benefit benefit;
+import chimera.epic_rpg_thing.model.Benefit;
+import chimera.epic_rpg_thing.model.ElementalEffect;
+import chimera.epic_rpg_thing.model.Type;
 
-    /**
-     * Creates armor
-     * @param name
-     * @param value
-     * @param slots
-     * @param armorType
-     * @param equippable
-     * @param equipped
-     * @param benefit
-     */
-    Armor(String name, int value, int slots, ArmorType armorType, boolean equippable, boolean equipped, Benefit benefit){
-        this.name = name;
-        this.value = value;
-        this.slots = slots;
-        this.armorType = armorType;
-        this.equippable = equippable;
-        this.equipped = equipped;
-        this.benefit = benefit;
-    }
+public class Quest_Item implements Item {
+    private String name;
+    private int value;
+    private int slots;
+    private ItemType itemType;
+    private boolean equippable;
+    private boolean equipped;
+    private Benefit benefit;
+    private ElementalEffect effect;
+
     @Override
     public String getName() {
         return name;
@@ -60,14 +46,12 @@ public class Armor implements Item {
 
     @Override
     public Type getType() {
-        return armorType;
+        return itemType;
     }
 
     @Override
     public void setType(Type type) {
-        if(type instanceof ArmorType) {
-            this.armorType = (ArmorType) type;
-        }
+        itemType = (ItemType) type;
     }
 
     @Override
@@ -92,16 +76,27 @@ public class Armor implements Item {
 
     @Override
     public boolean isArmor() {
-        return true;
+        return false;
     }
 
     @Override
     public Benefit getBenefit() {
-        return benefit;
+        return null;
     }
 
     @Override
     public void setBenefit(Benefit benefit) {
         this.benefit = benefit;
+    }
+
+    public Quest_Item(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
+        this.name = name;
+        this.value = value;
+        this.slots = slots;
+        this.itemType = itemType;
+        this.equippable = equippable;
+        this.equipped = equipped;
+        this.benefit = benefit;
+        this.effect = effect;
     }
 }

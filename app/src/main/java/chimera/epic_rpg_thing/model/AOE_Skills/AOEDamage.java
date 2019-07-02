@@ -1,4 +1,7 @@
-package chimera.epic_rpg_thing.model;
+package chimera.epic_rpg_thing.model.AOE_Skills;
+
+import chimera.epic_rpg_thing.model.Creature;
+import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class AOEDamage extends AOEBaseSkill {
     int damageAmount;
@@ -13,7 +16,7 @@ public class AOEDamage extends AOEBaseSkill {
     @Override
     public void effectTargets() {
         for(Creature c : this.getTargets()){
-
+            c.effectHp(-damageAmount, getElementalEffect());
         }
     }
 }

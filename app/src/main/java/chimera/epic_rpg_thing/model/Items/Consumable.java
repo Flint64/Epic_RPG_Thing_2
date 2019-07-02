@@ -1,6 +1,12 @@
-package chimera.epic_rpg_thing.model;
+package chimera.epic_rpg_thing.model.Items;
 
-public class Weapon implements Item {
+import chimera.epic_rpg_thing.model.Benefit;
+import chimera.epic_rpg_thing.model.ElementalEffect;
+import chimera.epic_rpg_thing.model.Items.Item;
+import chimera.epic_rpg_thing.model.Items.ItemType;
+import chimera.epic_rpg_thing.model.Type;
+
+public class Consumable implements Item {
     private String name;
     private int value;
     private int slots;
@@ -10,23 +16,35 @@ public class Weapon implements Item {
     private Benefit benefit;
     private ElementalEffect effect;
 
-    /**
-     * Weapon Constructor.
-     * @param name
-     * @param value
-     * @param slots
-     * @param itemType
-     * @param equippable
-     * @param equipped
-     */
-    Weapon(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
-        this.name = name;
-        this.value = value;
+    public int getSlots() {
+        return slots;
+    }
+
+    public void setSlots(int slots) {
         this.slots = slots;
+    }
+
+    public ItemType getItemType() {
+        return itemType;
+    }
+
+    public void setItemType(ItemType itemType) {
         this.itemType = itemType;
-        this.equippable = equippable;
-        this.equipped = equipped;
-        this.benefit = benefit;
+    }
+
+    public boolean isEquippable() {
+        return equippable;
+    }
+
+    public boolean isEquipped() {
+        return equipped;
+    }
+
+    public ElementalEffect getEffect() {
+        return effect;
+    }
+
+    public void setEffect(ElementalEffect effect) {
         this.effect = effect;
     }
 
@@ -60,24 +78,14 @@ public class Weapon implements Item {
         this.slots = slots;
     }
 
-    /**
-     * Don't use this function it is not intended for weapons.
-     * @return
-     */
     @Override
     public Type getType() {
         return itemType;
     }
 
-    /**
-     * Don't use this function it is not intended for weapons
-     * @param type
-     */
     @Override
     public void setType(Type type) {
-        if(type instanceof ItemType){
-            this.itemType = (ItemType) type;
-        }
+        if(type instanceof ItemType) this.itemType = (ItemType) type;
     }
 
     @Override
@@ -96,11 +104,6 @@ public class Weapon implements Item {
     }
 
     @Override
-    public Benefit getBenefit() {
-        return benefit;
-    }
-
-    @Override
     public void setEquipped(boolean equipped) {
         this.equipped = equipped;
     }
@@ -111,23 +114,23 @@ public class Weapon implements Item {
     }
 
     @Override
+    public Benefit getBenefit() {
+        return benefit;
+    }
+
+    @Override
     public void setBenefit(Benefit benefit) {
         this.benefit = benefit;
     }
 
-    /**
-     * Gets the elemental effect
-     * @return
-     */
-    public ElementalEffect getEffect(){
-        return effect;
-    }
-
-    /**
-     * sets the elemental effect
-     * @param effect
-     */
-    public void setEffect(ElementalEffect effect){
+    public Consumable(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
+        this.name = name;
+        this.value = value;
+        this.slots = slots;
+        this.itemType = itemType;
+        this.equippable = equippable;
+        this.equipped = equipped;
+        this.benefit = benefit;
         this.effect = effect;
     }
 }

@@ -1,7 +1,11 @@
-package chimera.epic_rpg_thing.model;
+package chimera.epic_rpg_thing.model.Classes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public abstract class CharacterClass {
     // HashMap of the class modifiers
@@ -11,7 +15,7 @@ public abstract class CharacterClass {
     int classLevel;
     // HashMap of the class baseSkills
     HashMap<String, BaseSkill> classSkills = new HashMap<>();
-    List<ElementalEffect> weaknesses;
+    List<ElementalEffect> weaknesses = new ArrayList<>();
 
     /**
      * Gets the class name

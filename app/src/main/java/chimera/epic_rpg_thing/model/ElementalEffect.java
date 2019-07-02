@@ -4,12 +4,16 @@ public class ElementalEffect {
     ElementalType type;
     short level;
 
+    public ElementalEffect(){
+        this.type = ElementalType.PHYSICAL;
+        this.level = 0;
+    }
     /**
      * Creates an elemental effect
      * @param type
      * @param level
      */
-    ElementalEffect(ElementalType type, short level){
+    public ElementalEffect(ElementalType type, short level){
         this.type = type;
         this.level = level;
     }

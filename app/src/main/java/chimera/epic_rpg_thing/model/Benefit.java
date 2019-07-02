@@ -6,18 +6,26 @@ public class Benefit {
     private short dexterityBonus;
     private int baseHealthBonus;
     private int baseManaBonus;
+    private int currentManaBonus;
+    private int currentHealthBonus;
     private int attackBonus;
     private BaseSkill baseSkill;
     private boolean expired;
+    private boolean continuos;
     private int turns;
 
-    Benefit(){
+    /**
+     * Default Constructor for the Benefit Class.
+     */
+    public Benefit(){
         strengthBonus = 0;
         intelligenceBonus = 0;
         dexterityBonus = 0;
         baseHealthBonus = 0;
         baseManaBonus = 0;
         attackBonus = 0;
+        turns = 0;
+        expired = true;
     }
 
     /**
@@ -30,16 +38,24 @@ public class Benefit {
      * @param attackBonus
      * @param baseSkill
      */
-    Benefit(short strengthBonus, short intelligenceBonus, short dexterityBonus, int baseHealthBonus, int baseManaBonus, int attackBonus, BaseSkill baseSkill, int turns){
+    public Benefit(short strengthBonus, short intelligenceBonus, short dexterityBonus, int baseHealthBonus, int baseManaBonus, int currentHealthBonus, int currentManaBonus, int attackBonus, BaseSkill baseSkill, int turns, boolean continuos){
         this.strengthBonus = strengthBonus;
         this.intelligenceBonus = intelligenceBonus;
         this.dexterityBonus = dexterityBonus;
         this.baseHealthBonus = baseHealthBonus;
         this.baseManaBonus = baseManaBonus;
+        this.currentHealthBonus = currentHealthBonus;
+        this.currentManaBonus = currentManaBonus;
         this.attackBonus = attackBonus;
         this.baseSkill = baseSkill;
+        this.turns = turns;
+        this.continuos = continuos;
     }
 
+    /**
+     * Adds the input benefit with the current benefit
+     * @param ben
+     */
     public void addBenefit(Benefit ben){
         this.baseManaBonus += ben.getBaseManaBonus();
         this.baseHealthBonus += ben.getBaseHealthBonus();
@@ -49,6 +65,10 @@ public class Benefit {
         this.attackBonus += ben.getAttackBonus();
     }
 
+    /**
+     * Subtracts the current value with a value that was passed in.
+     * @param ben
+     */
     public void removeBenefit(Benefit ben){
         this.baseManaBonus -= ben.getBaseManaBonus();
         this.baseHealthBonus -= ben.getBaseHealthBonus();
@@ -172,7 +192,7 @@ public class Benefit {
     }
 
     public void endOfTurn(){
-        if(turns == -46){
+        if(continuos){
             return;
         }else if(turns > 0){
             turns--;

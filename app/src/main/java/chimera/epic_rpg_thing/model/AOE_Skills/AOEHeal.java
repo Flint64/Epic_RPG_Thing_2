@@ -1,4 +1,7 @@
-package chimera.epic_rpg_thing.model;
+package chimera.epic_rpg_thing.model.AOE_Skills;
+
+import chimera.epic_rpg_thing.model.Creature;
+import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class AOEHeal extends AOEBaseSkill {
     int healAmount;

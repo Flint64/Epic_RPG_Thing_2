@@ -2,6 +2,8 @@ package chimera.epic_rpg_thing.model;
 
 import java.util.HashMap;
 
+import chimera.epic_rpg_thing.model.Items.Item;
+
 /**
  * Inventory class for all of our inventory needs.
  * Will be the parent of the different inventory types (i.e. store, character, chest)

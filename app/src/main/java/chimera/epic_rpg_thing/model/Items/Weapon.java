@@ -1,6 +1,10 @@
-package chimera.epic_rpg_thing.model;
+package chimera.epic_rpg_thing.model.Items;
 
-public class Consumable implements Item {
+import chimera.epic_rpg_thing.model.Benefit;
+import chimera.epic_rpg_thing.model.ElementalEffect;
+import chimera.epic_rpg_thing.model.Type;
+
+public class Weapon implements Item {
     private String name;
     private int value;
     private int slots;
@@ -8,7 +12,18 @@ public class Consumable implements Item {
     private boolean equippable;
     private boolean equipped;
     private Benefit benefit;
-    Consumable(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit){
+    private ElementalEffect effect;
+
+    /**
+     * Weapon Constructor.
+     * @param name
+     * @param value
+     * @param slots
+     * @param itemType
+     * @param equippable
+     * @param equipped
+     */
+    Weapon(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
         this.name = name;
         this.value = value;
         this.slots = slots;
@@ -16,7 +31,9 @@ public class Consumable implements Item {
         this.equippable = equippable;
         this.equipped = equipped;
         this.benefit = benefit;
+        this.effect = effect;
     }
+
     @Override
     public String getName() {
         return name;
@@ -47,16 +64,24 @@ public class Consumable implements Item {
         this.slots = slots;
     }
 
-
-
+    /**
+     * Don't use this function it is not intended for weapons.
+     * @return
+     */
     @Override
     public Type getType() {
         return itemType;
     }
 
+    /**
+     * Don't use this function it is not intended for weapons
+     * @param type
+     */
     @Override
     public void setType(Type type) {
-        if(type instanceof ItemType) this.itemType = (ItemType) type;
+        if(type instanceof ItemType){
+            this.itemType = (ItemType) type;
+        }
     }
 
     @Override
@@ -75,6 +100,11 @@ public class Consumable implements Item {
     }
 
     @Override
+    public Benefit getBenefit() {
+        return benefit;
+    }
+
+    @Override
     public void setEquipped(boolean equipped) {
         this.equipped = equipped;
     }
@@ -85,12 +115,23 @@ public class Consumable implements Item {
     }
 
     @Override
-    public Benefit getBenefit() {
-        return benefit;
-    }
-
-    @Override
     public void setBenefit(Benefit benefit) {
         this.benefit = benefit;
+    }
+
+    /**
+     * Gets the elemental effect
+     * @return
+     */
+    public ElementalEffect getEffect(){
+        return effect;
+    }
+
+    /**
+     * sets the elemental effect
+     * @param effect
+     */
+    public void setEffect(ElementalEffect effect){
+        this.effect = effect;
     }
 }
