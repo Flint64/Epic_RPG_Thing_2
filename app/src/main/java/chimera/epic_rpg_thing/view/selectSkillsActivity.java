@@ -12,7 +12,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import java.lang.annotation.ElementType;
+
 import chimera.epic_rpg_thing.R;
+import chimera.epic_rpg_thing.model.ElementalType;
 import chimera.epic_rpg_thing.presenter.CharacterPresenter;
 
 public class selectSkillsActivity extends AppCompatActivity{
@@ -42,20 +45,20 @@ public class selectSkillsActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_skills);
 
-    //    choice = getIntent().getStringExtra("class");
+        //    choice = getIntent().getStringExtra("class");
         setChoice(getIntent().getStringExtra("class"));
 
         choice = getChoice();
         Log.d("deubg", getChoice());
 
-//        name = getIntent().getStringExtra("name");
-//        finalIntelligence = Short.parseShort(getIntent().getStringExtra("intelligence"));
-//        finalDexterity = Short.parseShort(getIntent().getStringExtra("dexterity"));
-//        finalStrength = Short.parseShort(getIntent().getStringExtra("strength"));
-//        finalHealth = Integer.parseInt(getIntent().getStringExtra("health"));
-//        finalMana = Double.parseDouble(getIntent().getStringExtra("mana"));
-//        finalDamage = Double.parseDouble(getIntent().getStringExtra("damage"));
-//        finalEvasion = Double.parseDouble(getIntent().getStringExtra("evasion"));
+        name = getIntent().getStringExtra("name");
+        finalIntelligence = getIntent().getShortExtra("intelligence", (short) 0);
+        finalDexterity = getIntent().getShortExtra("dexterity", (short) 0);
+        finalStrength = getIntent().getShortExtra("strength", (short) 0);
+        finalHealth = getIntent().getIntExtra("health", (int) 0);
+        finalMana = getIntent().getDoubleExtra("mana", (double) 0);
+        finalDamage = getIntent().getDoubleExtra("damage", (double) 0);
+        finalEvasion = getIntent().getDoubleExtra("evasion", (double) 0);
 
 
 
@@ -85,7 +88,7 @@ public class selectSkillsActivity extends AppCompatActivity{
                 if (skill_1.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
                     Log.d("debug", Integer.toString(skillCount));
-                 //Otherwise, if you uncheck a box decrease count
+                    //Otherwise, if you uncheck a box decrease count
                 } else if (!skill_1.isChecked() && skillCount - 1 >= 0){
                     skillCount--;
                     Log.d("debug", Integer.toString(skillCount));
@@ -167,10 +170,10 @@ public class selectSkillsActivity extends AppCompatActivity{
                 break;
 
             case "Mage":
-                 skill_1_label.setText("Firebolt - Single target fire attack");
-                 skill_2_label.setText("Icicle - Single target ice attack");
-                 skill_3_label.setText("Meditate - Increase damage of next magic attack and regen some mana");
-                 skill_4_label.setText("Magic Barrier - Increased magic defense on target");
+                skill_1_label.setText("Firebolt - Single target fire attack");
+                skill_2_label.setText("Icicle - Single target ice attack");
+                skill_3_label.setText("Meditate - Increase damage of next magic attack and regen some mana");
+                skill_4_label.setText("Magic Barrier - Increased magic defense on target");
                 break;
 
             case "Warrior":
@@ -320,19 +323,40 @@ public class selectSkillsActivity extends AppCompatActivity{
     // (until we do database at least) and then redirects you to the selectCharacter activity with
     // the list of all of your saved characters where you can select one
     public void createCharacter(View view){
-/*
+
         Intent i = new Intent(this, selectSkillsActivity.class);
 
-             i.putExtra("class", choice);
-             i.putExtra("name", name);
-             i.putExtra("intelligence", finalIntelligence);
-             i.putExtra("dexterity", finalDexterity);
-             i.putExtra("strength", finalStrength);
-             i.putExtra("health", finalHealth);
-             i.putExtra("mana", finalMana);
-             i.putExtra("evasion", finalEvasion);
-             i.putExtra("damage", finalDamage);
-*/
+        final CheckBox fireCheck = findViewById(R.id.fireCheck);
+        final CheckBox earthCheck = findViewById(R.id.earthCheck);
+        final CheckBox iceCheck = findViewById(R.id.iceCheck);
+        final CheckBox lightningCheck = findViewById(R.id.lightningCheck);
+
+        ElementalType elementEarth = ElementalType.EARTH;
+        ElementalType elementFire = ElementalType.FIRE;
+        ElementalType elementIce = ElementalType.ICE;
+        ElementalType elementLightning = ElementalType.LIGHTNING;
+
+        ElementalType element_1 = null;
+        ElementalType element_2 = null;
+
+        //TODO: Figure out how to pass in these elements without any null ones
+
+        if (fireCheck.isChecked()){ i.putExtra("element_fire", elementFire); }
+        if (earthCheck.isChecked()){ i.putExtra("element_earth", elementEarth); }
+        if (iceCheck.isChecked()){ i.putExtra("element_ice", elementIce); }
+        if (lightningCheck.isChecked()){ i.putExtra("element_lightning", elementLightning); }
+
+        i.putExtra("class", choice);
+        i.putExtra("name", name);
+        i.putExtra("intelligence", finalIntelligence);
+        i.putExtra("dexterity", finalDexterity);
+        i.putExtra("strength", finalStrength);
+        i.putExtra("health", finalHealth);
+        i.putExtra("mana", finalMana);
+        i.putExtra("evasion", finalEvasion);
+        i.putExtra("damage", finalDamage);
+
+
         presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
     }
 

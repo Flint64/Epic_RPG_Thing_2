@@ -9,17 +9,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="chimera.epic_rpg_thing.view.selectSkillsActivity"
-            android:screenOrientation="sensorLandscape">
-        </activity>
+        <activity android:name=".view.storyActivity"></activity>
         <activity
-            android:name="chimera.epic_rpg_thing.view.newCharacterActivity"
-            android:screenOrientation="sensorLandscape" />
-        <activity
-            android:name="chimera.epic_rpg_thing.view.newGameActivity"
+            android:name=".view.selectSkillsActivity"
             android:screenOrientation="sensorLandscape"></activity>
         <activity
-            android:name="chimera.epic_rpg_thing.view.MainActivity"
+            android:name=".view.newCharacterActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".view.newGameActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".view.MainActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

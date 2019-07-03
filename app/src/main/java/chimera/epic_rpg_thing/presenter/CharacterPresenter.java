@@ -5,6 +5,9 @@ import java.util.List;
 
 import chimera.epic_rpg_thing.model.Character;
 import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.Classes.ClericClass;
+import chimera.epic_rpg_thing.model.Classes.RogueClass;
+import chimera.epic_rpg_thing.model.Classes.WizardClass;
 import chimera.epic_rpg_thing.model.User;
 import chimera.epic_rpg_thing.model.Classes.WarriorClass;
 
@@ -29,10 +32,27 @@ public class CharacterPresenter {
 
     public void createCharacter(String choice, String name, short intelligence, short dexterity, short strength, int health, double mana, double evasion, double damage){
         List<BaseSkill> list = new ArrayList<>();
-        WarriorClass warriorClass = new WarriorClass();
 
-        Character character = new Character(health, mana, damage, list, strength, intelligence, dexterity, evasion, name, warriorClass);
+        switch (choice){
+            case "Warrior":
+                WarriorClass warriorClass = new WarriorClass();
+                Character newWarrior= new Character(health, mana, damage, list, strength, intelligence, dexterity, evasion, name, warriorClass);
+                break;
 
-//        Character character = new Character(list, (short) 10, (short) 5, (short) 0, "Kal-El", warriorClass);
+            case "Mage":
+                WizardClass mageClass = new WizardClass();
+                Character newMage = new Character(health, mana, damage, list, strength, intelligence, dexterity, evasion, name, mageClass);
+                break;
+
+            case "Rogue":
+                RogueClass rogueClass = new RogueClass();
+                Character newRogue = new Character(health, mana, damage, list, strength, intelligence, dexterity, evasion, name, rogueClass);
+                break;
+
+            case "Cleric":
+                ClericClass clericClass = new ClericClass();
+                Character newCleric = new Character(health, mana, damage, list, strength, intelligence, dexterity, evasion, name, clericClass);
+                break;
+        }
     }
 }
