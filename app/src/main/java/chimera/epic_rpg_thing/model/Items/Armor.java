@@ -20,7 +20,7 @@ public class Armor implements Item {
         this.name = "DEFAULT";
         this.value = 0;
         this.slots = 0;
-        this.armorType = ArmorType.ACCESSORY;
+        this.armorType = ArmorType.DEFAULT;
         this.equippable = false;
         this.equipped = false;
         this.benefit = new Benefit();

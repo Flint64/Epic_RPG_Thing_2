@@ -13,6 +13,10 @@ public class SingleBuff extends SingleBaseSkill {
     public void setBuff(Benefit buff) {
         this.buff = buff;
     }
+
+    /**
+     * SingleBuff Default Constructor
+     */
     public SingleBuff(){
         setHpCost(0);
         setManaCost(0);
@@ -20,6 +24,15 @@ public class SingleBuff extends SingleBaseSkill {
         setElementalEffect(new ElementalEffect());
         setDescription(null);
     }
+
+    /**
+     * SingleBuff Non-Default Constructor
+     * @param hpCost
+     * @param manaCost
+     * @param buff
+     * @param effect
+     * @param description
+     */
     public SingleBuff(int hpCost, int manaCost, Benefit buff, ElementalEffect effect, String description){
         setHpCost(hpCost);
         setManaCost(manaCost);

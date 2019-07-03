@@ -23,7 +23,28 @@ public class SingleDamage_Debuff extends SingleBaseSkill {
         this.debuff = debuff;
     }
 
-    SingleDamage_Debuff(int hpCost, int manaCost, int damageAmount, Benefit debuff, ElementalEffect effect, String description){
+    /**
+     * Default Constructor for SingleDamage_Debuff
+     */
+    public SingleDamage_Debuff(){
+        setHpCost(0);
+        setManaCost(0);
+        setDamageAmount(0);
+        setDebuff(new Benefit());
+        setElementalEffect(new ElementalEffect());
+        setDescription("DEFAULT");
+    }
+
+    /**
+     * Non-Default Constructor for the SingleDamage_Buff
+     * @param hpCost
+     * @param manaCost
+     * @param damageAmount
+     * @param debuff
+     * @param effect
+     * @param description
+     */
+    public SingleDamage_Debuff(int hpCost, int manaCost, int damageAmount, Benefit debuff, ElementalEffect effect, String description){
         setHpCost(hpCost);
         setManaCost(manaCost);
         setDamageAmount(damageAmount);

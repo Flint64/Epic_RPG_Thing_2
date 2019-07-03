@@ -14,6 +14,19 @@ public class Weapon implements Item {
     private ElementalEffect effect;
 
     /**
+     * Default Constructor for the Weapon Class
+     */
+    public Weapon(){
+        this.name = "DEFAULT";
+        this.value = 0;
+        this.slots = 0;
+        this.itemType = ItemType.DEFAULT;
+        this.equippable = false;
+        this.equipped = false;
+        this.benefit = new Benefit();
+        this.effect = new ElementalEffect();
+    }
+    /**
      * Weapon Constructor.
      * @param name
      * @param value
@@ -21,8 +34,10 @@ public class Weapon implements Item {
      * @param itemType
      * @param equippable
      * @param equipped
+     * @param benefit
+     * @param effect
      */
-    Weapon(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
+    public Weapon(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
         this.name = name;
         this.value = value;
         this.slots = slots;

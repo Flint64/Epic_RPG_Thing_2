@@ -6,10 +6,21 @@ import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class AOEBuff extends AOEBaseSkill {
     Benefit benefit;
-    AOEBuff(int hpCost, int manaCost, Benefit benefit, ElementalEffect effect, int maxTargets, String description){
+    public AOEBuff(){
+        setHpCost(0);
+        setManaCost(0);
+        setBenefit(new Benefit());
+        setElementalEffect(new ElementalEffect());
+        setMaxTargets(0);
+        setDescription("DEFAULT");
+    }
+    public AOEBuff(int hpCost, int manaCost, Benefit benefit, ElementalEffect effect, int maxTargets, String description){
         this.setHpCost(hpCost);
         this.setManaCost(manaCost);
         setBenefit(benefit);
+        setElementalEffect(effect);
+        setMaxTargets(maxTargets);
+        setDescription(description);
     }
     @Override
     public void effectTargets() {
