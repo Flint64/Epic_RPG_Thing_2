@@ -2,9 +2,6 @@ package chimera.epic_rpg_thing.model.Items;
 
 import chimera.epic_rpg_thing.model.Benefit;
 import chimera.epic_rpg_thing.model.ElementalEffect;
-import chimera.epic_rpg_thing.model.Items.Item;
-import chimera.epic_rpg_thing.model.Items.ItemType;
-import chimera.epic_rpg_thing.model.Type;
 
 public class Consumable implements Item {
     private String name;

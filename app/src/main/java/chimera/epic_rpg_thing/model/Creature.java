@@ -276,12 +276,34 @@ public abstract class Creature {
      */
     public void setName(String name){this.name = name;}
 
+    /**
+     * Returns the list of Elemental Effects the creature is weak too.
+     * @return
+     */
     public List<ElementalEffect> getWeakeness(){
         return weakeness;
     }
-    public void setWeakeness(ElementalEffect weakeness){
-        this.weakeness.add(weakeness);
+
+    /**
+     * Sets the list of Elemental Effects the creature is weak too.
+     * @param weakeness
+     */
+    public void setWeakeness(List<ElementalEffect> weakeness){
+        this.weakeness = weakeness;
     }
+
+    /**
+     * Adds a weakness to the List of Elemental Effects.
+     * @param weakness
+     */
+    public void addWeakness(ElementalEffect weakness){
+        this.weakeness.add(weakness);
+    }
+
+    /**
+     * Removes a weakness from the List of Elemental Effects.
+     * @param weakeness
+     */
     public void removeWeakness(ElementalEffect weakeness){
         if(this.weakeness.contains(weakeness)){
             this.weakeness.remove(weakeness);

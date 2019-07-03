@@ -1,5 +1,6 @@
 package chimera.epic_rpg_thing.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import chimera.epic_rpg_thing.model.Classes.CharacterClass;
@@ -16,7 +17,7 @@ public class Character extends Creature{
 
 
     public Character() {
-        super(0, 0, 0, null, (int) 0, (int) 0, (int) 0, 0, 0, 0, null, null);
+        super(0, 0, 0, null,  0,  0,  0, 0, 0, 0, "BOB", new ArrayList<ElementalEffect>());
         inventory = null;
         level = 0;
         XP = 0;

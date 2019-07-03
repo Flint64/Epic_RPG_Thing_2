@@ -11,7 +11,7 @@ public class Monster extends Creature {
     boolean isAlive;
 
     public Monster(){
-        super(0, 0,0,null,(int) 0, (int)0, (int) 0, 0,0,0,null, null);
+        super(0, 0,0,null, 0, 0,  0, 0,0,0,null, null);
     }
     public Monster(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, int strength, int mana, int dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weakness) {
         super(baseHp, baseMana, attack, baseSkills, strength, mana, dexterity, evasion, hpMulti, manaMulti, name, weakness);

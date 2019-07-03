@@ -3,7 +3,6 @@ package chimera.epic_rpg_thing.model.Items;
 import androidx.annotation.Nullable;
 
 import chimera.epic_rpg_thing.model.Benefit;
-import chimera.epic_rpg_thing.model.Type;
 
 /**
  * The class for Armor pieces
