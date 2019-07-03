@@ -9,7 +9,7 @@ public class ClericClass extends CharacterClass {
         this.setName("Cleric");
         this.addClassMod("hpMulti", 6);
         this.addClassMod("manaMulti", 5);
-        this.addWeaknesses(new ElementalEffect(ElementalType.SHADOW, (short)1));
+        this.addWeaknesses(new ElementalEffect(ElementalType.SHADOW, (int)1));
         initializeSkills();
     }
     private void initializeSkills(){

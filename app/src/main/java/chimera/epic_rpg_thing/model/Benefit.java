@@ -1,9 +1,9 @@
 package chimera.epic_rpg_thing.model;
 
 public class Benefit {
-    private short strengthBonus;
-    private short intelligenceBonus;
-    private short dexterityBonus;
+    private int strengthBonus;
+    private int intelligenceBonus;
+    private int dexterityBonus;
     private int baseHealthBonus;
     private int baseManaBonus;
     private int currentManaBonus;
@@ -38,7 +38,7 @@ public class Benefit {
      * @param attackBonus
      * @param baseSkill
      */
-    public Benefit(short strengthBonus, short intelligenceBonus, short dexterityBonus, int baseHealthBonus, int baseManaBonus, int currentHealthBonus, int currentManaBonus, int attackBonus, BaseSkill baseSkill, int turns, boolean continuos){
+    public Benefit(int strengthBonus, int intelligenceBonus, int dexterityBonus, int baseHealthBonus, int baseManaBonus, int currentHealthBonus, int currentManaBonus, int attackBonus, BaseSkill baseSkill, int turns, boolean continuos){
         this.strengthBonus = strengthBonus;
         this.intelligenceBonus = intelligenceBonus;
         this.dexterityBonus = dexterityBonus;
@@ -81,7 +81,7 @@ public class Benefit {
      * returns the strength bonus
      * @return strengthBonus
      */
-    public short getStrengthBonus() {
+    public int getStrengthBonus() {
         return strengthBonus;
     }
     public boolean isExpired(){
@@ -91,7 +91,7 @@ public class Benefit {
      * sets the strength bonus
      * @param strengthBonus
      */
-    public void setStrengthBonus(short strengthBonus) {
+    public void setStrengthBonus(int strengthBonus) {
         this.strengthBonus = strengthBonus;
     }
 
@@ -99,7 +99,7 @@ public class Benefit {
      * gets the intelligence bonus
      * @return strengthBonus
      */
-    public short getIntelligenceBonus() {
+    public int getIntelligenceBonus() {
         return intelligenceBonus;
     }
 
@@ -107,7 +107,7 @@ public class Benefit {
      * sets the mana bonus
      * @param intelligenceBonus
      */
-    public void setIntelligenceBonus(short intelligenceBonus) {
+    public void setIntelligenceBonus(int intelligenceBonus) {
         this.intelligenceBonus = intelligenceBonus;
     }
 
@@ -115,7 +115,7 @@ public class Benefit {
      * gets the dexterity bonus
      * @return
      */
-    public short getDexterityBonus() {
+    public int getDexterityBonus() {
         return dexterityBonus;
     }
 
@@ -123,7 +123,7 @@ public class Benefit {
      * sets the dexterity bonus
      * @param dexterityBonus
      */
-    public void setDexterityBonus(short dexterityBonus) {
+    public void setDexterityBonus(int dexterityBonus) {
         this.dexterityBonus = dexterityBonus;
     }
 

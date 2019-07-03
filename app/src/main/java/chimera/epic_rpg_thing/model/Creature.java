@@ -9,31 +9,31 @@ import java.util.ArrayList;
  */
 public abstract class Creature {
     // Stats for hp indicator
-    protected int baseHp;
-    protected int currentHP;
-    protected int maxHP;
-    protected int hpMulti;
+    private int baseHp;
+    private int currentHP;
+    private int maxHP;
+    private int hpMulti;
     // Stats for mana indicator
-    protected double baseMana;
-    protected double maxMana;
-    protected double currentMana;
-    protected double manaMulti;
+    private double baseMana;
+    private double maxMana;
+    private double currentMana;
+    private double manaMulti;
     // Base attack
-    protected double attack;
+    private double attack;
     // List for baseSkills
-    protected List<BaseSkill> baseSkills;
+    private List<BaseSkill> baseSkills;
     // Amount of damage you can absorb.
-    protected double defense;
+    private double defense;
     // Evasion: Chance to dodge an attack
-    protected double evasion;
+    private double evasion;
     // Character attributes
-    protected short strength;
-    protected short intelligence;
-    protected short dexterity;
+    private int strength;
+    private int intelligence;
+    private int dexterity;
     // Character name
-    protected String name;
+    private String name;
     // List of weaknesses
-    protected List<ElementalEffect> weakeness;
+    private List<ElementalEffect> weakeness;
     // Benefits handling
     private Benefit totalBenefit;
     private List<Benefit> listBenefits;
@@ -53,7 +53,7 @@ public abstract class Creature {
      * @param name
      * @param weaknesses
      */
-    public Creature(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, short strength, short intelligence, short dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weaknesses){
+    public Creature(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, int strength, int intelligence, int dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weaknesses){
         this.baseHp = baseHp;
         this.baseMana = baseMana;
         this.attack = attack;
@@ -71,7 +71,6 @@ public abstract class Creature {
         this.weakeness = weaknesses;
         listBenefits = new ArrayList<Benefit>();
         totalBenefit = new Benefit();
-        generateDefense();
     }
     /**
      * Getter for the maxHP
@@ -187,12 +186,6 @@ public abstract class Creature {
     }
 
     /**
-     * Getter for the defense stat. Defense is the amount of damage that can be absorbed by the creature
-     * @return int
-     */
-    public abstract void generateDefense();
-
-    /**
      * Effect hp
      */
     public void effectHp(int amount, ElementalEffect effect){
@@ -225,9 +218,9 @@ public abstract class Creature {
     }
     /**
      * Getter for the Strength stat.
-     * @return short
+     * @return int
      */
-    public short getStrength() {
+    public int getStrength() {
         return strength;
     }
 
@@ -235,15 +228,15 @@ public abstract class Creature {
      * Setter for the Strength stat.
      * @param
      */
-    public void setStrength(short strength) {
+    public void setStrength(int strength) {
         this.strength = strength;
     }
 
     /**
      * Getter for the intelligence stat.
-     * @return short
+     * @return int
      */
-    public short getIntelligence() {
+    public int getIntelligence() {
         return intelligence;
     }
 
@@ -251,15 +244,15 @@ public abstract class Creature {
      * Setter for the intelligence stat
      * @param
      */
-    public void setIntelligence(short intelligence) {
+    public void setIntelligence(int intelligence) {
         this.intelligence = intelligence;
     }
 
     /**
      * Getter for the dexterity stat
-     * @return short
+     * @return int
      */
-    public short getDexterity() {
+    public int getDexterity() {
         return dexterity;
     }
 
@@ -267,7 +260,7 @@ public abstract class Creature {
      * Setter for the dexterity stat
      * @param
      */
-    public void setDexterity(short dexterity) {
+    public void setDexterity(int dexterity) {
         this.dexterity = dexterity;
     }
 

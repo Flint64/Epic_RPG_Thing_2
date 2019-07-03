@@ -1,6 +1,5 @@
 package chimera.epic_rpg_thing.model.Single_Skills;
 
-import chimera.epic_rpg_thing.model.BaseSkill;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class SingleHeal extends SingleBaseSkill {

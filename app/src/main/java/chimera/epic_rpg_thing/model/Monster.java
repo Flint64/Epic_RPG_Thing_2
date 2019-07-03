@@ -11,16 +11,59 @@ public class Monster extends Creature {
     boolean isAlive;
 
     public Monster(){
-
-        super(0, 0,0,null,(short) 0, (short)0, (short) 0, 0,0,0,null, null);
+        super(0, 0,0,null,(int) 0, (int)0, (int) 0, 0,0,0,null, null);
     }
-    public Monster(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, short strength, short mana, short dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weakness) {
+    public Monster(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, int strength, int mana, int dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weakness) {
         super(baseHp, baseMana, attack, baseSkills, strength, mana, dexterity, evasion, hpMulti, manaMulti, name, weakness);
     }
 
     @Override
-    public void generateDefense() {
-
+    public int getCurrentHP() {
+        return currentHP;
     }
 
+    @Override
+    public void setCurrentHP(int currentHP) {
+        this.currentHP = currentHP;
+    }
+
+    public int getXPvalue() {
+        return XPvalue;
+    }
+
+    public void setXPvalue(int XPvalue) {
+        this.XPvalue = XPvalue;
+    }
+
+    public int getGoldValue() {
+        return goldValue;
+    }
+
+    public void setGoldValue(int goldValue) {
+        this.goldValue = goldValue;
+    }
+
+    public ArrayList<BaseSkill> getBaseSkills() {
+        return baseSkills;
+    }
+
+    public void setBaseSkills(ArrayList<BaseSkill> baseSkills) {
+        this.baseSkills = baseSkills;
+    }
+
+    public boolean isCanRun() {
+        return canRun;
+    }
+
+    public void setCanRun(boolean canRun) {
+        this.canRun = canRun;
+    }
+
+    public boolean isAlive() {
+        return isAlive;
+    }
+
+    public void setAlive(boolean alive) {
+        isAlive = alive;
+    }
 }

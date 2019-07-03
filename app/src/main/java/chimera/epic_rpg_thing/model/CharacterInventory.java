@@ -23,14 +23,37 @@ public class CharacterInventory extends Inventory {
     private Weapon lWeapon;
     private boolean twoHanded;
 
-    CharacterInventory(int capacity, int currentSlots) {
+    public CharacterInventory(int capacity, int currentSlots) {
         super(capacity, currentSlots);
     }
     public void generateEquipped(){
         for(Map.Entry<String, Item> item : getMap().entrySet()){
-            if(item.getValue() instanceof Armor){
-
+            item.getValue().setEquipped(false);
+            if(item.getValue().isArmor()){
+                if(item.getValue().equals(lBoot)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(rBoot)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(legs)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(chest)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(head)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(lHand)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(rHand)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(accessory))
+                    item.getValue().setEquipped(true);
+            } else {
+                if(item.getValue().equals(rWeapon)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(lWeapon)){
+                    item.getValue().setEquipped(true);
+                }
             }
+
         }
     }
     public Benefit getEquippedBenefit(){
