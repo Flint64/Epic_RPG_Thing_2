@@ -27,7 +27,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
     /***********************************************************************************
      *   LOAD GAME - Currently does nothing, as we have no data to load. But should
      *   eventually bring up a list of games you can load with which character was tied

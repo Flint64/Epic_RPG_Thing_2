@@ -2,15 +2,13 @@ package chimera.epic_rpg_thing.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import chimera.epic_rpg_thing.model.FirebaseThings;
 import chimera.epic_rpg_thing.R;
 
 public class newGameActivity extends AppCompatActivity {
@@ -65,6 +63,10 @@ public class newGameActivity extends AppCompatActivity {
      public void loadCharacter(View view){
 
          //TODO: Add functionality to be able to load a saved character. Will need a list of characters first.
+
+         FirebaseThings fbThing = new FirebaseThings();
+         fbThing.readCharacter();
+        //fbThing.readMonster();
 
          Context context = getApplicationContext();
          CharSequence text = "No saved characters found";

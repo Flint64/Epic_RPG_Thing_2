@@ -13,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import chimera.epic_rpg_thing.R;
+import chimera.epic_rpg_thing.model.FirebaseThings;
 import chimera.epic_rpg_thing.presenter.CharacterPresenter;
 
 public class selectSkillsActivity extends AppCompatActivity{
@@ -46,7 +47,7 @@ public class selectSkillsActivity extends AppCompatActivity{
         setChoice(getIntent().getStringExtra("class"));
 
         choice = getChoice();
-        Log.d("deubg", getChoice());
+        Log.d("debug", getChoice());
 
 //        name = getIntent().getStringExtra("name");
 //        finalIntelligence = Short.parseShort(getIntent().getStringExtra("intelligence"));
@@ -320,6 +321,8 @@ public class selectSkillsActivity extends AppCompatActivity{
     // (until we do database at least) and then redirects you to the selectCharacter activity with
     // the list of all of your saved characters where you can select one
     public void createCharacter(View view){
+        FirebaseThings fbDatabase = new FirebaseThings();
+        fbDatabase.writeCharacter();
 /*
         Intent i = new Intent(this, selectSkillsActivity.class);
 
@@ -333,7 +336,7 @@ public class selectSkillsActivity extends AppCompatActivity{
              i.putExtra("evasion", finalEvasion);
              i.putExtra("damage", finalDamage);
 */
-        presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
+       // presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
     }
 
     public String getChoice() {
