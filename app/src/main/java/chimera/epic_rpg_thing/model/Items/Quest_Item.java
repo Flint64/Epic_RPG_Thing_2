@@ -88,6 +88,17 @@ public class Quest_Item implements Item {
         this.benefit = benefit;
     }
 
+    public Quest_Item(){
+        this.name = "DEFAULT";
+        this.value = 0;
+        this.slots = 0;
+        this.itemType = ItemType.QUEST_ITEM;
+        this.equippable = false;
+        this.equipped = false;
+        this.benefit = new Benefit();
+        this.effect = new ElementalEffect();
+    }
+
     public Quest_Item(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
         this.name = name;
         this.value = value;

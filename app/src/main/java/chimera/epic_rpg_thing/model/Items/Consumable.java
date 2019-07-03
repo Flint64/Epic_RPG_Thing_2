@@ -120,6 +120,16 @@ public class Consumable implements Item {
         this.benefit = benefit;
     }
 
+    public Consumable(){
+        this.name = "DEFAULT";
+        this.value = 0;
+        this.itemType = ItemType.CONSUMABLE;
+        this.equippable = false;
+        this.equipped = false;
+        this.benefit = new Benefit();
+        this.effect = new ElementalEffect();
+    }
+
     public Consumable(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){
         this.name = name;
         this.value = value;
