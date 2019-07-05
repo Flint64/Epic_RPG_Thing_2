@@ -58,7 +58,7 @@ public class AOEDamage_Debuff extends AOEBaseSkill {
     @Override
     public void effectTargets() {
         for(Creature c : getTargets()){
-            c.effectBuff(debuff, false);
+            c.effectBuff(debuff);
             c.effectHp(-damageAmount, getElementalEffect());
         }
     }

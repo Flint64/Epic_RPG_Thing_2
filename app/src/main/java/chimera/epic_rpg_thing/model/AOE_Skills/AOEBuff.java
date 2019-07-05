@@ -25,7 +25,7 @@ public class AOEBuff extends AOEBaseSkill {
     @Override
     public void effectTargets() {
         for(Creature c : getTargets()){
-            c.effectBuff(benefit, true);
+            c.effectBuff(benefit);
         }
     }
 

@@ -26,6 +26,10 @@ public class CharacterInventory extends Inventory {
     public CharacterInventory(int capacity, int currentSlots) {
         super(capacity, currentSlots);
     }
+
+    /**
+     * Generates what items should be equipped on the character
+     */
     public void generateEquipped(){
         for(Map.Entry<String, Item> item : getMap().entrySet()){
             item.getValue().setEquipped(false);
@@ -56,7 +60,13 @@ public class CharacterInventory extends Inventory {
 
         }
     }
+
+    /**
+     * Returns the total benefits from the equipped items.
+     * @return
+     */
     public Benefit getEquippedBenefit(){
+        generateEquipped();
         Benefit ben = new Benefit();
         for(HashMap.Entry<String, Item> e : items.entrySet()){
             if(e.getValue().getEquipped()){
@@ -65,6 +75,11 @@ public class CharacterInventory extends Inventory {
         }
         return ben;
     }
+
+    /**
+     *
+     * @return
+     */
     public ArrayList<Benefit> getAllEquippedBenefits() {
         ArrayList<Benefit> ben = new ArrayList<>();
         for(HashMap.Entry<String, Item> e : items.entrySet()){

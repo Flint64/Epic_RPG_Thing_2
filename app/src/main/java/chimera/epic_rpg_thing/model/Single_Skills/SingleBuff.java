@@ -43,6 +43,6 @@ public class SingleBuff extends SingleBaseSkill {
 
     @Override
     public void effectTargets() {
-        getTarget().effectBuff(buff, true);
+        getTarget().effectBuff(buff);
     }
 }

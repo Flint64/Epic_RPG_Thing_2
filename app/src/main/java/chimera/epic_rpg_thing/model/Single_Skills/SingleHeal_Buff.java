@@ -25,7 +25,7 @@ public class SingleHeal_Buff extends SingleBaseSkill {
 
     @Override
     public void effectTargets() {
-        getTarget().effectBuff(buff, true);
+        getTarget().effectBuff(buff);
         getTarget().effectHp(healAmount, getElementalEffect());
     }
 

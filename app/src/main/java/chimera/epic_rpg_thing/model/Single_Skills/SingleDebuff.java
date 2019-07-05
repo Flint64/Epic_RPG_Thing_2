@@ -40,6 +40,6 @@ public class SingleDebuff extends SingleBaseSkill {
 
     @Override
     public void effectTargets() {
-        getTarget().effectBuff(debuff, false);
+        getTarget().effectBuff(debuff);
     }
 }

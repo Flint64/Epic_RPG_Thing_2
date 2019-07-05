@@ -1,30 +1,23 @@
 package chimera.epic_rpg_thing.model;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Monster extends Creature {
-    int currentHP;
     int XPvalue;
     int goldValue;
-    ArrayList<BaseSkill> baseSkills;
+    int level;
     boolean canRun;
-    boolean isAlive;
 
-    public Monster(){
-        super(0, 0,0,null, 0, 0,  0, 0,0,0,null, null);
-    }
-    public Monster(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, int strength, int mana, int dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weakness) {
-        super(baseHp, baseMana, attack, baseSkills, strength, mana, dexterity, evasion, hpMulti, manaMulti, name, weakness);
+    public Monster() {
+        super(0, 0, 0, null, 0, 0, 0, 0, 0, 0, null, null);
+        initializeLevel();
     }
 
-    @Override
-    public int getCurrentHP() {
-        return currentHP;
-    }
-
-    @Override
-    public void setCurrentHP(int currentHP) {
-        this.currentHP = currentHP;
+    public Monster(int baseHp, double baseMana, double attack, List<BaseSkill> currentSkills, int strength, int mana, int dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weakness, int XPvalue, int goldValue, boolean canRun) {
+        super(baseHp, baseMana, attack, currentSkills, strength, mana, dexterity, evasion, hpMulti, manaMulti, name, weakness);
+        initializeLevel();
+        setXPvalue(XPvalue);
+        setGoldValue(goldValue);
+        setCanRun(canRun);
     }
 
     public int getXPvalue() {
@@ -43,14 +36,6 @@ public class Monster extends Creature {
         this.goldValue = goldValue;
     }
 
-    public ArrayList<BaseSkill> getBaseSkills() {
-        return baseSkills;
-    }
-
-    public void setBaseSkills(ArrayList<BaseSkill> baseSkills) {
-        this.baseSkills = baseSkills;
-    }
-
     public boolean isCanRun() {
         return canRun;
     }
@@ -60,10 +45,22 @@ public class Monster extends Creature {
     }
 
     public boolean isAlive() {
-        return isAlive;
+        return getCurrentHP() > 0;
     }
 
-    public void setAlive(boolean alive) {
-        isAlive = alive;
+
+    /**
+     * Returns the monsters level created from the algorithm.
+     * @return
+     */
+    public int getLevel() {
+        return level;
+    }
+
+    /**
+     * Level shouldn't be changed after initialization
+     */
+    public void initializeLevel() {
+        level = ((int) getMaxHP() / 10) + ((int) getMaxMana() / 10) + getCurrentSkills().size();
     }
 }

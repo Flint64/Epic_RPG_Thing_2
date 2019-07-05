@@ -21,7 +21,7 @@ public abstract class Creature {
     // Base attack
     private double attack;
     // List for baseSkills
-    private List<BaseSkill> baseSkills;
+    private List<BaseSkill> currentSkills;
     // Amount of damage you can absorb.
     private double defense;
     // Evasion: Chance to dodge an attack
@@ -53,11 +53,11 @@ public abstract class Creature {
      * @param name
      * @param weaknesses
      */
-    public Creature(int baseHp, double baseMana, double attack, List<BaseSkill> baseSkills, int strength, int intelligence, int dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weaknesses){
+    public Creature(int baseHp, double baseMana, double attack, List<BaseSkill> currentSkills, int strength, int intelligence, int dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weaknesses){
         this.baseHp = baseHp;
         this.baseMana = baseMana;
         this.attack = attack;
-        this.baseSkills = baseSkills;
+        this.currentSkills = currentSkills;
         this.strength = strength;
         this.intelligence = intelligence;
         this.dexterity = dexterity;
@@ -186,7 +186,7 @@ public abstract class Creature {
     }
 
     /**
-     * Effect hp
+     * Effect's the creaturs hp
      */
     public void effectHp(int amount, ElementalEffect effect){
         if(weakeness.contains(effect)){
@@ -196,17 +196,27 @@ public abstract class Creature {
         }
     }
 
-    public void effectBuff(Benefit buff, boolean positive){
-        if(positive){
-            totalBenefit.addBenefit(buff);
-            listBenefits.add(buff);
-        }else {
-            totalBenefit.removeBenefit(buff);
-        }
+    /**
+     * applies a benefit to the character
+     * @param buff
+     */
+    public void effectBuff(Benefit buff){
+        totalBenefit.addBenefit(buff);
+        listBenefits.add(buff);
     }
+
+    /**
+     * Gets the total benefit
+     * @return
+     */
     public Benefit getTotalBenefit(){
         return totalBenefit;
     }
+
+    /**
+     * Sets the total benefit
+     * @param benefit
+     */
     public void setTotalBenefit(Benefit benefit){
         totalBenefit = benefit;
     }
@@ -276,6 +286,62 @@ public abstract class Creature {
      */
     public void setName(String name){this.name = name;}
 
+    public int getHpMulti() {
+        return hpMulti;
+    }
+
+    public void setHpMulti(int hpMulti) {
+        this.hpMulti = hpMulti;
+    }
+
+    public double getManaMulti() {
+        return manaMulti;
+    }
+
+    public void setManaMulti(double manaMulti) {
+        this.manaMulti = manaMulti;
+    }
+
+    /**
+     * Returns the skills of the creature
+     * @return
+     */
+    public List<BaseSkill> getCurrentSkills() {
+        return currentSkills;
+    }
+
+    /**
+     * Sets the skills of the creature
+     * @param currentSkills
+     */
+    public void setCurrentSkills(List<BaseSkill> currentSkills) {
+        this.currentSkills = currentSkills;
+    }
+
+    public void addCurrentSkill(BaseSkill skill){
+        this.currentSkills.add(skill);
+    }
+
+    public void removeCurrentSkill(BaseSkill skill){
+        this.currentSkills.remove(skill);
+    }
+
+    public double getDefense() {
+        return defense;
+    }
+
+    public void setDefense(double defense) {
+        this.defense = defense;
+    }
+
+    public double getEvasion() {
+        return evasion;
+    }
+
+    public void setEvasion(double evasion) {
+        this.evasion = evasion;
+    }
+
     /**
      * Returns the list of Elemental Effects the creature is weak too.
      * @return
@@ -305,8 +371,6 @@ public abstract class Creature {
      * @param weakeness
      */
     public void removeWeakness(ElementalEffect weakeness){
-        if(this.weakeness.contains(weakeness)){
-            this.weakeness.remove(weakeness);
-        }
+        this.weakeness.remove(weakeness);
     }
 }

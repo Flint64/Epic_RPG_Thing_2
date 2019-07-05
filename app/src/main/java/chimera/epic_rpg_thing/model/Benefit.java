@@ -11,7 +11,8 @@ public class Benefit {
     private int attackBonus;
     private BaseSkill baseSkill;
     private boolean expired;
-    private boolean continuos;
+    private boolean continuous;
+    private boolean isBuff;
     private int turns;
 
     /**
@@ -38,7 +39,7 @@ public class Benefit {
      * @param attackBonus
      * @param baseSkill
      */
-    public Benefit(int strengthBonus, int intelligenceBonus, int dexterityBonus, int baseHealthBonus, int baseManaBonus, int currentHealthBonus, int currentManaBonus, int attackBonus, BaseSkill baseSkill, int turns, boolean continuos){
+    public Benefit(int strengthBonus, int intelligenceBonus, int dexterityBonus, int baseHealthBonus, int baseManaBonus, int currentHealthBonus, int currentManaBonus, int attackBonus, BaseSkill baseSkill, int turns, boolean continuous, boolean isBuff){
         this.strengthBonus = strengthBonus;
         this.intelligenceBonus = intelligenceBonus;
         this.dexterityBonus = dexterityBonus;
@@ -49,34 +50,76 @@ public class Benefit {
         this.attackBonus = attackBonus;
         this.baseSkill = baseSkill;
         this.turns = turns;
-        this.continuos = continuos;
+        this.continuous = continuous;
+        this.isBuff = isBuff;
+    }
+
+    public int getCurrentManaBonus() {
+        return currentManaBonus;
+    }
+
+    public void setCurrentManaBonus(int currentManaBonus) {
+        this.currentManaBonus = currentManaBonus;
+    }
+
+    public int getCurrentHealthBonus() {
+        return currentHealthBonus;
+    }
+
+    public void setCurrentHealthBonus(int currentHealthBonus) {
+        this.currentHealthBonus = currentHealthBonus;
+    }
+
+    public void setExpired(boolean expired) {
+        this.expired = expired;
+    }
+
+    public boolean isBuff() {
+        return isBuff;
+    }
+
+    public void setBuff(boolean buff) {
+        isBuff = buff;
+    }
+
+    public int getTurns() {
+        return turns;
+    }
+
+    public void setTurns(int turns) {
+        this.turns = turns;
+    }
+
+    public boolean isContinuous() {
+        return continuous;
+    }
+
+    public void setContinuous(boolean continuous) {
+        this.continuous = continuous;
     }
 
     /**
-     * Adds the input benefit with the current benefit
+     * Checks if the input benefit is a buff or not and adds or removes based on that.
      * @param ben
      */
     public void addBenefit(Benefit ben){
-        this.baseManaBonus += ben.getBaseManaBonus();
-        this.baseHealthBonus += ben.getBaseHealthBonus();
-        this.strengthBonus += ben.getStrengthBonus();
-        this.intelligenceBonus += ben.getIntelligenceBonus();
-        this.dexterityBonus += ben.getDexterityBonus();
-        this.attackBonus += ben.getAttackBonus();
+        if(ben.isBuff()){
+            this.baseManaBonus += ben.getBaseManaBonus();
+            this.baseHealthBonus += ben.getBaseHealthBonus();
+            this.strengthBonus += ben.getStrengthBonus();
+            this.intelligenceBonus += ben.getIntelligenceBonus();
+            this.dexterityBonus += ben.getDexterityBonus();
+            this.attackBonus += ben.getAttackBonus();
+        } else {
+            this.baseManaBonus -= ben.getBaseManaBonus();
+            this.baseHealthBonus -= ben.getBaseHealthBonus();
+            this.strengthBonus -= ben.getStrengthBonus();
+            this.intelligenceBonus -= ben.getIntelligenceBonus();
+            this.dexterityBonus -= ben.getDexterityBonus();
+            this.attackBonus -= ben.getAttackBonus();
+        }
     }
 
-    /**
-     * Subtracts the current value with a value that was passed in.
-     * @param ben
-     */
-    public void removeBenefit(Benefit ben){
-        this.baseManaBonus -= ben.getBaseManaBonus();
-        this.baseHealthBonus -= ben.getBaseHealthBonus();
-        this.strengthBonus -= ben.getStrengthBonus();
-        this.intelligenceBonus -= ben.getIntelligenceBonus();
-        this.dexterityBonus -= ben.getDexterityBonus();
-        this.attackBonus -= ben.getAttackBonus();
-    }
     /**
      * returns the strength bonus
      * @return strengthBonus
@@ -192,7 +235,7 @@ public class Benefit {
     }
 
     public void endOfTurn(){
-        if(continuos){
+        if(continuous){
             return;
         }else if(turns > 0){
             turns--;
