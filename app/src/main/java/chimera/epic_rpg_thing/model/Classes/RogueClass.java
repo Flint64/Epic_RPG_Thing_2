@@ -22,6 +22,6 @@ public class RogueClass extends CharacterClass {
      */
     private void initializeSkills(){
         classSkills.put("StabbyStab1", SingleSkillFactory.create(SingleType.DAMAGE, 0, 6, 10, null, new ElementalEffect(ElementalType.PHYSICAL,  1), "Stabby stab"));
-        classSkills.put("DarkSlash1", SingleSkillFactory.create(SingleType.DAMAGE_DEBUFF, 0, 3, 4, new Benefit(0,0,0,0,0, 0,0,-2, new SingleBuff(),2, false, false), new ElementalEffect(ElementalType.SHADOW, 1), "From the shadows the rogue strikes"));
+        classSkills.put("DarkSlash1", SingleSkillFactory.create(SingleType.DAMAGE_DEBUFF, 0, 3, 4, new Benefit(0,0,0,0,0, 0,0,2, null,2, false, false), new ElementalEffect(ElementalType.SHADOW, 1), "From the shadows the rogue strikes"));
     }
 }
