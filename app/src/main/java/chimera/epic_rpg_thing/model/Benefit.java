@@ -97,7 +97,18 @@ public class Benefit {
     public void setContinuous(boolean continuous) {
         this.continuous = continuous;
     }
-
+    public Benefit inverse(){
+        if(isBuff){
+            this.baseHealthBonus = -baseHealthBonus;
+            this.baseManaBonus = -baseManaBonus;
+            this.strengthBonus = -strengthBonus;
+            this.intelligenceBonus = -intelligenceBonus;
+            this.dexterityBonus = -dexterityBonus;
+            this.attackBonus = -attackBonus;
+        }
+        this.isBuff = true;
+        return this;
+    }
     /**
      * Checks if the input benefit is a buff or not and adds or removes based on that.
      * @param ben

@@ -43,7 +43,7 @@ public abstract class Creature {
      * @param baseHp
      * @param baseMana
      * @param attack
-     * @param baseSkills
+     * @param currentSkills
      * @param strength
      * @param intelligence
      * @param dexterity
@@ -220,11 +220,17 @@ public abstract class Creature {
     public void setTotalBenefit(Benefit benefit){
         totalBenefit = benefit;
     }
+    public void removeBenefitFromTotal(Benefit benefit){
+        totalBenefit.addBenefit(benefit.inverse());
+    }
     public List<Benefit> getListBenefits(){
         return listBenefits;
     }
     public void setListBenefits(List<Benefit> listBenefits){
         this.listBenefits = listBenefits;
+    }
+    public void removeBenefitFromList(Benefit ben){
+        this.listBenefits.remove(ben);
     }
     /**
      * Getter for the Strength stat.

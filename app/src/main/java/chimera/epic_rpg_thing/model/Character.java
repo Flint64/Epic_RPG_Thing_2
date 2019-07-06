@@ -61,7 +61,8 @@ public class Character extends Creature{
     public void endTurn(){
         for(Benefit ben : getListBenefits()){
             if(ben.isExpired()){
-                ben.removeBenefit(ben);
+                removeBenefitFromList(ben);
+                removeBenefitFromTotal(ben);
             }
             else {
                 ben.endOfTurn();
