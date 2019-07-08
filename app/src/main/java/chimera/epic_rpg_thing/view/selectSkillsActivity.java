@@ -324,40 +324,42 @@ public class selectSkillsActivity extends AppCompatActivity{
     // the list of all of your saved characters where you can select one
     public void createCharacter(View view){
 
-        Intent i = new Intent(this, selectSkillsActivity.class);
+        Intent i = new Intent(this, storyActivity.class); //TODO: This should take you to the character select list instead, but for testing, goes straight to story
 
-        final CheckBox fireCheck = findViewById(R.id.fireCheck);
-        final CheckBox earthCheck = findViewById(R.id.earthCheck);
-        final CheckBox iceCheck = findViewById(R.id.iceCheck);
-        final CheckBox lightningCheck = findViewById(R.id.lightningCheck);
+//        final CheckBox fireCheck = findViewById(R.id.fireCheck);
+//        final CheckBox earthCheck = findViewById(R.id.earthCheck);
+//        final CheckBox iceCheck = findViewById(R.id.iceCheck);
+//        final CheckBox lightningCheck = findViewById(R.id.lightningCheck);
 
-        ElementalType elementEarth = ElementalType.EARTH;
-        ElementalType elementFire = ElementalType.FIRE;
-        ElementalType elementIce = ElementalType.ICE;
-        ElementalType elementLightning = ElementalType.LIGHTNING;
+//        ElementalType elementEarth = ElementalType.EARTH;
+//        ElementalType elementFire = ElementalType.FIRE;
+//        ElementalType elementIce = ElementalType.ICE;
+//        ElementalType elementLightning = ElementalType.LIGHTNING;
 
-        ElementalType element_1 = null;
-        ElementalType element_2 = null;
+//        ElementalType element_1 = null;
+//        ElementalType element_2 = null;
 
         //TODO: Figure out how to pass in these elements without any null ones
 
-        if (fireCheck.isChecked()){ i.putExtra("element_fire", elementFire); }
-        if (earthCheck.isChecked()){ i.putExtra("element_earth", elementEarth); }
-        if (iceCheck.isChecked()){ i.putExtra("element_ice", elementIce); }
-        if (lightningCheck.isChecked()){ i.putExtra("element_lightning", elementLightning); }
+//        if (fireCheck.isChecked()){ i.putExtra("element_fire", elementFire); }
+//        if (earthCheck.isChecked()){ i.putExtra("element_earth", elementEarth); }
+//        if (iceCheck.isChecked()){ i.putExtra("element_ice", elementIce); }
+//        if (lightningCheck.isChecked()){ i.putExtra("element_lightning", elementLightning); }
 
-        i.putExtra("class", choice);
-        i.putExtra("name", name);
-        i.putExtra("intelligence", finalIntelligence);
-        i.putExtra("dexterity", finalDexterity);
-        i.putExtra("strength", finalStrength);
-        i.putExtra("health", finalHealth);
-        i.putExtra("mana", finalMana);
-        i.putExtra("evasion", finalEvasion);
-        i.putExtra("damage", finalDamage);
+//        i.putExtra("class", choice);
+//        i.putExtra("name", name);
+//        i.putExtra("intelligence", finalIntelligence);
+//        i.putExtra("dexterity", finalDexterity);
+//        i.putExtra("strength", finalStrength);
+//        i.putExtra("health", finalHealth);
+//        i.putExtra("mana", finalMana);
+//        i.putExtra("evasion", finalEvasion);
+//        i.putExtra("damage", finalDamage);
 
 
-        presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
+//        presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
+
+        startActivity(i);
     }
 
     public String getChoice() {

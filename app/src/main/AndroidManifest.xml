@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.storyActivity"></activity>
+        <activity android:name=".view.storyActivity"
+            android:screenOrientation="sensorLandscape"></activity>
         <activity
             android:name=".view.selectSkillsActivity"
             android:screenOrientation="sensorLandscape"></activity>
