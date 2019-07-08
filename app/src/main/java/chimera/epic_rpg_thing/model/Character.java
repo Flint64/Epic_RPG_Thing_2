@@ -1,5 +1,6 @@
 package chimera.epic_rpg_thing.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import chimera.epic_rpg_thing.model.Classes.CharacterClass;
@@ -16,7 +17,7 @@ public class Character extends Creature{
 
 
     public Character() {
-        super(0, 0, 0, null, (short) 0, (short) 0, (short) 0, 0, 0, 0, null, null);
+        super(0, 0, 0, null,  0,  0,  0, 0, 0, 0, "BOB", new ArrayList<ElementalEffect>());
         inventory = null;
         level = 0;
         XP = 0;
@@ -30,7 +31,7 @@ public class Character extends Creature{
      * @param name
      * @param cClass
      */
-    public Character(int baseHp, double mana, double attack, List<BaseSkill> currentBaseSkills, short strength, short intelligence, short dexterity, double evasion, String name, CharacterClass cClass) {
+    public Character(int baseHp, double mana, double attack, List<BaseSkill> currentBaseSkills, int strength, int intelligence, int dexterity, double evasion, String name, CharacterClass cClass) {
         super(baseHp, mana, attack, currentBaseSkills, strength, intelligence, dexterity, evasion, cClass.getClassMod("hpMulti"), cClass.getClassMod("manaMulti"), name, cClass.getWeaknesses());
         inventory = new CharacterInventory(baseSlots + strength * baseSlotMod, 0);
         level = 0;
@@ -50,21 +51,18 @@ public class Character extends Creature{
     public void combatEnd(){
         setTotalBenefit(new Benefit());
         setListBenefits(null);
-        currentHP = maxHP;
-        currentMana = maxMana;
+        setCurrentHP(getMaxHP());
+        setCurrentMana(getMaxMana());
     }
     public void generateBenefit(){
         setTotalBenefit(inventory.getEquippedBenefit());
         setListBenefits(inventory.getAllEquippedBenefits());
     }
-    @Override
-    public void generateDefense() {
-        defense = 10 + strength * cClass.getClassMod("defense");
-    }
     public void endTurn(){
         for(Benefit ben : getListBenefits()){
             if(ben.isExpired()){
-                ben.removeBenefit(ben);
+                removeBenefitFromList(ben);
+                removeBenefitFromTotal(ben);
             }
             else {
                 ben.endOfTurn();

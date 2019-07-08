@@ -2,9 +2,6 @@ package chimera.epic_rpg_thing.model.Items;
 
 import chimera.epic_rpg_thing.model.Benefit;
 import chimera.epic_rpg_thing.model.ElementalEffect;
-import chimera.epic_rpg_thing.model.Items.Item;
-import chimera.epic_rpg_thing.model.Items.ItemType;
-import chimera.epic_rpg_thing.model.Type;
 
 public class Consumable implements Item {
     private String name;
@@ -121,6 +118,16 @@ public class Consumable implements Item {
     @Override
     public void setBenefit(Benefit benefit) {
         this.benefit = benefit;
+    }
+
+    public Consumable(){
+        this.name = "DEFAULT";
+        this.value = 0;
+        this.itemType = ItemType.CONSUMABLE;
+        this.equippable = false;
+        this.equipped = false;
+        this.benefit = new Benefit();
+        this.effect = new ElementalEffect();
     }
 
     public Consumable(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){

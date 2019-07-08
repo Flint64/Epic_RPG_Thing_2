@@ -2,7 +2,6 @@ package chimera.epic_rpg_thing.model.Items;
 
 import chimera.epic_rpg_thing.model.Benefit;
 import chimera.epic_rpg_thing.model.ElementalEffect;
-import chimera.epic_rpg_thing.model.Type;
 
 public class Quest_Item implements Item {
     private String name;
@@ -87,6 +86,17 @@ public class Quest_Item implements Item {
     @Override
     public void setBenefit(Benefit benefit) {
         this.benefit = benefit;
+    }
+
+    public Quest_Item(){
+        this.name = "DEFAULT";
+        this.value = 0;
+        this.slots = 0;
+        this.itemType = ItemType.QUEST_ITEM;
+        this.equippable = false;
+        this.equipped = false;
+        this.benefit = new Benefit();
+        this.effect = new ElementalEffect();
     }
 
     public Quest_Item(String name, int value, int slots, ItemType itemType, boolean equippable, boolean equipped, Benefit benefit, ElementalEffect effect){

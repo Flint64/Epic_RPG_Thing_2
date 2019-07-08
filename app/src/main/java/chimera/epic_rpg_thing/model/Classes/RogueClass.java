@@ -13,7 +13,7 @@ public class RogueClass extends CharacterClass {
         this.setName("Rogue");
         this.addClassMod("hpMulti", 4);
         this.addClassMod("manaMulti", 6);
-        this.addWeaknesses(new ElementalEffect(ElementalType.FIRE, (short)1));
+        this.addWeaknesses(new ElementalEffect(ElementalType.FIRE, 1));
         initializeSkills();
     }
 
@@ -21,7 +21,7 @@ public class RogueClass extends CharacterClass {
      * Initializes the skills of the Rogue Class
      */
     private void initializeSkills(){
-        classSkills.put("StabbyStab1", SingleSkillFactory.create(SingleType.DAMAGE, 0, 6, 10, null, new ElementalEffect(ElementalType.PHYSICAL, (short) 1), "Stabby stab"));
-        classSkills.put("DarkSlash1", SingleSkillFactory.create(SingleType.DAMAGE_DEBUFF, 0, 3, 4, new Benefit((short)0,(short)0,(short)0,0,0, 0,0,-2, new SingleBuff(),2, false), new ElementalEffect(ElementalType.SHADOW, (short)1), "From the shadows the rogue strikes"));
+        classSkills.put("StabbyStab1", SingleSkillFactory.create(SingleType.DAMAGE, 0, 6, 10, null, new ElementalEffect(ElementalType.PHYSICAL,  1), "Stabby stab"));
+        classSkills.put("DarkSlash1", SingleSkillFactory.create(SingleType.DAMAGE_DEBUFF, 0, 3, 4, new Benefit(0,0,0,0,0, 0,0,2, null,2, false, false), new ElementalEffect(ElementalType.SHADOW, 1), "From the shadows the rogue strikes"));
     }
 }

@@ -3,7 +3,6 @@ package chimera.epic_rpg_thing.model.Items;
 import androidx.annotation.Nullable;
 
 import chimera.epic_rpg_thing.model.Benefit;
-import chimera.epic_rpg_thing.model.Type;
 
 /**
  * The class for Armor pieces
@@ -17,6 +16,15 @@ public class Armor implements Item {
     boolean equipped;
     Benefit benefit;
 
+    public Armor(){
+        this.name = "DEFAULT";
+        this.value = 0;
+        this.slots = 0;
+        this.armorType = ArmorType.DEFAULT;
+        this.equippable = false;
+        this.equipped = false;
+        this.benefit = new Benefit();
+    }
     /**
      * Creates armor
      * @param name

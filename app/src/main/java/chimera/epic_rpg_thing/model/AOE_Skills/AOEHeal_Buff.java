@@ -63,7 +63,7 @@ public class AOEHeal_Buff extends AOEBaseSkill {
     @Override
     public void effectTargets() {
         for(Creature c : getTargets()){
-            c.effectBuff(buff, true);
+            c.effectBuff(buff);
             c.effectHp(healAmount, getElementalEffect());
         }
     }

@@ -23,17 +23,50 @@ public class CharacterInventory extends Inventory {
     private Weapon lWeapon;
     private boolean twoHanded;
 
-    CharacterInventory(int capacity, int currentSlots) {
+    public CharacterInventory(int capacity, int currentSlots) {
         super(capacity, currentSlots);
     }
+
+    /**
+     * Generates what items should be equipped on the character
+     */
     public void generateEquipped(){
         for(Map.Entry<String, Item> item : getMap().entrySet()){
-            if(item.getValue() instanceof Armor){
-
+            item.getValue().setEquipped(false);
+            if(item.getValue().isArmor()){
+                if(item.getValue().equals(lBoot)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(rBoot)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(legs)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(chest)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(head)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(lHand)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(rHand)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(accessory))
+                    item.getValue().setEquipped(true);
+            } else {
+                if(item.getValue().equals(rWeapon)){
+                    item.getValue().setEquipped(true);
+                } else if(item.getValue().equals(lWeapon)){
+                    item.getValue().setEquipped(true);
+                }
             }
+
         }
     }
+
+    /**
+     * Returns the total benefits from the equipped items.
+     * @return
+     */
     public Benefit getEquippedBenefit(){
+        generateEquipped();
         Benefit ben = new Benefit();
         for(HashMap.Entry<String, Item> e : items.entrySet()){
             if(e.getValue().getEquipped()){
@@ -42,6 +75,11 @@ public class CharacterInventory extends Inventory {
         }
         return ben;
     }
+
+    /**
+     *
+     * @return
+     */
     public ArrayList<Benefit> getAllEquippedBenefits() {
         ArrayList<Benefit> ben = new ArrayList<>();
         for(HashMap.Entry<String, Item> e : items.entrySet()){

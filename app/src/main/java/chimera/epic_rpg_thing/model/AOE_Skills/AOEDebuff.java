@@ -14,7 +14,7 @@ public class AOEDebuff extends AOEBaseSkill {
     @Override
     public void effectTargets() {
         for(Creature c : getTargets()){
-            c.effectBuff(debuff, false);
+            c.effectBuff(debuff);
         }
     }
 

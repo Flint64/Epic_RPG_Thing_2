@@ -22,7 +22,15 @@ public class SingleDamage extends SingleBaseSkill {
         this.damageAmount = damageAmount;
     }
 
-    SingleDamage(int hpCost, int manaCost, int damageAmount, ElementalEffect effect, String description){
+    public SingleDamage(){
+        setHpCost(0);
+        setManaCost(0);
+        setDamageAmount(0);
+        setElementalEffect(new ElementalEffect());
+        setDescription("DEFAULT");
+    }
+
+    public SingleDamage(int hpCost, int manaCost, int damageAmount, ElementalEffect effect, String description){
         setHpCost(hpCost);
         setManaCost(manaCost);
         setDamageAmount(damageAmount);

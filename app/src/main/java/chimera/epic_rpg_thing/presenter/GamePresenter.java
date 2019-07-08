@@ -6,7 +6,7 @@ import chimera.epic_rpg_thing.model.User;
 
 public class GamePresenter {
     User user;
-    Monster monster;
+    Monster monster[] = new Monster[4];
     Story story;
 
     public User getUser(){

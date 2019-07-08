@@ -10,7 +10,7 @@ public class WizardClass extends CharacterClass {
         this.setName("Wizard");
         this.addClassMod("hpMulti", 2);
         this.addClassMod("manaMulti", 10);
-        this.addWeaknesses(new ElementalEffect(ElementalType.PHYSICAL, (short)1));
+        this.addWeaknesses(new ElementalEffect(ElementalType.PHYSICAL, 1));
         initializeSkills();
     }
 

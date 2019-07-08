@@ -324,7 +324,7 @@ public class selectSkillsActivity extends AppCompatActivity{
     // the list of all of your saved characters where you can select one
     public void createCharacter(View view){
 
-        Intent i = new Intent(this, storyActivity.class); //TODO: This should take you to the character select list instead, but for testing, goes straight to story
+        Intent i = new Intent(this, combatActivity.class); //TODO: This should take you to the character select list instead, but for testing, goes straight to story
 
 //        final CheckBox fireCheck = findViewById(R.id.fireCheck);
 //        final CheckBox earthCheck = findViewById(R.id.earthCheck);

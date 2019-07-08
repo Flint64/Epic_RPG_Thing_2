@@ -1,7 +1,6 @@
 package chimera.epic_rpg_thing.model.Items;
 
 import chimera.epic_rpg_thing.model.Benefit;
-import chimera.epic_rpg_thing.model.Type;
 
 public interface Item {
     /**

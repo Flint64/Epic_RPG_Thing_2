@@ -2,7 +2,7 @@ package chimera.epic_rpg_thing.model;
 
 public class ElementalEffect {
     ElementalType type;
-    short level;
+    int level;
 
     public ElementalEffect(){
         this.type = ElementalType.PHYSICAL;
@@ -13,7 +13,7 @@ public class ElementalEffect {
      * @param type
      * @param level
      */
-    public ElementalEffect(ElementalType type, short level){
+    public ElementalEffect(ElementalType type, int level){
         this.type = type;
         this.level = level;
     }
@@ -26,11 +26,11 @@ public class ElementalEffect {
         this.type = type;
     }
 
-    public short getLevel() {
+    public int getLevel() {
         return level;
     }
 
-    public void setLevel(short level) {
+    public void setLevel(int level) {
         this.level = level;
     }
 }

@@ -25,11 +25,20 @@ public class SingleHeal_Buff extends SingleBaseSkill {
 
     @Override
     public void effectTargets() {
-        getTarget().effectBuff(buff, true);
+        getTarget().effectBuff(buff);
         getTarget().effectHp(healAmount, getElementalEffect());
     }
 
-    SingleHeal_Buff(int hpCost, int manaCost, int healAmount, Benefit buff, ElementalEffect effect, String description){
+    public SingleHeal_Buff(){
+        setHpCost(0);
+        setManaCost(0);
+        setHealAmount(0);
+        setBuff(new Benefit());
+        setElementalEffect(new ElementalEffect());
+        setDescription("DEFAULT");
+    }
+
+    public SingleHeal_Buff(int hpCost, int manaCost, int healAmount, Benefit buff, ElementalEffect effect, String description){
         setHpCost(hpCost);
         setManaCost(manaCost);
         setHealAmount(healAmount);
