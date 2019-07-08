@@ -14,7 +14,9 @@ public class Character extends Creature{
     private int baseSlots = 20;
     private int baseSlotMod = 5;
 
-
+    public String infoString(){
+        return getName() + " " + getClass() + " " + level;
+    }
 
     public Character() {
         super(0, 0, 0, null,  0,  0,  0, 0, 0, 0, "BOB", new ArrayList<ElementalEffect>());
