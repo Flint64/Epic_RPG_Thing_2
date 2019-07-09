@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="chimera.epic_rpg_thing">
 
     <application
@@ -8,18 +9,24 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name="chimera.epic_rpg_thing.view.selectSkillsActivity"
-            android:screenOrientation="sensorLandscape">
-        </activity>
-        <activity
-            android:name="chimera.epic_rpg_thing.view.newCharacterActivity"
+        android:theme="@style/AppTheme"
+        tools:ignore="GoogleAppIndexingWarning">
+        <activity android:name=".view.combatActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
-            android:name="chimera.epic_rpg_thing.view.newGameActivity"
-            android:screenOrientation="sensorLandscape"></activity>
+            android:name=".view.storyActivity"
+            android:screenOrientation="sensorLandscape" />
         <activity
-            android:name="chimera.epic_rpg_thing.view.MainActivity"
+            android:name=".view.selectSkillsActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".view.newCharacterActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".view.newGameActivity"
+            android:screenOrientation="sensorLandscape" />
+        <activity
+            android:name=".view.MainActivity"
             android:screenOrientation="sensorLandscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

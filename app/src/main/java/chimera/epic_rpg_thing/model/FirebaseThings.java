@@ -18,7 +18,6 @@ import chimera.epic_rpg_thing.model.Classes.WarriorClass;
 public class FirebaseThings {
     FirebaseDatabase database;
     DatabaseReference myRef;
-    List<Character> gameCharacters = new ArrayList<Character>();
 
     public FirebaseThings() {
         //Setting up the database references so that we can read/write to Firebase
@@ -39,7 +38,6 @@ public class FirebaseThings {
      * a list of characters.
      */
     public void readCharacter() {
-        setMyRef("characters");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -50,9 +48,9 @@ public class FirebaseThings {
                 }
 
                 for(Character character : characters){
-                    System.out.println(character.infoString());
+                    System.out.println(character.toString());
+
                 }
-                gameCharacters = characters;
             }
 
             @Override
@@ -62,9 +60,6 @@ public class FirebaseThings {
         });
     }
 
-    /**
-     * This reads all the monsters that are on the Firebase database
-     */
     public void readMonster(){
         setMyRef("monster");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -90,24 +85,19 @@ public class FirebaseThings {
     }
     /**
      * A simple one-liner to write a character to the Firebase database
-     **/
+     *
+     */
     //public void writeCharacter(Character character){
-    public void writeCharacter(Character character){
-        myRef.child(character.getName()).setValue(character);
-    }
+    public void writeCharacter(){
+        WarriorClass warrior = new WarriorClass();
+        Character character = new Character(100, 100, (short)22, null, (short)20, (short)15, (short)23, 3.35, "Jim", warrior);
 
-    public void updateCharacterStatus(Character character,String idString,int value){
-        myRef.child(character.getName()).child(idString).setValue(value);
-    }
-
-    public void updateMonsterStatus(Monster monster,String idString,int value){
-        setMyRef("monster");
-        myRef.child(monster.getName()).child(idString).setValue(value);
+       myRef.child(character.getName()).setValue(character);
     }
 
     public void writeMonster(){
-        setMyRef("monster");
-        Monster monster = new Monster(50,15.25, 15, null,35,10,20,28,2,1,"Goblin", null,20,10,true);
-        myRef.child(monster.getName()).setValue(monster);
+//        setMyRef("monster");
+//        Monster monster = new Monster(50,15.25, 15, null,35,10,20,28,2,1,"Goblin", null);
+//        myRef.child(monster.getName()).setValue(monster);
     }
 }

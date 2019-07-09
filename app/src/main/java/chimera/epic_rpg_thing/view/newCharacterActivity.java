@@ -20,6 +20,8 @@ import chimera.epic_rpg_thing.R;
 @SuppressWarnings("DanglingJavadoc")
 public class newCharacterActivity extends AppCompatActivity {
 
+    //TODO: Fix the evasion and mana not being updated when int and dex are changed
+
     private String choice;
     private String name;
     private short finalIntelligence;
