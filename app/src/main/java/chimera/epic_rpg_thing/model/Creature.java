@@ -67,6 +67,7 @@ public abstract class Creature {
         this.evasion = evasion;
         this.maxHP = this.baseHp + this.strength * this.hpMulti;
         this.maxMana = this.baseMana + this.intelligence * this.manaMulti;
+        this.defense = this.strength * 5;
         this.name = name;
         this.weakeness = weaknesses;
         listBenefits = new ArrayList<Benefit>();
