@@ -17,11 +17,14 @@ public class RogueClass extends CharacterClass {
         initializeSkills();
     }
 
+
     /**
      * Initializes the skills of the Rogue Class
      */
     private void initializeSkills(){
-        classSkills.put("StabbyStab1", SingleSkillFactory.create(SingleType.DAMAGE, 0, 6, 10, null, new ElementalEffect(ElementalType.PHYSICAL,  1), "Stabby stab"));
-        classSkills.put("DarkSlash1", SingleSkillFactory.create(SingleType.DAMAGE_DEBUFF, 0, 3, 4, new Benefit(0,0,0,0,0, 0,0,2, null,2, false, false), new ElementalEffect(ElementalType.SHADOW, 1), "From the shadows the rogue strikes"));
+        classSkills.put("StabbyStab", SingleSkillFactory.create(SingleType.DAMAGE, 0, 6, 10, new Benefit(), new ElementalEffect(ElementalType.PHYSICAL,  1), "Sneak strike - Stabby stab"));
+        classSkills.put("DarkSlash", SingleSkillFactory.create(SingleType.DAMAGE_DEBUFF, 0, 3, 4, new Benefit(0,0,0,0,0, 0,0,0,10,2, false, false), new ElementalEffect(ElementalType.SHADOW, 1), "Shadow Strike - From the shadows the rogue strikes"));
+        classSkills.put("RoguishStealth", SingleSkillFactory.create(SingleType.BUFF, 0, 5, 0, new Benefit(0,0,2, 0, 0, 0,10, 5, 10, 0, true, true), new ElementalEffect(ElementalType.SHADOW, 1), "Cloak of Shadows - The Rogue shrowds himself in shadow"));
+        classSkills.put("PoisonVial", SingleSkillFactory.create(SingleType.DEBUFF, 0, 10, 0, new Benefit(0,0,0,0,0,10,0,0,0,3,false, false), new ElementalEffect(ElementalType.POISON, 1), "Poison Vial - The Rogue throws a poison vial at his enemies drowning them in misery"));
     }
 }

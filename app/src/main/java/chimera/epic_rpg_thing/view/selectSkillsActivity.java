@@ -13,8 +13,15 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.lang.annotation.ElementType;
+import java.util.ArrayList;
 
 import chimera.epic_rpg_thing.R;
+import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.Classes.CharacterClass;
+import chimera.epic_rpg_thing.model.Classes.ClericClass;
+import chimera.epic_rpg_thing.model.Classes.MageClass;
+import chimera.epic_rpg_thing.model.Classes.RogueClass;
+import chimera.epic_rpg_thing.model.Classes.WarriorClass;
 import chimera.epic_rpg_thing.model.ElementalType;
 import chimera.epic_rpg_thing.presenter.CharacterPresenter;
 
@@ -30,15 +37,15 @@ public class selectSkillsActivity extends AppCompatActivity{
 
     private String choice;
     private String name;
-    private short finalIntelligence;
-    private short finalDexterity;
-    private short finalStrength;
+    private int finalIntelligence;
+    private int finalDexterity;
+    private int finalStrength;
     private int finalHealth;
     private double finalDamage;
     private double finalMana;
     private double finalEvasion;
-
-
+    private CharacterClass characterClass;
+    private ArrayList<BaseSkill> currentSkills = new ArrayList<>();
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,9 +59,9 @@ public class selectSkillsActivity extends AppCompatActivity{
         Log.d("debug", getChoice());
 
         name = getIntent().getStringExtra("name");
-        finalIntelligence = getIntent().getShortExtra("intelligence", (short) 0);
-        finalDexterity = getIntent().getShortExtra("dexterity", (short) 0);
-        finalStrength = getIntent().getShortExtra("strength", (short) 0);
+        finalIntelligence = getIntent().getIntExtra("intelligence", (int) 0);
+        finalDexterity = getIntent().getIntExtra("dexterity", (int) 0);
+        finalStrength = getIntent().getIntExtra("strength", (int) 0);
         finalHealth = getIntent().getIntExtra("health", (int) 0);
         finalMana = getIntent().getDoubleExtra("mana", (double) 0);
         finalDamage = getIntent().getDoubleExtra("damage", (double) 0);
@@ -163,31 +170,35 @@ public class selectSkillsActivity extends AppCompatActivity{
 
         switch (choice){
             case "Cleric":
-                skill_1_label.setText("Heal - Heals single party member");
-                skill_2_label.setText("Divine Light - Single target holy damage");
-                skill_3_label.setText("Power Bash - Chance to stun enemy");
-                skill_4_label.setText("Imbue Weapon - Add holy damage to target's weapon");
+                characterClass = new ClericClass();
+                skill_1_label.setText(characterClass.getClassSkill("DivineBandAid").getDescription());
+                skill_2_label.setText(characterClass.getClassSkill("DivineLight").getDescription());
+                skill_3_label.setText(characterClass.getClassSkill("DivineHandshake").getDescription());
+                skill_4_label.setText(characterClass.getClassSkill("DivineWeapon").getDescription());
                 break;
 
             case "Mage":
-                skill_1_label.setText("Firebolt - Single target fire attack");
-                skill_2_label.setText("Icicle - Single target ice attack");
-                skill_3_label.setText("Meditate - Increase damage of next magic attack and regen some mana");
-                skill_4_label.setText("Magic Barrier - Increased magic defense on target");
+                characterClass = new MageClass();
+                skill_1_label.setText(characterClass.getClassSkill("Bolt").getDescription());
+                skill_2_label.setText(characterClass.getClassSkill("Orb").getDescription());
+                skill_3_label.setText(characterClass.getClassSkill("Meditate").getDescription());
+                skill_4_label.setText(characterClass.getClassSkill("Magic Barrier").getDescription());
                 break;
 
             case "Warrior":
-                skill_1_label.setText("Valiant Defense - Increased physical defense on target");
-                skill_2_label.setText("Shield Bash - Chance to stun enemy, can bash with anything");
-                skill_3_label.setText("Power Attack - Lower hit chance, increased damage");
-                skill_4_label.setText("Taunt - More likely to be targeted by enemies");
+                characterClass = new WarriorClass();
+                skill_1_label.setText(characterClass.getClassSkill("BerserkerScream").getDescription());
+                skill_2_label.setText(characterClass.getClassSkill("PrecisionStabby").getDescription());
+                skill_3_label.setText(characterClass.getClassSkill("ShieldBreaker").getDescription());
+                skill_4_label.setText(characterClass.getClassSkill("IntenseFocus").getDescription());
                 break;
 
             case "Rogue":
-                skill_1_label.setText("Sneak Attack - High crit chance attack");
-                skill_2_label.setText("Hide - Dodge a single physical attack next turn");
-                skill_3_label.setText("Poison Blade - Next attack deals normal damage and poisons");
-                skill_4_label.setText("Set Trap - Place trap in front of character, damages when attacked");
+                characterClass = new RogueClass();
+                skill_1_label.setText(characterClass.getClassSkill("StabbyStab").getDescription());
+                skill_2_label.setText(characterClass.getClassSkill("DarkSlash").getDescription());
+                skill_3_label.setText(characterClass.getClassSkill("RoguishStealth").getDescription());
+                skill_4_label.setText(characterClass.getClassSkill("PoisonVial").getDescription());
                 break;
         }
 
@@ -357,7 +368,7 @@ public class selectSkillsActivity extends AppCompatActivity{
 //        i.putExtra("damage", finalDamage);
 
 
-       presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
+       presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage, currentSkills, characterClass);
 
         startActivity(i);
     }

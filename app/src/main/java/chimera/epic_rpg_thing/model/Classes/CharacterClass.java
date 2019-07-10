@@ -15,7 +15,7 @@ public abstract class CharacterClass {
     int classLevel;
     // HashMap of the class baseSkills
     HashMap<String, BaseSkill> classSkills = new HashMap<>();
-    List<ElementalEffect> weaknesses;
+    List<ElementalEffect> weaknesses = new ArrayList<ElementalEffect>();
 
     /**
      * Gets the class name
