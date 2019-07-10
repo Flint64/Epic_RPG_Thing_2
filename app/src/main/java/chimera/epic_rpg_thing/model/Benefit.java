@@ -1,6 +1,7 @@
 package chimera.epic_rpg_thing.model;
 
 public class Benefit {
+    // Basic modifies
     private int strengthBonus;
     private int intelligenceBonus;
     private int dexterityBonus;
@@ -9,6 +10,8 @@ public class Benefit {
     private int currentManaBonus;
     private int currentHealthBonus;
     private int attackBonus;
+    private int defenseBonus;
+
     private BaseSkill baseSkill;
     private boolean expired;
     private boolean continuous;
@@ -36,10 +39,14 @@ public class Benefit {
      * @param dexterityBonus
      * @param baseHealthBonus
      * @param baseManaBonus
+     * @param currentHealthBonus
+     * @param currentManaBonus
      * @param attackBonus
-     * @param baseSkill
+     * @param turns
+     * @param continuous
+     * @param isBuff
      */
-    public Benefit(int strengthBonus, int intelligenceBonus, int dexterityBonus, int baseHealthBonus, int baseManaBonus, int currentHealthBonus, int currentManaBonus, int attackBonus, BaseSkill baseSkill, int turns, boolean continuous, boolean isBuff){
+    public Benefit(int strengthBonus, int intelligenceBonus, int dexterityBonus, int baseHealthBonus, int baseManaBonus, int currentHealthBonus, int currentManaBonus, int attackBonus, int defenseBonus, int turns, boolean continuous, boolean isBuff){
         this.strengthBonus = strengthBonus;
         this.intelligenceBonus = intelligenceBonus;
         this.dexterityBonus = dexterityBonus;
@@ -48,7 +55,7 @@ public class Benefit {
         this.currentHealthBonus = currentHealthBonus;
         this.currentManaBonus = currentManaBonus;
         this.attackBonus = attackBonus;
-        this.baseSkill = baseSkill;
+        this.defenseBonus = defenseBonus;
         this.turns = turns;
         this.continuous = continuous;
         this.isBuff = isBuff;
@@ -105,10 +112,20 @@ public class Benefit {
             this.intelligenceBonus = -intelligenceBonus;
             this.dexterityBonus = -dexterityBonus;
             this.attackBonus = -attackBonus;
+            this.defenseBonus = -defenseBonus;
         }
         this.isBuff = true;
         return this;
     }
+
+    public int getDefenseBonus() {
+        return defenseBonus;
+    }
+
+    public void setDefenseBonus(int defenseBonus) {
+        this.defenseBonus = defenseBonus;
+    }
+
     /**
      * Checks if the input benefit is a buff or not and adds or removes based on that.
      * @param ben
@@ -121,6 +138,7 @@ public class Benefit {
             this.intelligenceBonus += ben.getIntelligenceBonus();
             this.dexterityBonus += ben.getDexterityBonus();
             this.attackBonus += ben.getAttackBonus();
+            this.defenseBonus += ben.getDefenseBonus();
         } else {
             this.baseManaBonus -= ben.getBaseManaBonus();
             this.baseHealthBonus -= ben.getBaseHealthBonus();
@@ -128,6 +146,7 @@ public class Benefit {
             this.intelligenceBonus -= ben.getIntelligenceBonus();
             this.dexterityBonus -= ben.getDexterityBonus();
             this.attackBonus -= ben.getAttackBonus();
+            this.defenseBonus -= ben.getDefenseBonus();
         }
     }
 

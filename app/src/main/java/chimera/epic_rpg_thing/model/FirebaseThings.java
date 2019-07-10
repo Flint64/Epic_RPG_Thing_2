@@ -13,8 +13,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import chimera.epic_rpg_thing.model.Classes.WarriorClass;
-
 public class FirebaseThings {
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -84,15 +82,12 @@ public class FirebaseThings {
         });
     }
     /**
-     * A simple one-liner to write a character to the Firebase database
-     *
+     * A simple one-liner to write a character to the Firebase databa
      */
-    //public void writeCharacter(Character character){
-    public void writeCharacter(){
-        WarriorClass warrior = new WarriorClass();
-        Character character = new Character(100, 100, (short)22, null, (short)20, (short)15, (short)23, 3.35, "Jim", warrior);
 
-       myRef.child(character.getName()).setValue(character);
+    public void writeCharacter(Character character){
+        setMyRef("characters");
+        myRef.child(character.getName()).setValue(character);
     }
 
     public void writeMonster(){

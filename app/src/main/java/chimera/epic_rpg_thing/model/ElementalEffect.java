@@ -18,6 +18,25 @@ public class ElementalEffect {
         this.level = level;
     }
 
+    public String getNameOfType(){
+        switch(type){
+            case EARTH:
+                return "Earthen";
+            case ICE:
+                return "ICE";
+            case LIGHTNING:
+                return "Lightning";
+            case FIRE:
+                return "Fire";
+            case POISON:
+                return "Poison";
+            case SHADOW:
+                return "Shadow";
+            default:
+                return "INVALID TYPE";
+
+        }
+    }
     public ElementalType getType() {
         return type;
     }

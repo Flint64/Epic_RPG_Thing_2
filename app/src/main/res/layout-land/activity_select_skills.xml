@@ -115,20 +115,20 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="28dp"
         android:onClick="createCharacter"
         android:text="Create Character"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.955"
+        app:layout_constraintHorizontal_bias="0.036"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
         android:id="@+id/elementLightning"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="4dp"
-        android:layout_marginBottom="72dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="28dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -138,7 +138,7 @@
         android:id="@+id/elementFire"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="8dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/iceLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -148,7 +148,8 @@
         android:id="@+id/elementIce"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="4dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/lightningLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -158,7 +159,8 @@
         android:id="@+id/elementEarth"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="4dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/fireLabel"
         app:layout_constraintEnd_toEndOf="parent"
@@ -221,7 +223,7 @@
         android:layout_width="38dp"
         android:layout_height="38dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toTopOf="@+id/fireCheck"
         app:layout_constraintEnd_toStartOf="@+id/elementEarth" />
 
@@ -229,7 +231,8 @@
         android:id="@+id/fireCheck"
         android:layout_width="38dp"
         android:layout_height="38dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toTopOf="@+id/iceCheck"
         app:layout_constraintEnd_toStartOf="@+id/elementFire" />
 
@@ -246,8 +249,8 @@
         android:id="@+id/lightningCheck"
         android:layout_width="38dp"
         android:layout_height="38dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="84dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="44dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/elementLightning" />
 
