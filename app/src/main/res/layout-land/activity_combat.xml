@@ -97,16 +97,15 @@
 
     <TextView
         android:id="@+id/monsterInfo"
-        android:layout_width="106dp"
-        android:layout_height="108dp"
+        android:layout_width="118dp"
+        android:layout_height="50dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
         android:text="Selected enemy info goes here"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/divider7"
-        app:layout_constraintStart_toStartOf="@+id/divider8"
+        app:layout_constraintEnd_toStartOf="@+id/divider7"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/divider8"
         app:layout_constraintTop_toTopOf="@+id/divider6" />
 
     <TextView
@@ -214,4 +213,53 @@
         app:layout_constraintBottom_toBottomOf="@+id/p4_current_health"
         app:layout_constraintStart_toEndOf="@+id/p4_current_health"
         app:layout_constraintTop_toTopOf="@+id/p4_current_health" />
+
+    <LinearLayout
+        android:id="@+id/itemLayout"
+        android:layout_width="192dp"
+        android:layout_height="101dp"
+        android:layout_marginStart="212dp"
+        android:layout_marginTop="100dp"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/potionButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Potion" />
+
+        <Button
+            android:id="@+id/reviveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Revival Stone" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Back"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@+id/monsterInfo"
+        app:layout_constraintStart_toStartOf="@+id/monsterInfo"
+        app:layout_constraintTop_toBottomOf="@+id/monsterInfo" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="150dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="?android:attr/listDivider"
+        app:layout_constraintBottom_toTopOf="@+id/backButton"
+        app:layout_constraintEnd_toStartOf="@+id/divider7"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/divider8" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
