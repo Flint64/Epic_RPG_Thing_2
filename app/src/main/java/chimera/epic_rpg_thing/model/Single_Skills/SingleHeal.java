@@ -31,6 +31,6 @@ public class SingleHeal extends SingleBaseSkill {
 
     @Override
     public void effectTargets() {
-        getTarget().effectHp(healAmount, getElementalEffect());
+        getTarget().effectHp(healAmount, getElementalEffect(), false);
     }
 }

@@ -56,6 +56,6 @@ public class SingleDamage_Debuff extends SingleBaseSkill {
     @Override
     public void effectTargets() {
         getTarget().effectBuff(debuff);
-        getTarget().effectHp(-damageAmount, getElementalEffect());
+        getTarget().effectHp(-damageAmount, getElementalEffect(), true);
     }
 }

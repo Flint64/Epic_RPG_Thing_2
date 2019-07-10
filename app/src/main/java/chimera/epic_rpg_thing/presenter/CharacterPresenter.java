@@ -26,7 +26,7 @@ public class CharacterPresenter {
     public void createCharacter(String choice, String name, int intelligence, int dexterity, int strength, int health, double mana, double evasion, double damage, List<BaseSkill> list, CharacterClass characterClass){
         switch (choice){
             case "Warrior":
-                Character newWarrior= new Character(health, mana, damage, list, strength, intelligence, dexterity, evasion, name, characterClass);
+                Character newWarrior = new Character(health, mana, damage, list, strength, intelligence, dexterity, evasion, name, characterClass);
                 fbThing.writeCharacter(newWarrior);
                 break;
             case "Mage":

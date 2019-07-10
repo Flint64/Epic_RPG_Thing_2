@@ -188,11 +188,19 @@ public abstract class Creature {
     /**
      * Effect's the creaturs hp
      */
-    public void effectHp(int amount, ElementalEffect effect){
+    public void effectHp(int amount, ElementalEffect effect, boolean attack){
         if(weakeness.contains(effect)){
-            this.currentHP += 2* effect.getLevel() + amount;
+            if(attack){
+                this.currentHP += this.defense + 2 * effect.getLevel() * amount;
+            } else {
+                this.currentHP -= amount;
+            }
         } else {
-            this.currentHP += amount;
+            if(attack){
+                this.currentHP += this.defense + amount;
+            } else {
+                this.currentHP += amount;
+            }
         }
     }
 

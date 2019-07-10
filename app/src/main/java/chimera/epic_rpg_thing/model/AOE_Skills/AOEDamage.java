@@ -16,7 +16,7 @@ public class AOEDamage extends AOEBaseSkill {
     @Override
     public void effectTargets() {
         for(Creature c : this.getTargets()){
-            c.effectHp(-damageAmount, getElementalEffect());
+            c.effectHp(-damageAmount, getElementalEffect(), false);
         }
     }
 }

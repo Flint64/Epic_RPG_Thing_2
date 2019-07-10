@@ -15,6 +15,7 @@ public class User {
     String name;
     String password;
     List<String> names;
+    Character character;
     public User(){
         this.name = "DEFAULT";
         this.password = "1234";
@@ -90,6 +91,38 @@ public class User {
         } catch (java.io.IOException io){
             Log.e("CharacterDirectoryError", "Unable to get Character Directory");
         }
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<String> getNames() {
+        return names;
+    }
+
+    public void setNames(List<String> names) {
+        this.names = names;
+    }
+
+    public Character getCharacter() {
+        return character;
+    }
+
+    public void setCharacter(Character character) {
+        this.character = character;
     }
 
     /**

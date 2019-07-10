@@ -59,7 +59,7 @@ public class AOEDamage_Debuff extends AOEBaseSkill {
     public void effectTargets() {
         for(Creature c : getTargets()){
             c.effectBuff(debuff);
-            c.effectHp(-damageAmount, getElementalEffect());
+            c.effectHp(-damageAmount, getElementalEffect(), false);
         }
     }
 }

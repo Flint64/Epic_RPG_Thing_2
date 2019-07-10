@@ -39,6 +39,6 @@ public class SingleDamage extends SingleBaseSkill {
     }
     @Override
     public void effectTargets() {
-        getTarget().effectHp(-damageAmount, getElementalEffect());
+        getTarget().effectHp(-damageAmount, getElementalEffect(), true);
     }
 }

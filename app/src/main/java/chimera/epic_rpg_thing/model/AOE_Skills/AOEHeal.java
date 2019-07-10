@@ -17,7 +17,7 @@ public class AOEHeal extends AOEBaseSkill {
     @Override
     public void effectTargets() {
         for(Creature c : this.getTargets()){
-            c.effectHp(healAmount, getElementalEffect());
+            c.effectHp(healAmount, getElementalEffect(), false);
         }
     }
 }

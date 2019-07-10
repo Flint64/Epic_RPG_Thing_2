@@ -16,7 +16,7 @@ import java.util.List;
 public class FirebaseThings {
     FirebaseDatabase database;
     DatabaseReference myRef;
-
+    List<Character> characters = new ArrayList<>();
     public FirebaseThings() {
         //Setting up the database references so that we can read/write to Firebase
         database = FirebaseDatabase.getInstance();
@@ -36,10 +36,10 @@ public class FirebaseThings {
      * a list of characters.
      */
     public void readCharacter() {
+
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<Character> characters = new ArrayList<Character>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
                     Character c = ds.getValue(Character.class);
                     characters.add(c);
@@ -57,7 +57,9 @@ public class FirebaseThings {
             }
         });
     }
-
+    public List<Character> getCharacters(){
+        return characters;
+    }
     public void readMonster(){
         setMyRef("monster");
         myRef.addValueEventListener(new ValueEventListener() {
