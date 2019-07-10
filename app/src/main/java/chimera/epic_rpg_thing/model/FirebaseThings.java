@@ -17,6 +17,7 @@ public class FirebaseThings {
     FirebaseDatabase database;
     DatabaseReference myRef;
     List<Character> characters = new ArrayList<>();
+    List<Monster> monsters = new ArrayList<>();
     public FirebaseThings() {
         //Setting up the database references so that we can read/write to Firebase
         database = FirebaseDatabase.getInstance();
@@ -60,12 +61,14 @@ public class FirebaseThings {
     public List<Character> getCharacters(){
         return characters;
     }
+    public List<Monster> getMonsters(){
+        return monsters;
+    }
     public void readMonster(){
         setMyRef("monster");
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                List<Monster> monsters = new ArrayList<Monster>();
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
                     Monster m = ds.getValue(Monster.class);
                     monsters.add(m);
@@ -84,7 +87,7 @@ public class FirebaseThings {
         });
     }
     /**
-     * A simple one-liner to write a character to the Firebase databa
+     * A simple one-liner to write a character to the Firebase database
      */
 
     public void writeCharacter(Character character){
@@ -92,9 +95,8 @@ public class FirebaseThings {
         myRef.child(character.getName()).setValue(character);
     }
 
-    public void writeMonster(){
-//        setMyRef("monster");
-//        Monster monster = new Monster(50,15.25, 15, null,35,10,20,28,2,1,"Goblin", null);
-//        myRef.child(monster.getName()).setValue(monster);
+    public void writeMonster(Monster monster){
+        setMyRef("monster");
+        myRef.child(monster.getName()).setValue(monster);
     }
 }

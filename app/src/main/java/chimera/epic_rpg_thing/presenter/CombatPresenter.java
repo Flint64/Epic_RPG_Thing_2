@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import chimera.epic_rpg_thing.model.AOE_Skills.AOEBaseSkill;
 import chimera.epic_rpg_thing.model.BaseSkill;
 import chimera.epic_rpg_thing.model.Creature;
+import chimera.epic_rpg_thing.model.FirebaseThings;
+import chimera.epic_rpg_thing.model.Character;
 import chimera.epic_rpg_thing.model.Monster;
 import chimera.epic_rpg_thing.model.Single_Skills.SingleBaseSkill;
 import chimera.epic_rpg_thing.model.Story;
@@ -13,10 +15,31 @@ import chimera.epic_rpg_thing.model.User;
 
 public class CombatPresenter {
     User user = new User();
-    List<Character> party = new ArrayList<Character>(3);
-    Monster monster[] = new Monster[4];
+    List<Character> party = new ArrayList<Character>(4);
+    FirebaseThings fbThings = new FirebaseThings();
+    List<Monster> monsters = new ArrayList<Monster>(4);
     Story story;
-    public void onLoad(){
+
+    /**
+     * Function to be called when loading in the combat.
+     * @param currentName
+     * @param partyNames
+     */
+    public void onLoad(String currentName, List<String> partyNames){
+        fbThings.readCharacter();
+        List<Character> characters = fbThings.getCharacters();
+        for(Character c : party){
+            if(c.getName().equals(currentName)){
+                user.setCharacter(c);
+            }
+            for(String s : partyNames){
+                if(c.getName().equals(s)){
+                    party.add(c);
+                }
+            }
+        }
+        fbThings.readMonster();
+        monsters = fbThings.getMonsters();
 
     }
 
@@ -46,6 +69,9 @@ public class CombatPresenter {
      */
     public List<BaseSkill> getCharacterSkills(){
         return user.getCharacter().getCurrentSkills();
+    }
+    public List<Character> getCharacters(){
+        return party;
     }
     public User getUser(){
         return user;
