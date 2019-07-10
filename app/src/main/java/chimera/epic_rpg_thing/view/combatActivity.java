@@ -49,8 +49,8 @@ public class combatActivity extends AppCompatActivity {
                 magicButton.setVisibility(View.INVISIBLE);
                 itemButton.setVisibility(View.INVISIBLE);
 
-                itemLayout.setX(100);
-                itemLayout.setY(700);
+                itemLayout.setX(120);
+                itemLayout.setY(600);
             }});
 
         magicButton.setOnClickListener(new View.OnClickListener() {
