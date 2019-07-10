@@ -49,7 +49,7 @@ public class selectSkillsActivity extends AppCompatActivity{
         setChoice(getIntent().getStringExtra("class"));
 
         choice = getChoice();
-        Log.d("deubg", getChoice());
+        Log.d("debug", getChoice());
 
         name = getIntent().getStringExtra("name");
         finalIntelligence = getIntent().getShortExtra("intelligence", (short) 0);
@@ -357,7 +357,7 @@ public class selectSkillsActivity extends AppCompatActivity{
 //        i.putExtra("damage", finalDamage);
 
 
-//        presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
+       presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage);
 
         startActivity(i);
     }
