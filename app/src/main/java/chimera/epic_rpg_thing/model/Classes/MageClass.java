@@ -42,6 +42,6 @@ public class MageClass extends CharacterClass {
         this.classSkills.put("Bolt", SingleSkillFactory.create(SingleType.DAMAGE, 0, 5, 10, new Benefit(), preferredElement, String.format("%s bolt - A %s bolt streaks from the Mage tearing there enemies asunder", preferredElement.getNameOfType())));
         this.classSkills.put("Orb", AOEFactory.create(AOEType.AOE_DAMAGE, 0, 15, 10, new Benefit(), preferredElement, String.format("%s orb - The mage lobs a %s orb at a group of enemies", preferredElement.getNameOfType()), 3));
         this.classSkills.put("Meditate", SingleSkillFactory.create(SingleType.BUFF, 0, 0, 0, new Benefit(0,0,0,0,0,0,15,0,0,1,false, true), preferredElement, "Meditate - The Mage rests and draws in the latent mana from the battlefield"));
-        this.classSkills.put("Magic Barrier", SingleSkillFactory.create(SingleType.BUFF, 0, 10, 0, new Benefit(0,0,0,0,0,0,0,0,15,2,false, true), preferredElement, String.format("%s barrier  - The Mage creates a %s wall in between him and his enemies", preferredElement.getNameOfType())));
+        this.classSkills.put("MagicBarrier", SingleSkillFactory.create(SingleType.BUFF, 0, 10, 0, new Benefit(0,0,0,0,0,0,0,0,15,2,false, true), preferredElement, String.format("%s barrier  - The Mage creates a %s wall in between him and his enemies", preferredElement.getNameOfType())));
     }
 }

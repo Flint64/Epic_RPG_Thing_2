@@ -94,10 +94,34 @@ public class selectSkillsActivity extends AppCompatActivity{
                 //If you check a box and you won't go over 2 by adding it, check it and increase count
                 if (skill_1.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
+                    switch(choice){
+                        case "Cleric":
+                            currentSkills.add(characterClass.getClassSkill("DivineBandAid"));
+                            break;
+                        case "Mage":
+                            currentSkills.add(characterClass.getClassSkill("Bolt"));
+                        case "Warrior":
+                            currentSkills.add(characterClass.getClassSkill("BerserkerScream"));
+                            break;
+                        case "Rogue":
+                            currentSkills.add(characterClass.getClassSkill("StabbyStab"));
+                    }
                     Log.d("debug", Integer.toString(skillCount));
                     //Otherwise, if you uncheck a box decrease count
                 } else if (!skill_1.isChecked() && skillCount - 1 >= 0){
                     skillCount--;
+                    switch(choice){
+                        case "Cleric":
+                            currentSkills.remove(characterClass.getClassSkill("DivineBandAid"));
+                            break;
+                        case "Mage":
+                            currentSkills.remove(characterClass.getClassSkill("Bolt"));
+                        case "Warrior":
+                            currentSkills.remove(characterClass.getClassSkill("BerserkerScream"));
+                            break;
+                        case "Rogue":
+                            currentSkills.remove(characterClass.getClassSkill("StabbyStab"));
+                    }
                     Log.d("debug", Integer.toString(skillCount));
                 }
             }
@@ -115,9 +139,33 @@ public class selectSkillsActivity extends AppCompatActivity{
                 }
                 if (skill_2.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
+                    switch(choice){
+                        case "Cleric":
+                            currentSkills.add(characterClass.getClassSkill("DivineLight"));
+                            break;
+                        case "Mage":
+                            currentSkills.add(characterClass.getClassSkill("Orb"));
+                        case "Warrior":
+                            currentSkills.add(characterClass.getClassSkill("PrecisionStabby"));
+                            break;
+                        case "Rogue":
+                            currentSkills.add(characterClass.getClassSkill("DarkSlash"));
+                    }
                     Log.d("debug", Integer.toString(skillCount));
                 } else if (!skill_2.isChecked() && skillCount - 1 >= 0){
                     skillCount--;
+                    switch(choice){
+                        case "Cleric":
+                            currentSkills.remove(characterClass.getClassSkill("DivineLight"));
+                            break;
+                        case "Mage":
+                            currentSkills.remove(characterClass.getClassSkill("Orb"));
+                        case "Warrior":
+                            currentSkills.remove(characterClass.getClassSkill("PrecisionStabby"));
+                            break;
+                        case "Rogue":
+                            currentSkills.remove(characterClass.getClassSkill("DarkSlash"));
+                    }
                     Log.d("debug", Integer.toString(skillCount));
                 }
             }
@@ -135,9 +183,33 @@ public class selectSkillsActivity extends AppCompatActivity{
                 }
                 if (skill_3.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
+                    switch(choice){
+                        case "Cleric":
+                            currentSkills.add(characterClass.getClassSkill("DivineHandShake"));
+                            break;
+                        case "Mage":
+                            currentSkills.add(characterClass.getClassSkill("Meditate"));
+                        case "Warrior":
+                            currentSkills.add(characterClass.getClassSkill("ShieldBreaker"));
+                            break;
+                        case "Rogue":
+                            currentSkills.add(characterClass.getClassSkill("RoguishStealth"));
+                    }
                     Log.d("debug", Integer.toString(skillCount));
                 } else if (!skill_3.isChecked() && skillCount - 1 >= 0){
                     skillCount--;
+                    switch(choice){
+                        case "Cleric":
+                            currentSkills.remove(characterClass.getClassSkill("DivineHandShake"));
+                            break;
+                        case "Mage":
+                            currentSkills.remove(characterClass.getClassSkill("Meditate"));
+                        case "Warrior":
+                            currentSkills.remove(characterClass.getClassSkill("ShieldBreaker"));
+                            break;
+                        case "Rogue":
+                            currentSkills.remove(characterClass.getClassSkill("RoguishStealth"));
+                    }
                     Log.d("debug", Integer.toString(skillCount));
                 }
             }
@@ -155,9 +227,33 @@ public class selectSkillsActivity extends AppCompatActivity{
                 }
                 if (skill_4.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
+                    switch(choice){
+                        case "Cleric":
+                            currentSkills.add(characterClass.getClassSkill("DivineWeapon"));
+                            break;
+                        case "Mage":
+                            currentSkills.add(characterClass.getClassSkill("MagicBarrier"));
+                        case "Warrior":
+                            currentSkills.add(characterClass.getClassSkill("ShieldBreaker"));
+                            break;
+                        case "Rogue":
+                            currentSkills.add(characterClass.getClassSkill("RoguishStealth"));
+                    }
                     Log.d("debug", Integer.toString(skillCount));
                 } else if (!skill_4.isChecked() && skillCount - 1 >= 0){
                     skillCount--;
+                    switch(choice){
+                        case "Cleric":
+                            currentSkills.remove(characterClass.getClassSkill("DivineWeapon"));
+                            break;
+                        case "Mage":
+                            currentSkills.remove(characterClass.getClassSkill("MagicBarrier"));
+                        case "Warrior":
+                            currentSkills.remove(characterClass.getClassSkill("ShieldBreaker"));
+                            break;
+                        case "Rogue":
+                            currentSkills.remove(characterClass.getClassSkill("RoguishStealth"));
+                    }
                     Log.d("debug", Integer.toString(skillCount));
                 }
             }
@@ -182,7 +278,7 @@ public class selectSkillsActivity extends AppCompatActivity{
                 skill_1_label.setText(characterClass.getClassSkill("Bolt").getDescription());
                 skill_2_label.setText(characterClass.getClassSkill("Orb").getDescription());
                 skill_3_label.setText(characterClass.getClassSkill("Meditate").getDescription());
-                skill_4_label.setText(characterClass.getClassSkill("Magic Barrier").getDescription());
+                skill_4_label.setText(characterClass.getClassSkill("MagicBarrier").getDescription());
                 break;
 
             case "Warrior":
