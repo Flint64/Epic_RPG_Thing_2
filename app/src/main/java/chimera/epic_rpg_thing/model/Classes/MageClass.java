@@ -16,6 +16,7 @@ public class MageClass extends CharacterClass {
         this.addClassMod("manaMulti", 10);
         this.preferredElement = new ElementalEffect(ElementalType.FIRE, 1);
         this.addWeaknesses(new ElementalEffect(ElementalType.PHYSICAL, 1));
+        updateSkills();
     }
     public MageClass(ElementalEffect preferredElement){
         this.classLevel = 0;

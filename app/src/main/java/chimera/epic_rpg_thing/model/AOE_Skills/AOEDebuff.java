@@ -10,6 +10,9 @@ public class AOEDebuff extends AOEBaseSkill {
         setHpCost(hpCost);
         setManaCost(manaCost);
         this.debuff = debuff;
+        setElementalEffect(effect);
+        setMaxTargets(maxTargets);
+        setDescription(description);
     }
     @Override
     public void effectTargets() {
