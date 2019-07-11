@@ -17,7 +17,6 @@ import chimera.epic_rpg_thing.presenter.CombatPresenter;
 
 public class combatActivity extends AppCompatActivity {
 
-    boolean attackBtn = false;
     boolean itemBtn = false;
     boolean magicBtn = false;
 
@@ -38,7 +37,6 @@ public class combatActivity extends AppCompatActivity {
         final Button backButton = findViewById(R.id.backButton);
         final TextView playerInfo = findViewById(R.id.playerInfo);
         final LinearLayout itemLayout = findViewById(R.id.itemLayout);
-        final LinearLayout btnLayout = findViewById(R.id.btnLayout);
 
         //TODO: Add bool checks to each of the item/magic/attack buttons to see if the new view is visible so that the back button can "close" them out by hiding stuff right
         //TODO: Also figure out how to set a layout dynamically to prevent me having to stack all of these menus on top of each other
@@ -57,8 +55,6 @@ public class combatActivity extends AppCompatActivity {
                 reviveButton.setVisibility(View.VISIBLE);
                 itemLayout.setVisibility(View.VISIBLE);
 
-                btnLayout.addView(potionButton);
-
                 backButton.setVisibility(View.VISIBLE);
                 playerInfo.setVisibility(View.INVISIBLE);
                 attackButton.setVisibility(View.INVISIBLE);
@@ -70,7 +66,15 @@ public class combatActivity extends AppCompatActivity {
 
         magicButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "I don't do anything yet!", Toast.LENGTH_SHORT).show();
+                magicBtn = true;
+                backButton.setVisibility(View.VISIBLE);
+                playerInfo.setVisibility(View.INVISIBLE);
+                attackButton.setVisibility(View.INVISIBLE);
+                magicButton.setVisibility(View.INVISIBLE);
+                itemButton.setVisibility(View.INVISIBLE);
+//                itemLayout.setX(120); //TODO: These need to be the same coords, but the itemLayout should be swapped with your listView
+//                itemLayout.setY(600);
+
             }});
 
         voteButton.setOnClickListener(new View.OnClickListener() {
@@ -89,14 +93,13 @@ public class combatActivity extends AppCompatActivity {
                 if (itemBtn){
                     potionButton.setVisibility(View.INVISIBLE);
                     reviveButton.setVisibility(View.INVISIBLE);
-                }
-
-                if (attackBtn){
-
+                    itemBtn = false;
                 }
 
                 if (magicBtn){
-
+//                    potionButton.setVisibility(View.INVISIBLE); //TODO: Again, set these to the listVIew so that it goes invis again
+//                    reviveButton.setVisibility(View.INVISIBLE);
+                    magicBtn = false;
                 }
 
                 itemLayout.setVisibility(View.INVISIBLE);
