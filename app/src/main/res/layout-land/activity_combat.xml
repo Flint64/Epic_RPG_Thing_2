@@ -218,8 +218,8 @@
         android:id="@+id/itemLayout"
         android:layout_width="192dp"
         android:layout_height="101dp"
-        android:layout_marginStart="212dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginStart="688dp"
+        android:layout_marginTop="292dp"
         android:orientation="vertical"
         android:visibility="invisible"
         app:layout_constraintStart_toStartOf="parent"
@@ -252,7 +252,7 @@
 
     <View
         android:id="@+id/divider"
-        android:layout_width="150dp"
+        android:layout_width="140dp"
         android:layout_height="1dp"
         android:layout_marginStart="8dp"
         android:layout_marginBottom="8dp"
@@ -261,5 +261,43 @@
         app:layout_constraintEnd_toStartOf="@+id/divider7"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/divider8" />
+
+    <LinearLayout
+        android:layout_width="375dp"
+        android:layout_height="88dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/divider6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageButton
+            android:id="@+id/monster_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+        <ImageButton
+            android:id="@+id/monster_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+        <ImageButton
+            android:id="@+id/monster_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/sym_def_app_icon" />
+
+        <ImageButton
+            android:id="@+id/monster_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@android:drawable/sym_def_app_icon" />
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
