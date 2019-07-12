@@ -58,12 +58,45 @@ public class FirebaseThings {
             }
         });
     }
+
+    /**
+     * A simple one-liner to write a character to the Firebase database
+     */
+
+    public void writeCharacter(Character character){
+        setMyRef("characters");
+        myRef.child(character.getName()).setValue(character);
+    }
+
+    Character characterNew;
+
+    public Character readOneCharacter(){
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            Character character = dataSnapshot.child("Ron").getValue(Character.class);
+            characterNew = character;
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Log.w(TAG, "Failed to read character.",databaseError.toException());
+            }
+        });
+        return characterNew;
+    }
+
     public List<Character> getCharacters(){
         return characters;
     }
+
     public List<Monster> getMonsters(){
         return monsters;
     }
+
+    /**
+     * reads a list of monsters from the database
+     */
     public void readMonster(){
         setMyRef("monster");
         myRef.addValueEventListener(new ValueEventListener() {
@@ -85,14 +118,6 @@ public class FirebaseThings {
                 Log.w(TAG, "Failed to read value.",databaseError.toException());
             }
         });
-    }
-    /**
-     * A simple one-liner to write a character to the Firebase database
-     */
-
-    public void writeCharacter(Character character){
-        setMyRef("characters");
-        myRef.child(character.getName()).setValue(character);
     }
 
     public void writeMonster(Monster monster){

@@ -269,7 +269,7 @@ public class selectSkillsActivity extends AppCompatActivity{
                 characterClass = new ClericClass();
                 skill_1_label.setText(characterClass.getClassSkill("DivineBandAid").getDescription());
                 skill_2_label.setText(characterClass.getClassSkill("DivineLight").getDescription());
-                skill_3_label.setText(characterClass.getClassSkill("DivineHandshake").getDescription());
+                skill_3_label.setText(characterClass.getClassSkill("DivineHandShake").getDescription());
                 skill_4_label.setText(characterClass.getClassSkill("DivineWeapon").getDescription());
                 break;
 
