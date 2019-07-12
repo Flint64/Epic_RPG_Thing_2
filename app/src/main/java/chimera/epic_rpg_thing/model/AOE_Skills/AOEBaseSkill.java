@@ -82,4 +82,8 @@ public abstract class AOEBaseSkill implements BaseSkill {
      * Effects the targets.
      */
     public abstract void effectTargets();
+
+    public String toString(){
+        return description;
+    }
 }

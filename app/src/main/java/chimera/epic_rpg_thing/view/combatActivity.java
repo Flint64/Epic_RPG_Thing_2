@@ -5,28 +5,45 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import chimera.epic_rpg_thing.R;
+import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.Classes.WarriorClass;
 import chimera.epic_rpg_thing.presenter.CombatPresenter;
+import chimera.epic_rpg_thing.model.Character;
+
 
 public class combatActivity extends AppCompatActivity {
 
     boolean itemBtn = false;
     boolean magicBtn = false;
 
+    WarriorClass wc = new WarriorClass();
+    List<BaseSkill> currentSkills = new ArrayList<>();
+
+    Character steve = new Character(1000, 100, 1000, currentSkills, 100,100,100, 100, "Steven", wc);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_combat);
-
-        CombatPresenter cp = new CombatPresenter();
-
+        steve.addCurrentSkill(wc.getClassSkill("BerserkerScream"));
+        steve.addCurrentSkill(wc.getClassSkill("PrecisionStabby"));
+        steve.addCurrentSkill(wc.getClassSkill("ShieldBreaker"));
+        steve.addCurrentSkill(wc.getClassSkill("IntenseFocus"));
+        final CombatPresenter cp = new CombatPresenter();
         final Button attackButton = findViewById(R.id.attack);
         final Button itemButton = findViewById(R.id.item);
         final Button magicButton = findViewById(R.id.magic);
@@ -35,17 +52,44 @@ public class combatActivity extends AppCompatActivity {
         final Button potionButton = findViewById(R.id.potionButton);
         final Button reviveButton = findViewById(R.id.reviveButton);
         final Button backButton = findViewById(R.id.backButton);
+        final ImageButton monster1 = findViewById(R.id.monster_1);
+        final ImageButton monster2 = findViewById(R.id.monster_2);
+        final ImageButton monster3 = findViewById(R.id.monster_3);
+        final ImageButton monster4 = findViewById(R.id.monster_4);
         final TextView playerInfo = findViewById(R.id.playerInfo);
         final LinearLayout itemLayout = findViewById(R.id.itemLayout);
         final LinearLayout playerRadio = findViewById(R.id.playerLayout);
         final CheckBox player_2 = findViewById(R.id.selectPlayer_2);
         final CheckBox player_3 = findViewById(R.id.selectPlayer_3);
         final CheckBox player_4 = findViewById(R.id.selectPlayer_4);
+        final ListView list = findViewById(R.id.SkillsList);
+        ArrayAdapter<BaseSkill> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, steve.getCurrentSkills());
+        list.setAdapter(arrayAdapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                BaseSkill selected = (BaseSkill) list.getItemAtPosition(position);
+                cp.setSelectedSkill(selected);
+                list.setVisibility(View.INVISIBLE);
+                itemLayout.setVisibility(View.INVISIBLE);
+                backButton.setVisibility(View.INVISIBLE);
+                playerInfo.setVisibility(View.VISIBLE);
+                attackButton.setVisibility(View.VISIBLE);
+                magicButton.setVisibility(View.VISIBLE);
+                itemButton.setVisibility(View.VISIBLE);
+            }
+        });
+        //TODO: Add bool checks to each of the item/magic/attack buttons to see if the new view is visible so that the back button can "close" them out by hiding stuff right
+        //TODO: Also figure out how to set a layout dynamically to prevent me having to stack all of these menus on top of each other
 
         //TODO: The basic attack to simply smack your enemy into next week
         attackButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-            Toast.makeText(getApplicationContext(), "I don't do anything yet!", Toast.LENGTH_SHORT).show();
+                if(cp.getSelectedSkill() == null){
+                    Toast.makeText(getApplicationContext(), "You must select a skill before you can attack", Toast.LENGTH_SHORT).show();
+                } else {
+                    cp.useSelectedSkill();
+                }
         }});
 
         itemButton.setOnClickListener(new View.OnClickListener() {
@@ -74,8 +118,9 @@ public class combatActivity extends AppCompatActivity {
                 attackButton.setVisibility(View.INVISIBLE);
                 magicButton.setVisibility(View.INVISIBLE);
                 itemButton.setVisibility(View.INVISIBLE);
-//                itemLayout.setX(120); //TODO: These need to be the same coords, but the itemLayout should be swapped with your listView
-//                itemLayout.setY(600);
+                list.setVisibility(View.VISIBLE);
+                list.setX(100); //TODO: These need to be the same coords, but the itemLayout should be swapped with your listView
+                list.setY(550);
             }});
 
         //TODO: Both the vote & flee buttons should require confirmation from all the other players when pressed, to either vote to quit or flee a battle
@@ -103,8 +148,7 @@ public class combatActivity extends AppCompatActivity {
                 }
 
                 if (magicBtn){
-//                    potionButton.setVisibility(View.INVISIBLE); //TODO: Again, set these to the listVIew so that it goes invis again
-//                    reviveButton.setVisibility(View.INVISIBLE);
+                    list.setVisibility(View.INVISIBLE); //TODO: Again, set these to the listVIew so that it goes invis again
                     magicBtn = false;
                 }
 
