@@ -71,4 +71,8 @@ public abstract class SingleBaseSkill implements BaseSkill {
      * Will be used to call the effects
      */
     public abstract void effectTargets();
+
+    public String toString(){
+        return description;
+    }
 }

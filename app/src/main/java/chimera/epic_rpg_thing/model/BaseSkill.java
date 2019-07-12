@@ -12,4 +12,7 @@ public interface BaseSkill {
     // Getter and Setter for the description
     String getDescription();
     void setDescription(String description);
+    void effectTargets();
+
+    String toString();
 }

@@ -1,7 +1,9 @@
 package chimera.epic_rpg_thing.presenter;
 
+import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
 
 import chimera.epic_rpg_thing.model.AOE_Skills.AOEBaseSkill;
 import chimera.epic_rpg_thing.model.BaseSkill;
@@ -16,7 +18,7 @@ import chimera.epic_rpg_thing.model.User;
 public class CombatPresenter {
     User user = new User();
     List<Character> party = new ArrayList<Character>(4);
-    BaseSkill selectedSkill;
+    BaseSkill selectedSkill = null;
 
     public BaseSkill getSelectedSkill() {
         return selectedSkill;
@@ -25,7 +27,13 @@ public class CombatPresenter {
     public void setSelectedSkill(BaseSkill selectedSkill) {
         this.selectedSkill = selectedSkill;
     }
-
+    public void useSelectedSkill(){
+        if(selectedSkill == null){
+            return;
+        } else {
+            selectedSkill.effectTargets();
+        }
+    }
     public boolean addSelectedTarget(int position, boolean isCharacter){
         if(isCharacter){
             if(selectedSkill instanceof AOEBaseSkill){
@@ -129,5 +137,13 @@ public class CombatPresenter {
     }
     public User getUser(){
         return user;
+    }
+    public void endTurn(){
+        Random rand = new Random();
+        for(Character c : party){
+            c.endTurn();
+        }
+        List<BaseSkill> monster0 = monsters.get(0).getCurrentSkills();
+        monster0.get(rand.nextInt(monster0.size()));
     }
 }
