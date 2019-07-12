@@ -40,7 +40,7 @@ public class storyActivity extends AppCompatActivity {
                     break;
 
                     case 2:
-                        storyText.setText("It is here, months after the destruction of the kingdom that we pick up our story, here, where our four valiant heroes, wanderers to our once fair land, have pledged to help Princess Joyeuse and her noble companion Sir Glenn to rid the kingdom of the scourge of the Ichor, and return peace to the land.");
+                        storyText.setText("It is here, months after the destruction of the kingdom, that we pick up our story, here, where our four valiant heroes, wanderers to our once fair land, have pledged to help Princess Joyeuse and her noble companion Sir Glenn to rid the kingdom of the scourge of the Ichor, and return peace to the land.");
                     break;
 
                     case 3:

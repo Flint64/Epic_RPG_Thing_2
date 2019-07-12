@@ -3,12 +3,12 @@ package chimera.epic_rpg_thing.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -37,11 +37,12 @@ public class combatActivity extends AppCompatActivity {
         final Button backButton = findViewById(R.id.backButton);
         final TextView playerInfo = findViewById(R.id.playerInfo);
         final LinearLayout itemLayout = findViewById(R.id.itemLayout);
+        final LinearLayout playerRadio = findViewById(R.id.playerLayout);
+        final CheckBox player_2 = findViewById(R.id.selectPlayer_2);
+        final CheckBox player_3 = findViewById(R.id.selectPlayer_3);
+        final CheckBox player_4 = findViewById(R.id.selectPlayer_4);
 
-        //TODO: Add bool checks to each of the item/magic/attack buttons to see if the new view is visible so that the back button can "close" them out by hiding stuff right
-        //TODO: Also figure out how to set a layout dynamically to prevent me having to stack all of these menus on top of each other
-
-
+        //TODO: The basic attack to simply smack your enemy into next week
         attackButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
             Toast.makeText(getApplicationContext(), "I don't do anything yet!", Toast.LENGTH_SHORT).show();
@@ -54,6 +55,7 @@ public class combatActivity extends AppCompatActivity {
                 potionButton.setVisibility(View.VISIBLE);
                 reviveButton.setVisibility(View.VISIBLE);
                 itemLayout.setVisibility(View.VISIBLE);
+                playerRadio.setVisibility(View.VISIBLE);
 
                 backButton.setVisibility(View.VISIBLE);
                 playerInfo.setVisibility(View.INVISIBLE);
@@ -74,9 +76,9 @@ public class combatActivity extends AppCompatActivity {
                 itemButton.setVisibility(View.INVISIBLE);
 //                itemLayout.setX(120); //TODO: These need to be the same coords, but the itemLayout should be swapped with your listView
 //                itemLayout.setY(600);
-
             }});
 
+        //TODO: Both the vote & flee buttons should require confirmation from all the other players when pressed, to either vote to quit or flee a battle
         voteButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Toast.makeText(getApplicationContext(), "I don't do anything yet!", Toast.LENGTH_SHORT).show();
@@ -91,8 +93,12 @@ public class combatActivity extends AppCompatActivity {
         backButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 if (itemBtn){
+                    player_2.setSelected(false);
+                    player_3.setSelected(false);
+                    player_4.setSelected(false);
                     potionButton.setVisibility(View.INVISIBLE);
                     reviveButton.setVisibility(View.INVISIBLE);
+                    playerRadio.setVisibility(View.INVISIBLE);
                     itemBtn = false;
                 }
 
@@ -108,8 +114,6 @@ public class combatActivity extends AppCompatActivity {
                 attackButton.setVisibility(View.VISIBLE);
                 magicButton.setVisibility(View.VISIBLE);
                 itemButton.setVisibility(View.VISIBLE);
-
             }});
-
     }
 }

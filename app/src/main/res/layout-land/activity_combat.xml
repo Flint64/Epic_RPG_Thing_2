@@ -263,6 +263,7 @@
         app:layout_constraintStart_toEndOf="@+id/divider8" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="375dp"
         android:layout_height="88dp"
         android:layout_marginStart="8dp"
@@ -298,6 +299,67 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@android:drawable/sym_def_app_icon" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/playerLayout"
+        android:layout_width="41dp"
+        android:layout_height="108dp"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="@+id/player4"
+        app:layout_constraintStart_toEndOf="@+id/p3_max_health"
+        app:layout_constraintTop_toTopOf="@+id/player2"
+        app:layout_constraintVertical_bias="0.421">
+
+        <CheckBox
+            android:id="@+id/selectPlayer_2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/selectPlayer_3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/selectPlayer_4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="289dp"
+        android:layout_height="38dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout"
+        app:layout_constraintHorizontal_bias="0.174"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+        <CheckBox
+            android:id="@+id/selectEnemy_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <CheckBox
+            android:id="@+id/selectEnemy_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <CheckBox
+            android:id="@+id/selectEnemy_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <CheckBox
+            android:id="@+id/selectEnemy_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
