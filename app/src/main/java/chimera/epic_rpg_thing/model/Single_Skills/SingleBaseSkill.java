@@ -8,6 +8,7 @@ public abstract class SingleBaseSkill implements BaseSkill {
     private ElementalEffect elementalEffect;
     private int hpCost;
     private int manaCost;
+    private String name;
     private String description;
     private Creature target;
 
@@ -25,6 +26,14 @@ public abstract class SingleBaseSkill implements BaseSkill {
      */
     public void setTarget(Creature target) {
         this.target = target;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -70,9 +79,13 @@ public abstract class SingleBaseSkill implements BaseSkill {
     /**
      * Will be used to call the effects
      */
-    public abstract void effectTargets();
-
+    public final void effectTargets(){
+        effectBuff();
+        effectHP();
+    }
+    public abstract void effectBuff();
+    public abstract void effectHP();
     public String toString(){
-        return description;
+        return name + " " + hpCost + " " + manaCost;
     }
 }

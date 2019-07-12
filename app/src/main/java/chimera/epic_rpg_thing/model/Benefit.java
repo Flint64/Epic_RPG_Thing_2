@@ -12,7 +12,7 @@ public class Benefit {
     private int attackBonus;
     private int defenseBonus;
 
-    private BaseSkill baseSkill;
+    //private BaseSkill baseSkill;
     private boolean expired;
     private boolean continuous;
     private boolean isBuff;
@@ -252,17 +252,17 @@ public class Benefit {
      * gets the baseSkill
      * @return
      */
-    public BaseSkill getBaseSkill() {
-        return baseSkill;
-    }
+    //public BaseSkill getBaseSkill() {
+    //    return baseSkill;
+    //}
 
     /**
      * sets the baseSkill
-     * @param baseSkill
+     * @param
      */
-    public void setBaseSkill(BaseSkill baseSkill) {
-        this.baseSkill = baseSkill;
-    }
+    //public void setBaseSkill(BaseSkill baseSkill) {
+    //    this.baseSkill = baseSkill;
+    //}
 
     public void endOfTurn(){
         if(continuous){

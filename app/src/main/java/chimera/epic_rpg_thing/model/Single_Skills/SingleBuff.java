@@ -18,6 +18,7 @@ public class SingleBuff extends SingleBaseSkill {
      * SingleBuff Default Constructor
      */
     public SingleBuff(){
+        setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
         setBuff(new Benefit());
@@ -33,7 +34,8 @@ public class SingleBuff extends SingleBaseSkill {
      * @param effect
      * @param description
      */
-    public SingleBuff(int hpCost, int manaCost, Benefit buff, ElementalEffect effect, String description){
+    public SingleBuff(String name, int hpCost, int manaCost, Benefit buff, ElementalEffect effect, String description){
+        setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
         setBuff(buff);
@@ -42,7 +44,8 @@ public class SingleBuff extends SingleBaseSkill {
     }
 
     @Override
-    public void effectTargets() {
+    public void effectBuff() {
         getTarget().effectBuff(buff);
     }
+    public void effectHP(){return;}
 }

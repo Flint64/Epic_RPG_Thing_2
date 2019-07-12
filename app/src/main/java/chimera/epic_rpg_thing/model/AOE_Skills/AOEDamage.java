@@ -5,7 +5,8 @@ import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class AOEDamage extends AOEBaseSkill {
     int damageAmount;
-    AOEDamage(int hpCost, int manaCost, int damageAmount, ElementalEffect effect, int maxTargets, String description){
+    AOEDamage(String name, int hpCost, int manaCost, int damageAmount, ElementalEffect effect, int maxTargets, String description){
+        setName(name);
         this.setHpCost(hpCost);
         this.setManaCost(manaCost);
         this.damageAmount = damageAmount;
@@ -14,9 +15,12 @@ public class AOEDamage extends AOEBaseSkill {
         this.setDescription(description);
     }
     @Override
-    public void effectTargets() {
+    public void effectHP() {
         for(Creature c : this.getTargets()){
             c.effectHp(-damageAmount, getElementalEffect(), false);
         }
+    }
+    public void effectBuff(){
+        return;
     }
 }

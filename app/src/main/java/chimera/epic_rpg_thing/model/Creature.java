@@ -194,7 +194,7 @@ public abstract class Creature {
             if(attack){
                 this.currentHP += this.defense + 2 * effect.getLevel() * amount;
             } else {
-                this.currentHP -= amount;
+                this.currentHP += amount;
             }
         } else {
             if(attack){

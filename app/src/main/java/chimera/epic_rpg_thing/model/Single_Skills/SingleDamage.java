@@ -23,6 +23,7 @@ public class SingleDamage extends SingleBaseSkill {
     }
 
     public SingleDamage(){
+        setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
         setDamageAmount(0);
@@ -30,7 +31,8 @@ public class SingleDamage extends SingleBaseSkill {
         setDescription("DEFAULT");
     }
 
-    public SingleDamage(int hpCost, int manaCost, int damageAmount, ElementalEffect effect, String description){
+    public SingleDamage(String name, int hpCost, int manaCost, int damageAmount, ElementalEffect effect, String description){
+        setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
         setDamageAmount(damageAmount);
@@ -38,7 +40,9 @@ public class SingleDamage extends SingleBaseSkill {
         setDescription(description);
     }
     @Override
-    public void effectTargets() {
+    public void effectHP() {
         getTarget().effectHp(-damageAmount, getElementalEffect(), true);
     }
+    @Override
+    public void effectBuff() {return;}
 }

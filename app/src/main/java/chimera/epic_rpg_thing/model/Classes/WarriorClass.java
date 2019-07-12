@@ -21,9 +21,9 @@ public class WarriorClass extends CharacterClass {
     }
 
     private void initializeSkills(){
-        this.classSkills.put("BerserkerScream", AOEFactory.create(AOEType.AOE_DEBUFF, 0, 0, 0, new Benefit(0,0,5,0,0,0,0,5,0,3,false, false), new ElementalEffect(ElementalType.PHYSICAL, 1), "Berserker Scream - With an insane roar the warrior terrifies there enemies.", 4));
-        this.classSkills.put("PrecisionStabby", SingleSkillFactory.create(SingleType.DAMAGE, 0, 10, 15, new Benefit(), new ElementalEffect(ElementalType.PHYSICAL, 1), "Precision Strike - The warrior dodges nimbly forward before disemboweling the unfortunate enemy"));
-        this.classSkills.put("ShieldBreaker", SingleSkillFactory.create(SingleType.DAMAGE_DEBUFF, 0, 15, 10, new Benefit(0,0,0,0,0,0,0,0,10,0,true, false), new ElementalEffect(ElementalType.PHYSICAL, 1), "Shield Breaker - The Warrior cleaves the enemies armor in twain"));
-        this.classSkills.put("IntenseFocus", SingleSkillFactory.create(SingleType.BUFF, 0, 5, 0, new Benefit(0,0,0,0,0,0,0,10,0,0,true, true), new ElementalEffect(ElementalType.PHYSICAL, 1), "Battle Focus - The Warrior draws on his training to remove all distractions and focus on the fight."));
+        this.classSkills.put("BerserkerScream", AOEFactory.create(AOEType.AOE_DEBUFF, "Berserker Scream",0, 0, 0, new Benefit(0,0,5,0,0,0,0,5,0,3,false, false), new ElementalEffect(ElementalType.PHYSICAL, 1), "Berserker Scream - With an insane roar the warrior terrifies there enemies.", 4));
+        this.classSkills.put("PrecisionStabby", SingleSkillFactory.create(SingleType.DAMAGE, "Precision Stabby",0, 10, 15, new Benefit(), new ElementalEffect(ElementalType.PHYSICAL, 1), "Precision Stabby - The warrior dodges nimbly forward before disemboweling the unfortunate enemy"));
+        this.classSkills.put("ShieldBreaker", SingleSkillFactory.create(SingleType.DAMAGE_DEBUFF, "Shield Breaker",0, 15, 10, new Benefit(0,0,0,0,0,0,0,0,10,0,true, false), new ElementalEffect(ElementalType.PHYSICAL, 1), "Shield Breaker - The Warrior cleaves the enemies armor in twain"));
+        this.classSkills.put("IntenseFocus", SingleSkillFactory.create(SingleType.BUFF, "Intense Focus",0, 5, 0, new Benefit(0,0,0,0,0,0,0,10,0,0,true, true), new ElementalEffect(ElementalType.PHYSICAL, 1), "Intense Focus - The Warrior draws on his training to remove all distractions and focus on the fight."));
     }
 }

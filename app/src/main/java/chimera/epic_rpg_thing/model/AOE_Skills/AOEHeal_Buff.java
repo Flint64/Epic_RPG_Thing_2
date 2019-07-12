@@ -50,7 +50,8 @@ public class AOEHeal_Buff extends AOEBaseSkill {
      * @param maxTargets
      * @param description
      */
-    AOEHeal_Buff(int hpCost, int manaCost, int healAmount, Benefit buff, ElementalEffect effect, int maxTargets, String description){
+    AOEHeal_Buff(String name, int hpCost, int manaCost, int healAmount, Benefit buff, ElementalEffect effect, int maxTargets, String description){
+        setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
         setHealAmount(healAmount);
@@ -61,10 +62,15 @@ public class AOEHeal_Buff extends AOEBaseSkill {
     }
 
     @Override
-    public void effectTargets() {
+    public void effectHP() {
+        for(Creature c : getTargets()){
+            c.effectHp(healAmount, getElementalEffect(), false);
+        }
+    }
+    @Override
+    public void effectBuff(){
         for(Creature c : getTargets()){
             c.effectBuff(buff);
-            c.effectHp(healAmount, getElementalEffect(), false);
         }
     }
 }

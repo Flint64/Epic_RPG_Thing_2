@@ -6,7 +6,8 @@ import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class AOEDebuff extends AOEBaseSkill {
     Benefit debuff;
-    AOEDebuff(int hpCost, int manaCost, Benefit debuff, ElementalEffect effect, int maxTargets, String description){
+    AOEDebuff(String name, int hpCost, int manaCost, Benefit debuff, ElementalEffect effect, int maxTargets, String description){
+        setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
         this.debuff = debuff;
@@ -15,12 +16,14 @@ public class AOEDebuff extends AOEBaseSkill {
         setDescription(description);
     }
     @Override
-    public void effectTargets() {
+    public void effectBuff() {
         for(Creature c : getTargets()){
             c.effectBuff(debuff);
         }
     }
-
+    public void effectHP(){
+        return;
+    }
     /**
      * Gets the debuff
      * @return

@@ -23,6 +23,7 @@ public class SingleDebuff extends SingleBaseSkill {
     }
 
     public SingleDebuff(){
+        setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
         setDebuff(new Benefit());
@@ -30,7 +31,8 @@ public class SingleDebuff extends SingleBaseSkill {
         setDescription("DEFAULT");
     }
 
-    public SingleDebuff(int hpCost, int manaCost, Benefit debuff, ElementalEffect effect, String description){
+    public SingleDebuff(String name, int hpCost, int manaCost, Benefit debuff, ElementalEffect effect, String description){
+        setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
         setDebuff(debuff);
@@ -39,7 +41,9 @@ public class SingleDebuff extends SingleBaseSkill {
     }
 
     @Override
-    public void effectTargets() {
+    public void effectBuff() {
         getTarget().effectBuff(debuff);
     }
+    @Override
+    public void effectHP(){return;}
 }

@@ -46,7 +46,8 @@ public class AOEDamage_Debuff extends AOEBaseSkill {
         this.debuff = debuff;
     }
 
-    AOEDamage_Debuff(int hpCost, int manaCost, int damageAmount, Benefit debuff, ElementalEffect effect, int maxTargets, String description){
+    AOEDamage_Debuff(String name, int hpCost, int manaCost, int damageAmount, Benefit debuff, ElementalEffect effect, int maxTargets, String description){
+        setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
         setDamageAmount(damageAmount);
@@ -56,10 +57,15 @@ public class AOEDamage_Debuff extends AOEBaseSkill {
         setDescription(description);
     }
     @Override
-    public void effectTargets() {
+    public void effectHP() {
+        for(Creature c : getTargets()){
+            c.effectHp(-damageAmount, getElementalEffect(), false);
+        }
+    }
+    @Override
+    public void effectBuff(){
         for(Creature c : getTargets()){
             c.effectBuff(debuff);
-            c.effectHp(-damageAmount, getElementalEffect(), false);
         }
     }
 }

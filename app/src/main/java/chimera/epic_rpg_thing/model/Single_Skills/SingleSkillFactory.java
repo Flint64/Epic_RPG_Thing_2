@@ -15,19 +15,19 @@ public class SingleSkillFactory {
      * @param description
      * @return
      */
-    public static SingleBaseSkill create(SingleType type, int hpCost, int manaCost, int effectAmount, Benefit benefit, ElementalEffect effect, String description){
+    public static SingleBaseSkill create(SingleType type, String name, int hpCost, int manaCost, int effectAmount, Benefit benefit, ElementalEffect effect, String description){
         if(type == SingleType.DAMAGE){
-            return new SingleDamage(hpCost, manaCost, effectAmount, effect, description);
+            return new SingleDamage(name, hpCost, manaCost, effectAmount, effect, description);
         }else if(type == SingleType.BUFF){
-            return new SingleHeal(hpCost, manaCost, effectAmount, effect, description);
+            return new SingleHeal(name, hpCost, manaCost, effectAmount, effect, description);
         }else if(type == SingleType.DEBUFF){
-            return new SingleDebuff(hpCost, manaCost, benefit, effect, description);
+            return new SingleDebuff(name, hpCost, manaCost, benefit, effect, description);
         }else if(type == SingleType.HEAL){
-            return new SingleHeal(hpCost, manaCost, effectAmount, effect, description);
+            return new SingleHeal(name, hpCost, manaCost, effectAmount, effect, description);
         }else if(type == SingleType.HEAL_BUFF){
-            return new SingleHeal_Buff(hpCost, manaCost, effectAmount, benefit, effect, description);
+            return new SingleHeal_Buff(name, hpCost, manaCost, effectAmount, benefit, effect, description);
         }else if(type == SingleType.DAMAGE_DEBUFF){
-            return new SingleDamage_Debuff(hpCost, manaCost, effectAmount, benefit, effect, description);
+            return new SingleDamage_Debuff(name, hpCost, manaCost, effectAmount, benefit, effect, description);
         }
         return null;
     }

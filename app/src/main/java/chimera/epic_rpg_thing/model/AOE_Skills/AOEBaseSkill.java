@@ -8,6 +8,7 @@ import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public abstract class AOEBaseSkill implements BaseSkill {
     private ElementalEffect elementalEffect;
+    private String name;
     private int hpCost;
     private int manaCost;
     private int maxTargets;
@@ -60,6 +61,14 @@ public abstract class AOEBaseSkill implements BaseSkill {
         this.manaCost = manaCost;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     /**
      * Sets the targets from a given input. Will be used to pass in the targets for the effect
      * (i.e using fireball the presenter will get the targets and then pass them into the skill which
@@ -81,8 +90,12 @@ public abstract class AOEBaseSkill implements BaseSkill {
     /**
      * Effects the targets.
      */
-    public abstract void effectTargets();
-
+    public final void effectTargets(){
+        effectBuff();
+        effectHP();
+    }
+    public abstract void effectHP();
+    public abstract void effectBuff();
     public String toString(){
         return description;
     }

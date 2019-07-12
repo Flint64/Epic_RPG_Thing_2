@@ -27,6 +27,7 @@ public class SingleDamage_Debuff extends SingleBaseSkill {
      * Default Constructor for SingleDamage_Debuff
      */
     public SingleDamage_Debuff(){
+        setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
         setDamageAmount(0);
@@ -44,7 +45,8 @@ public class SingleDamage_Debuff extends SingleBaseSkill {
      * @param effect
      * @param description
      */
-    public SingleDamage_Debuff(int hpCost, int manaCost, int damageAmount, Benefit debuff, ElementalEffect effect, String description){
+    public SingleDamage_Debuff(String name, int hpCost, int manaCost, int damageAmount, Benefit debuff, ElementalEffect effect, String description){
+        setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
         setDamageAmount(damageAmount);
@@ -54,8 +56,11 @@ public class SingleDamage_Debuff extends SingleBaseSkill {
     }
 
     @Override
-    public void effectTargets() {
-        getTarget().effectBuff(debuff);
+    public void effectHP() {
         getTarget().effectHp(-damageAmount, getElementalEffect(), true);
+    }
+    @Override
+    public void effectBuff(){
+        getTarget().effectBuff(debuff);
     }
 }
