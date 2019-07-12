@@ -16,6 +16,60 @@ import chimera.epic_rpg_thing.model.User;
 public class CombatPresenter {
     User user = new User();
     List<Character> party = new ArrayList<Character>(4);
+    BaseSkill selectedSkill;
+
+    public BaseSkill getSelectedSkill() {
+        return selectedSkill;
+    }
+
+    public void setSelectedSkill(BaseSkill selectedSkill) {
+        this.selectedSkill = selectedSkill;
+    }
+
+    public boolean addSelectedTarget(int position, boolean isCharacter){
+        if(isCharacter){
+            if(selectedSkill instanceof AOEBaseSkill){
+                if(((AOEBaseSkill) selectedSkill).getMaxTargets() < ((AOEBaseSkill) selectedSkill).getTargets().size()){
+                    ((AOEBaseSkill) selectedSkill).addTarget(party.get(position));
+                    return true;
+                }
+                return false;
+            }else if (selectedSkill instanceof SingleBaseSkill){
+                if(((SingleBaseSkill)selectedSkill).getTarget() == null){
+                    ((SingleBaseSkill)selectedSkill).setTarget(party.get(position));
+                    return true;
+                }
+                return false;
+            } else {
+                return false;
+            }
+        } else {
+            if(selectedSkill instanceof AOEBaseSkill){
+                if(((AOEBaseSkill) selectedSkill).getMaxTargets() < ((AOEBaseSkill) selectedSkill).getTargets().size()){
+                    ((AOEBaseSkill) selectedSkill).addTarget(monsters.get(position));
+                    return true;
+                }
+                return false;
+            }else if (selectedSkill instanceof SingleBaseSkill){
+                if(((SingleBaseSkill)selectedSkill).getTarget() == null){
+                    ((SingleBaseSkill)selectedSkill).setTarget(monsters.get(position));
+                    return true;
+                }
+                return false;
+            } else {
+                return false;
+            }
+        }
+    }
+
+    public List<Monster> getMonsters() {
+        return monsters;
+    }
+
+    public void setMonsters(List<Monster> monsters) {
+        this.monsters = monsters;
+    }
+
     FirebaseThings fbThings = new FirebaseThings();
     List<Monster> monsters = new ArrayList<Monster>(4);
     Story story;

@@ -29,7 +29,7 @@ public class storyActivity extends AppCompatActivity {
         final Button continueButton = findViewById(R.id.continueButton);
         final TextView storyText = findViewById(R.id.storyText);
 
-        continueButton.setOnClickListener(new View.OnClickListener() {
+        storyText.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             public void onClick(View view) {
                 pressed++;

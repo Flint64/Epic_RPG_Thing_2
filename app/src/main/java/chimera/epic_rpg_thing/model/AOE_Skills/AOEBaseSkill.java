@@ -74,6 +74,10 @@ public abstract class AOEBaseSkill implements BaseSkill {
         return targets;
     }
 
+    public void addTarget(Creature c) {
+        this.targets.add(c);
+    }
+
     /**
      * Effects the targets.
      */
