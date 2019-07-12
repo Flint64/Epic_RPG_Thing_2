@@ -287,6 +287,7 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/medievalsharp"
         android:onClick="selectSkills"
         android:text="Select Skills"
         app:layout_constraintBottom_toBottomOf="parent"
