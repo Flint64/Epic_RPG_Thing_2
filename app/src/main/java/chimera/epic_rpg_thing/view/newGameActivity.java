@@ -64,11 +64,6 @@ public class newGameActivity extends AppCompatActivity {
 
          //TODO: Add functionality to be able to load a saved character. Will need a list of characters first.
 
-         FirebaseThings fbThing = new FirebaseThings();
-         fbThing.readOneCharacter();
-         //  fbThing.readCharacter();
-        //fbThing.readMonster();
-
          Context context = getApplicationContext();
          CharSequence text = "No saved characters found";
          int duration = Toast.LENGTH_SHORT;
