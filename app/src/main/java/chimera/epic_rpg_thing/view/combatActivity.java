@@ -23,6 +23,7 @@ import com.google.gson.Gson;
 
 import chimera.epic_rpg_thing.R;
 import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.Monster;
 import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.presenter.CombatPresenter;
 
@@ -62,6 +63,11 @@ public class combatActivity extends AppCompatActivity {
         final CheckBox player_3 = findViewById(R.id.selectPlayer_3);
         final CheckBox player_4 = findViewById(R.id.selectPlayer_4);
         final ListView list = findViewById(R.id.SkillsList);
+        final CheckBox enemy_1 = findViewById(R.id.selectEnemy_1);
+        final CheckBox enemy_2 = findViewById(R.id.selectEnemy_2);
+        final CheckBox enemy_3 = findViewById(R.id.selectEnemy_3);
+        final CheckBox enemy_4 = findViewById(R.id.selectEnemy_4);
+
         ArrayAdapter<BaseSkill> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cp.getCharacterSkills());
         list.setAdapter(arrayAdapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -158,5 +164,32 @@ public class combatActivity extends AppCompatActivity {
                 magicButton.setVisibility(View.VISIBLE);
                 itemButton.setVisibility(View.VISIBLE);
             }});
+
+        enemy_1.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+                cp.addSelectedTarget(0,false);
+            }
+        });
+
+        enemy_2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cp.addSelectedTarget(1,false);
+            }
+        });
+
+        enemy_3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cp.addSelectedTarget(2,false);
+            }
+        });
+
+        enemy_4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                cp.addSelectedTarget(3,false);
+            }
+        });
     }
 }

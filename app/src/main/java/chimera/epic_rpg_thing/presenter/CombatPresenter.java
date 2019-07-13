@@ -6,6 +6,7 @@ import java.util.Random;
 
 import chimera.epic_rpg_thing.model.AOE_Skills.AOEBaseSkill;
 import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.ElementalEffect;
 import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.FirebaseThings;
@@ -79,8 +80,21 @@ public class CombatPresenter {
         this.monsters = monsters;
     }
 
-    FirebaseThings fbThings = new FirebaseThings();
+    //FirebaseThings fbThings = new FirebaseThings();
     List<Monster> monsters = new ArrayList<Monster>(4);
+
+    public void addMonsters() {
+        Monster goblin1 = new Monster(30, 0, 5, null, 2, 0, 1, 1, 0, 0, "Goblin", null, 50, 5, true);
+        Monster goblin2 = new Monster(30, 0, 5, null, 2, 0, 1, 1, 0, 0, "Goblin", null, 50, 5, true);
+        Monster goblin3 = new Monster(30, 0, 5, null, 2, 0, 1, 1, 0, 0, "Goblin", null, 50, 5, true);
+        Monster goblin4 = new Monster(30, 0, 5, null, 2, 0, 1, 1, 0, 0, "Goblin", null, 50, 5, true);
+
+        monsters.add(goblin1);
+        monsters.add(goblin2);
+        monsters.add(goblin3);
+        monsters.add(goblin4);
+    }
+
     Story story;
 
     /**
