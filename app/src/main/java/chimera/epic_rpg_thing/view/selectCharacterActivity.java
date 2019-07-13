@@ -14,7 +14,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 
 import chimera.epic_rpg_thing.R;
-import chimera.epic_rpg_thing.model.Character;
+import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.model.CharacterStorage;
 
 public class selectCharacterActivity extends AppCompatActivity {
@@ -24,17 +24,17 @@ public class selectCharacterActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_character);
         ListView list = findViewById(R.id.list);
-        ArrayAdapter<Character> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, loadCharacters());
+        ArrayAdapter<PlayerCharacter> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, loadCharacters());
     }
 
-    public ArrayList<Character> loadCharacters(){
-        ArrayList<Character> tmpCharacters = new ArrayList<>();
+    public ArrayList<PlayerCharacter> loadCharacters(){
+        ArrayList<PlayerCharacter> tmpPlayerCharacters = new ArrayList<>();
         Gson gson = new Gson();
         try {
             CharacterStorage names = getCharacterDirectory();
             for(String s : names.getNames()){
                 BufferedReader reader = new BufferedReader(new FileReader(s));
-                tmpCharacters.add(gson.fromJson(reader, Character.class));
+                tmpPlayerCharacters.add(gson.fromJson(reader, PlayerCharacter.class));
                 reader.close();
             }
         }catch (FileNotFoundException f){
@@ -43,7 +43,7 @@ public class selectCharacterActivity extends AppCompatActivity {
         catch (Exception e){
             e.printStackTrace();
         }
-        return tmpCharacters;
+        return tmpPlayerCharacters;
     }
     public CharacterStorage getCharacterDirectory(){
         try {

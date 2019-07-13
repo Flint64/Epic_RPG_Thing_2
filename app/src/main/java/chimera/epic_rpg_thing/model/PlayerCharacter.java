@@ -5,7 +5,7 @@ import java.util.List;
 
 import chimera.epic_rpg_thing.model.Classes.CharacterClass;
 
-public class Character extends Creature{
+public class PlayerCharacter extends Creature{
     private int level;
     private int XP;
     // ArrayLists for baseSkills and items
@@ -18,14 +18,14 @@ public class Character extends Creature{
         return getName() + " " + getClass() + " " + level;
     }
 
-    public Character() {
+    public PlayerCharacter() {
         super(0, 0, 0, null,  0,  0,  0, 0, 0, 0, "BOB", new ArrayList<ElementalEffect>());
         inventory = null;
         level = 0;
         XP = 0;
     }
     /**
-     * Creates a character by passing values to the super constructor and by initializing the CharacterInventory
+     * Creates a playerCharacter by passing values to the super constructor and by initializing the CharacterInventory
      * @param currentBaseSkills
      * @param strength
      * @param intelligence
@@ -33,7 +33,7 @@ public class Character extends Creature{
      * @param name
      * @param cClass
      */
-    public Character(int baseHp, double mana, double attack, List<BaseSkill> currentBaseSkills, int strength, int intelligence, int dexterity, double evasion, String name, CharacterClass cClass) {
+    public PlayerCharacter(int baseHp, double mana, double attack, List<BaseSkill> currentBaseSkills, int strength, int intelligence, int dexterity, double evasion, String name, CharacterClass cClass) {
         super(baseHp, mana, attack, currentBaseSkills, strength, intelligence, dexterity, evasion, cClass.getClassMod("hpMulti"), cClass.getClassMod("manaMulti"), name, cClass.getWeaknesses());
         inventory = new CharacterInventory(baseSlots + strength * baseSlotMod, 0);
         level = 0;

@@ -17,7 +17,7 @@ public class User {
     final String name;
     String password;
     List<String> names;
-    Character character;
+    PlayerCharacter playerCharacter;
     public User(){
         this.name = "DEFAULT";
         this.password = "1234";
@@ -28,18 +28,18 @@ public class User {
         this.name = name;
     }
     /**
-     * Loads the character in from the character database.
+     * Loads the playerCharacter in from the playerCharacter database.
      * uses the CharacterDirectory file to find the id's
-     * for the characters.
+     * for the playerCharacters.
      */
-    public ArrayList<Character> loadCharacters(){
-        ArrayList<Character> tmpCharacters = new ArrayList<>();
+    public ArrayList<PlayerCharacter> loadCharacters(){
+        ArrayList<PlayerCharacter> tmpPlayerCharacters = new ArrayList<>();
         Gson gson = new Gson();
         try {
             getCharacterDirectory();
             for(String s : names){
                 BufferedReader reader = new BufferedReader(new FileReader(s));
-                tmpCharacters.add(gson.fromJson(reader, Character.class));
+                tmpPlayerCharacters.add(gson.fromJson(reader, PlayerCharacter.class));
                 reader.close();
             }
         }catch (FileNotFoundException f){
@@ -48,11 +48,11 @@ public class User {
         catch (Exception e){
             e.printStackTrace();
         }
-        return tmpCharacters;
+        return tmpPlayerCharacters;
     }
 
     /**
-     * Uploads the character to the database
+     * Uploads the playerCharacter to the database
      */
     public void saveCharacter(){
         Gson gson = new Gson();
@@ -71,8 +71,8 @@ public class User {
                 }
                 bf.close();
                 loadCharacterDirectory();
-                json = gson.toJson(character, Character.class);
-                bf = new BufferedWriter(new FileWriter(character.getName()));
+                json = gson.toJson(playerCharacter, PlayerCharacter.class);
+                bf = new BufferedWriter(new FileWriter(playerCharacter.getName()));
 
             } catch (java.io.IOException io){
                 io.printStackTrace();
@@ -90,14 +90,14 @@ public class User {
     }
 
     /**
-     * Will delete a character from the database and update the characterDirectory
+     * Will delete a playerCharacter from the database and update the characterDirectory
      * @param name
      */
     public void deleteCharacter(String name){
     }
 
     /**
-     * Gets the directory of character names
+     * Gets the directory of playerCharacter names
      */
     private void getCharacterDirectory(){
         try {
@@ -107,7 +107,7 @@ public class User {
             reader.close();
 
         } catch (java.io.IOException io){
-            Log.e("CharacterDirectoryError", "Unable to get Character Directory");
+            Log.e("CharacterDirectoryError", "Unable to get PlayerCharacter Directory");
         }
     }
 
@@ -131,12 +131,12 @@ public class User {
         this.names = names;
     }
 
-    public Character getCharacter() {
-        return character;
+    public PlayerCharacter getPlayerCharacter() {
+        return playerCharacter;
     }
 
-    public void setCharacter(Character character) {
-        this.character = character;
+    public void setPlayerCharacter(PlayerCharacter playerCharacter) {
+        this.playerCharacter = playerCharacter;
     }
 
     /**
