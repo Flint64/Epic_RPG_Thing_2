@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/title_background"
     tools:context=".view.MainActivity">
 
     <Button
@@ -40,12 +41,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginBottom="8dp"
         android:text="Epic RPG Thing"
+        android:textColor="@android:color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         app:fontFamily="@font/medievalsharp"

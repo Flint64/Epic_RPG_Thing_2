@@ -9,6 +9,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.VibrationEffect;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import java.io.File;
@@ -24,17 +26,12 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
-        //Plays music when called
-//        audioPlayer();
 
-    }
-
-    public void audioPlayer(){
-
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.warcraft);
-        mediaPlayer.start(); // no need to call prepare(); create() does that for you
 
     }
 
@@ -61,16 +58,6 @@ public class MainActivity extends AppCompatActivity {
     public void selectContinue(View view){
 
         //TODO: Add functionality to be able to load a saved game
-
-        //Makes the phone vibrate when the continue button is pressed
-        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
-        // Vibrate for 500 milliseconds
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
-        } else {
-            //deprecated in API 26
-            v.vibrate(500);
-        }
 
         //Simply displays "No saved games found", as this has no functionality as of yet
         Context context = getApplicationContext();

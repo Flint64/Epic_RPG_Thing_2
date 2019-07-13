@@ -3,6 +3,8 @@ package chimera.epic_rpg_thing.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -22,6 +24,9 @@ public class selectCharacterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_select_character);
         ListView list = findViewById(R.id.list);
         ArrayAdapter<PlayerCharacter> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, loadCharacters());
