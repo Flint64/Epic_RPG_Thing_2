@@ -205,7 +205,7 @@ public class combatActivity extends AppCompatActivity {
         final CheckBox enemy_2 = findViewById(R.id.selectEnemy_2);
         final CheckBox enemy_3 = findViewById(R.id.selectEnemy_3);
         final CheckBox enemy_4 = findViewById(R.id.selectEnemy_4);
-
+        cp.addMonsters();
         ArrayAdapter<BaseSkill> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cp.getCharacterSkills());
         list.setAdapter(arrayAdapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
