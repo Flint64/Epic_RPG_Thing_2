@@ -25,12 +25,6 @@ public class User {
     }
     public User(final String name){
         names = new ArrayList<String>();
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                loadCharacter(name);
-            }
-        });
         this.name = name;
     }
     /**
@@ -38,9 +32,6 @@ public class User {
      * uses the CharacterDirectory file to find the id's
      * for the characters.
      */
-    private void loadCharacter(String name){
-
-    }
     public ArrayList<Character> loadCharacters(){
         ArrayList<Character> tmpCharacters = new ArrayList<>();
         Gson gson = new Gson();

@@ -2,6 +2,7 @@ package chimera.epic_rpg_thing.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,18 +11,15 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
-import android.widget.RadioGroup;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.util.ArrayList;
-import java.util.List;
+import com.google.gson.Gson;
+
 
 import chimera.epic_rpg_thing.R;
 import chimera.epic_rpg_thing.model.BaseSkill;
-import chimera.epic_rpg_thing.model.Classes.WarriorClass;
 import chimera.epic_rpg_thing.presenter.CombatPresenter;
 import chimera.epic_rpg_thing.model.Character;
 
@@ -31,19 +29,14 @@ public class combatActivity extends AppCompatActivity {
     boolean itemBtn = false;
     boolean magicBtn = false;
 
-    WarriorClass wc = new WarriorClass();
-    List<BaseSkill> currentSkills = new ArrayList<>();
-
-    Character steve = new Character(1000, 100, 1000, currentSkills, 100,100,100, 100, "Steven", wc);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_combat);
-        steve.addCurrentSkill(wc.getClassSkill("BerserkerScream"));
-        steve.addCurrentSkill(wc.getClassSkill("PrecisionStabby"));
-        steve.addCurrentSkill(wc.getClassSkill("ShieldBreaker"));
-        steve.addCurrentSkill(wc.getClassSkill("IntenseFocus"));
-        final CombatPresenter cp = new CombatPresenter();
+        Gson gson = new Gson();
+        Intent i = new Intent();
+        Character c = gson.fromJson(i.getStringExtra("character"), Character.class);
+        final CombatPresenter cp = new CombatPresenter(c);
         final Button attackButton = findViewById(R.id.attack);
         final Button itemButton = findViewById(R.id.item);
         final Button magicButton = findViewById(R.id.magic);
@@ -63,7 +56,7 @@ public class combatActivity extends AppCompatActivity {
         final CheckBox player_3 = findViewById(R.id.selectPlayer_3);
         final CheckBox player_4 = findViewById(R.id.selectPlayer_4);
         final ListView list = findViewById(R.id.SkillsList);
-        ArrayAdapter<BaseSkill> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, steve.getCurrentSkills());
+        ArrayAdapter<BaseSkill> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cp.getCharacterSkills());
         list.setAdapter(arrayAdapter);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

@@ -12,11 +12,14 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.lang.annotation.ElementType;
 import java.util.ArrayList;
 
 import chimera.epic_rpg_thing.R;
 import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.Character;
 import chimera.epic_rpg_thing.model.Classes.CharacterClass;
 import chimera.epic_rpg_thing.model.Classes.ClericClass;
 import chimera.epic_rpg_thing.model.Classes.MageClass;
@@ -462,9 +465,10 @@ public class selectSkillsActivity extends AppCompatActivity{
 //        i.putExtra("mana", finalMana);
 //        i.putExtra("evasion", finalEvasion);
 //        i.putExtra("damage", finalDamage);
-
-
-       presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage, currentSkills, characterClass);
+        Gson gson = new Gson();
+        Character c = presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage, currentSkills, characterClass);
+        String json = gson.toJson(c, Character.class);
+        i.putExtra("character", json);
 
         startActivity(i);
     }
