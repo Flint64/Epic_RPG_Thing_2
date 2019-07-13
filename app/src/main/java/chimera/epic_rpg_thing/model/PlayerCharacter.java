@@ -14,7 +14,7 @@ public class PlayerCharacter extends Creature{
     private int baseSlots = 20;
     private int baseSlotMod = 5;
 
-    public String infoString(){
+    public String toString(){
         return getName() + " " + getClass() + " " + level;
     }
 
