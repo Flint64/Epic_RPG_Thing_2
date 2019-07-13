@@ -6,7 +6,7 @@ import chimera.epic_rpg_thing.model.BaseSkill;
 import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
-public abstract class AOEBaseSkill extends BaseSkill {
+public abstract class AOEBaseSkill implements BaseSkill {
     private ElementalEffect elementalEffect;
     private String name;
     private int hpCost;

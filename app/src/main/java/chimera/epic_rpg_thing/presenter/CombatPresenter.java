@@ -1,6 +1,5 @@
 package chimera.epic_rpg_thing.presenter;
 
-import java.lang.reflect.ParameterizedType;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
@@ -9,16 +8,17 @@ import chimera.epic_rpg_thing.model.AOE_Skills.AOEBaseSkill;
 import chimera.epic_rpg_thing.model.BaseSkill;
 import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.FirebaseThings;
-import chimera.epic_rpg_thing.model.Character;
 import chimera.epic_rpg_thing.model.Monster;
 import chimera.epic_rpg_thing.model.Single_Skills.SingleBaseSkill;
 import chimera.epic_rpg_thing.model.Story;
 import chimera.epic_rpg_thing.model.User;
 
 public class CombatPresenter {
-    User user = new User();
-    List<Character> party = new ArrayList<Character>(4);
+    User user;
     BaseSkill selectedSkill = null;
+    CombatPresenter(String characterName){
+        user = new User(characterName);
+    }
 
     public BaseSkill getSelectedSkill() {
         return selectedSkill;
@@ -27,6 +27,7 @@ public class CombatPresenter {
     public void setSelectedSkill(BaseSkill selectedSkill) {
         this.selectedSkill = selectedSkill;
     }
+
     public void useSelectedSkill(){
         if(selectedSkill == null){
             return;
@@ -34,17 +35,17 @@ public class CombatPresenter {
             selectedSkill.effectTargets();
         }
     }
-    public boolean addSelectedTarget(int position, boolean isCharacter){
-        if(isCharacter){
+    public boolean addSelectedTarget(int position, boolean self){
+        if(self){
             if(selectedSkill instanceof AOEBaseSkill){
                 if(((AOEBaseSkill) selectedSkill).getMaxTargets() < ((AOEBaseSkill) selectedSkill).getTargets().size()){
-                    ((AOEBaseSkill) selectedSkill).addTarget(party.get(position));
+                    ((AOEBaseSkill) selectedSkill).addTarget(user.getCharacter());
                     return true;
                 }
                 return false;
             }else if (selectedSkill instanceof SingleBaseSkill){
                 if(((SingleBaseSkill)selectedSkill).getTarget() == null){
-                    ((SingleBaseSkill)selectedSkill).setTarget(party.get(position));
+                    ((SingleBaseSkill)selectedSkill).setTarget(user.getCharacter());
                     return true;
                 }
                 return false;
@@ -88,18 +89,7 @@ public class CombatPresenter {
      * @param partyNames
      */
     public void onLoad(String currentName, List<String> partyNames){
-        fbThings.readCharacter();
-        List<Character> characters = fbThings.getCharacters();
-        for(Character c : party){
-            if(c.getName().equals(currentName)){
-                user.setCharacter(c);
-            }
-            for(String s : partyNames){
-                if(c.getName().equals(s)){
-                    party.add(c);
-                }
-            }
-        }
+        user.getCharacter();
         fbThings.readMonster();
         monsters = fbThings.getMonsters();
 
@@ -132,18 +122,13 @@ public class CombatPresenter {
     public List<BaseSkill> getCharacterSkills(){
         return user.getCharacter().getCurrentSkills();
     }
-    public List<Character> getCharacters(){
-        return party;
-    }
     public User getUser(){
         return user;
     }
     public void endTurn(){
         Random rand = new Random();
-        for(Character c : party){
-            c.endTurn();
-        }
+        user.getCharacter().endTurn();
         List<BaseSkill> monster0 = monsters.get(0).getCurrentSkills();
-        monster0.get(rand.nextInt(monster0.size()));
+        BaseSkill monster0skill = monster0.get(rand.nextInt(monster0.size()));
     }
 }

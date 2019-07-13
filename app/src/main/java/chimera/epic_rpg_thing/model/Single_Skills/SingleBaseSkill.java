@@ -4,7 +4,7 @@ import chimera.epic_rpg_thing.model.BaseSkill;
 import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
-public abstract class SingleBaseSkill extends BaseSkill {
+public abstract class SingleBaseSkill implements BaseSkill {
     private ElementalEffect elementalEffect;
     private int hpCost;
     private int manaCost;

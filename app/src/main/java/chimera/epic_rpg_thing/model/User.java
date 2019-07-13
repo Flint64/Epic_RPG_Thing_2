@@ -5,6 +5,8 @@ import android.util.Log;
 import com.google.gson.Gson;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -12,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class User {
-    String name;
+    final String name;
     String password;
     List<String> names;
     Character character;
@@ -21,22 +23,25 @@ public class User {
         this.password = "1234";
         this.names = null;
     }
-    public User(String name, String password){
-        this.name = name;
-        this.password = password;
+    public User(final String name){
+        names = new ArrayList<String>();
         new Thread(new Runnable() {
             @Override
             public void run() {
-                loadCharacters();
+                loadCharacter(name);
             }
         });
+        this.name = name;
     }
     /**
      * Loads the character in from the character database.
      * uses the CharacterDirectory file to find the id's
      * for the characters.
      */
-    private void loadCharacters(){
+    private void loadCharacter(String name){
+
+    }
+    public ArrayList<Character> loadCharacters(){
         ArrayList<Character> tmpCharacters = new ArrayList<>();
         Gson gson = new Gson();
         try {
@@ -47,28 +52,50 @@ public class User {
                 reader.close();
             }
         }catch (FileNotFoundException f){
-            return;
+            f.printStackTrace();
         }
         catch (Exception e){
             e.printStackTrace();
         }
+        return tmpCharacters;
     }
 
     /**
      * Uploads the character to the database
      */
-    public void saveCharacters(){
+    public void saveCharacter(){
         Gson gson = new Gson();
         String json;
-        updateCharacterDirectory();
-        try {
-            json = gson.toJson(names, ArrayList.class);
-            FileWriter file = new FileWriter("CharacterDirectory");
-            file.write(json);
-            file.close();
-        } catch (java.io.IOException io){
-            io.printStackTrace();
-        }
+        boolean failed = false;
+        boolean dir = true;
+        do {
+            try {
+                json = gson.toJson(names, ArrayList.class);
+                BufferedWriter bf = new BufferedWriter(new FileWriter("CharacterDirectory.dat", true));
+                bf.newLine();
+                bf.write(json);
+                dir = false;
+                if(failed = true){
+                    failed = false;
+                }
+                bf.close();
+                loadCharacterDirectory();
+                json = gson.toJson(character, Character.class);
+                bf = new BufferedWriter(new FileWriter(character.getName()));
+
+            } catch (java.io.IOException io){
+                io.printStackTrace();
+                failed = true;
+                if(dir){
+                    try{
+                        File file = new File("CharacterDirectory.dat");
+                        file.createNewFile();
+                    } catch (java.io.IOException ie) {
+                        ie.printStackTrace();
+                    }
+                }
+            }
+        } while(failed);
     }
 
     /**
@@ -84,7 +111,7 @@ public class User {
     private void getCharacterDirectory(){
         try {
             Gson gson = new Gson();
-            BufferedReader reader = new BufferedReader(new FileReader("CharacterDirectory"));
+            BufferedReader reader = new BufferedReader(new FileReader("CharacterDirectory.dat"));
             names = gson.fromJson(reader, ArrayList.class);
             reader.close();
 
@@ -95,10 +122,6 @@ public class User {
 
     public String getName() {
         return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public String getPassword() {
@@ -128,7 +151,14 @@ public class User {
     /**
      * Will update the characterDirectory from the database online when called
      */
-    private void updateCharacterDirectory(){
-
+    private void loadCharacterDirectory(){
+        Gson gson = new Gson();
+        try{
+            BufferedReader br = new BufferedReader(new FileReader("CharacterDirectory.dat"));
+            names = gson.fromJson(br, ArrayList.class);
+            br.close();
+        }catch (java.io.IOException io){
+            io.printStackTrace();
+        }
     }
 }

@@ -62,6 +62,6 @@ public class Monster extends Creature {
      * Level shouldn't be changed after initialization
      */
     public void initializeLevel() {
-        level = ((int) getMaxHP() / 10) + ((int) getMaxMana() / 10) + getCurrentSkills().size();
+        level = (getMaxHP() / 10) + ((int) getMaxMana() / 10) + getCurrentSkills().size();
     }
 }
