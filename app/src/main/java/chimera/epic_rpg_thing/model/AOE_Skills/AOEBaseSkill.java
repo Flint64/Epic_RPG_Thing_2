@@ -6,7 +6,7 @@ import chimera.epic_rpg_thing.model.BaseSkill;
 import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
-public abstract class AOEBaseSkill implements BaseSkill {
+public abstract class AOEBaseSkill extends BaseSkill {
     private ElementalEffect elementalEffect;
     private String name;
     private int hpCost;
@@ -15,22 +15,18 @@ public abstract class AOEBaseSkill implements BaseSkill {
     private String description;
     private List<Creature> targets;
 
-    @Override
     public ElementalEffect getElementalEffect() {
         return elementalEffect;
     }
 
-    @Override
     public void setElementalEffect(ElementalEffect elementalEffect) {
         this.elementalEffect = elementalEffect;
     }
 
-    @Override
     public String getDescription() {
         return description;
     }
 
-    @Override
     public void setDescription(String description) {
         this.description = description;
     }
@@ -41,22 +37,18 @@ public abstract class AOEBaseSkill implements BaseSkill {
         this.maxTargets = maxTargets;
     }
 
-    @Override
     public int getHpCost() {
         return hpCost;
     }
 
-    @Override
     public void setHpCost(int hpCost) {
         this.hpCost = hpCost;
     }
 
-    @Override
     public int getManaCost() {
         return manaCost;
     }
 
-    @Override
     public void setManaCost(int manaCost) {
         this.manaCost = manaCost;
     }
@@ -97,6 +89,6 @@ public abstract class AOEBaseSkill implements BaseSkill {
     public abstract void effectHP();
     public abstract void effectBuff();
     public String toString(){
-        return description;
+        return name + " " + hpCost + " " + manaCost;
     }
 }

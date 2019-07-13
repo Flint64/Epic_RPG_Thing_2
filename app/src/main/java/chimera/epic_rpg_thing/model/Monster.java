@@ -1,4 +1,5 @@
 package chimera.epic_rpg_thing.model;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Monster extends Creature {
@@ -8,7 +9,7 @@ public class Monster extends Creature {
     boolean canRun;
 
     public Monster() {
-        super(0, 0, 0, null, 0, 0, 0, 0, 0, 0, null, null);
+        super(0, 0, 0, new ArrayList<BaseSkill>(), 0, 0, 0, 0, 0, 0, "", new ArrayList<ElementalEffect>());
         initializeLevel();
     }
 

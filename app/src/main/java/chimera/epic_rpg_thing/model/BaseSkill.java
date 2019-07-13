@@ -1,18 +1,17 @@
 package chimera.epic_rpg_thing.model;
-public interface BaseSkill {
+public abstract class BaseSkill {
     // Getter and setter for the HPcost
-    int getHpCost();
-    void setHpCost(int hpCost);
+    abstract int getHpCost();
+    abstract void setHpCost(int hpCost);
     // Getter and setter for the manaCost
-    int getManaCost();
-    void setManaCost(int manaCost);
+    abstract int getManaCost();
+    abstract void setManaCost(int manaCost);
     // Getter and setter for the elementalEffect
-    ElementalEffect getElementalEffect();
-    void setElementalEffect(ElementalEffect elementalEffect);
+    abstract ElementalEffect getElementalEffect();
+    abstract void setElementalEffect(ElementalEffect elementalEffect);
     // Getter and Setter for the description
-    String getDescription();
-    void setDescription(String description);
-    void effectTargets();
-
-    String toString();
+    abstract String getDescription();
+    abstract void setDescription(String description);
+    abstract void effectTargets();
+    abstract public String toString();
 }
