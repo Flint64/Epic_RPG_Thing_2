@@ -3,6 +3,7 @@ package chimera.epic_rpg_thing.model.Single_Skills;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class SingleHeal extends SingleBaseSkill {
+    private final String CLASSNAME;
     int healAmount;
 
     public int getHealAmount() {
@@ -13,7 +14,11 @@ public class SingleHeal extends SingleBaseSkill {
         this.healAmount = healAmount;
     }
 
+    public String getCLASSNAME(){
+        return CLASSNAME;
+    }
     public SingleHeal(){
+        CLASSNAME = getClass().getName();
         setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
@@ -23,6 +28,7 @@ public class SingleHeal extends SingleBaseSkill {
     }
 
     public SingleHeal(String name, int hpCost, int manaCost, int healAmount, ElementalEffect effect, String description){
+        CLASSNAME = getClass().getName();
         setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);

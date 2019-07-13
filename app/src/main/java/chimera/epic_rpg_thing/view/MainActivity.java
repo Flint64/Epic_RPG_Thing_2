@@ -18,6 +18,7 @@ import java.io.File;
 import chimera.epic_rpg_thing.R;
 import android.os.Vibrator;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private String path;

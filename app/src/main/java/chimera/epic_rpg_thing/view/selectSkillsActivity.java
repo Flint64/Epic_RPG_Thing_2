@@ -14,13 +14,10 @@ import android.widget.CompoundButton;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
-
 import java.util.ArrayList;
 
 import chimera.epic_rpg_thing.R;
 import chimera.epic_rpg_thing.model.BaseSkill;
-import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.model.Classes.CharacterClass;
 import chimera.epic_rpg_thing.model.Classes.ClericClass;
 import chimera.epic_rpg_thing.model.Classes.MageClass;
@@ -49,6 +46,8 @@ public class selectSkillsActivity extends AppCompatActivity{
     private double finalEvasion;
     private CharacterClass characterClass;
     private ArrayList<BaseSkill> currentSkills = new ArrayList<>();
+    private int choice1;
+    private int choice2;
     @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +64,10 @@ public class selectSkillsActivity extends AppCompatActivity{
         Log.d("debug", getChoice());
 
         name = getIntent().getStringExtra("name");
-        finalIntelligence = getIntent().getIntExtra("intelligence", (int) 0);
-        finalDexterity = getIntent().getIntExtra("dexterity", (int) 0);
-        finalStrength = getIntent().getIntExtra("strength", (int) 0);
-        finalHealth = getIntent().getIntExtra("health", (int) 0);
+        finalIntelligence = getIntent().getIntExtra("intelligence", 0);
+        finalDexterity = getIntent().getIntExtra("dexterity", 0);
+        finalStrength = getIntent().getIntExtra("strength",  0);
+        finalHealth = getIntent().getIntExtra("health", 0);
         finalMana = getIntent().getDoubleExtra("mana", (double) 0);
         finalDamage = getIntent().getDoubleExtra("damage", (double) 0);
         finalEvasion = getIntent().getDoubleExtra("evasion", (double) 0);
@@ -100,33 +99,19 @@ public class selectSkillsActivity extends AppCompatActivity{
                 //If you check a box and you won't go over 2 by adding it, check it and increase count
                 if (skill_1.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
-                    switch(choice){
-                        case "Cleric":
-                            currentSkills.add(characterClass.getClassSkill("DivineBandAid"));
-                            break;
-                        case "Mage":
-                            currentSkills.add(characterClass.getClassSkill("Bolt"));
-                        case "Warrior":
-                            currentSkills.add(characterClass.getClassSkill("BerserkerScream"));
-                            break;
-                        case "Rogue":
-                            currentSkills.add(characterClass.getClassSkill("StabbyStab"));
+                    if(choice1 == 0){
+                        choice1 = 1;
+                    } else {
+                        choice2 = 1;
                     }
                     Log.d("debug", Integer.toString(skillCount));
                     //Otherwise, if you uncheck a box decrease count
                 } else if (!skill_1.isChecked() && skillCount - 1 >= 0){
                     skillCount--;
-                    switch(choice){
-                        case "Cleric":
-                            currentSkills.remove(characterClass.getClassSkill("DivineBandAid"));
-                            break;
-                        case "Mage":
-                            currentSkills.remove(characterClass.getClassSkill("Bolt"));
-                        case "Warrior":
-                            currentSkills.remove(characterClass.getClassSkill("BerserkerScream"));
-                            break;
-                        case "Rogue":
-                            currentSkills.remove(characterClass.getClassSkill("StabbyStab"));
+                    if(choice1 == 1){
+                        choice1 = 0;
+                    } else {
+                        choice2 = 0;
                     }
                     Log.d("debug", Integer.toString(skillCount));
                 }
@@ -145,32 +130,18 @@ public class selectSkillsActivity extends AppCompatActivity{
                 }
                 if (skill_2.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
-                    switch(choice){
-                        case "Cleric":
-                            currentSkills.add(characterClass.getClassSkill("DivineLight"));
-                            break;
-                        case "Mage":
-                            currentSkills.add(characterClass.getClassSkill("Orb"));
-                        case "Warrior":
-                            currentSkills.add(characterClass.getClassSkill("PrecisionStabby"));
-                            break;
-                        case "Rogue":
-                            currentSkills.add(characterClass.getClassSkill("DarkSlash"));
+                    if(choice1 == 0){
+                        choice1 = 2;
+                    } else {
+                        choice2 = 2;
                     }
                     Log.d("debug", Integer.toString(skillCount));
-                } else if (!skill_2.isChecked() && skillCount - 1 >= 0){
+                } else if (!skill_2.isChecked() && skillCount - 1 >= 0) {
                     skillCount--;
-                    switch(choice){
-                        case "Cleric":
-                            currentSkills.remove(characterClass.getClassSkill("DivineLight"));
-                            break;
-                        case "Mage":
-                            currentSkills.remove(characterClass.getClassSkill("Orb"));
-                        case "Warrior":
-                            currentSkills.remove(characterClass.getClassSkill("PrecisionStabby"));
-                            break;
-                        case "Rogue":
-                            currentSkills.remove(characterClass.getClassSkill("DarkSlash"));
+                    if (choice1 == 2) {
+                        choice1 = 0;
+                    } else {
+                        choice2 = 0;
                     }
                     Log.d("debug", Integer.toString(skillCount));
                 }
@@ -189,32 +160,18 @@ public class selectSkillsActivity extends AppCompatActivity{
                 }
                 if (skill_3.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
-                    switch(choice){
-                        case "Cleric":
-                            currentSkills.add(characterClass.getClassSkill("DivineHandShake"));
-                            break;
-                        case "Mage":
-                            currentSkills.add(characterClass.getClassSkill("Meditate"));
-                        case "Warrior":
-                            currentSkills.add(characterClass.getClassSkill("ShieldBreaker"));
-                            break;
-                        case "Rogue":
-                            currentSkills.add(characterClass.getClassSkill("RoguishStealth"));
+                    if(choice1 == 0){
+                        choice1 = 3;
+                    } else {
+                        choice2 = 3;
                     }
                     Log.d("debug", Integer.toString(skillCount));
                 } else if (!skill_3.isChecked() && skillCount - 1 >= 0){
                     skillCount--;
-                    switch(choice){
-                        case "Cleric":
-                            currentSkills.remove(characterClass.getClassSkill("DivineHandShake"));
-                            break;
-                        case "Mage":
-                            currentSkills.remove(characterClass.getClassSkill("Meditate"));
-                        case "Warrior":
-                            currentSkills.remove(characterClass.getClassSkill("ShieldBreaker"));
-                            break;
-                        case "Rogue":
-                            currentSkills.remove(characterClass.getClassSkill("RoguishStealth"));
+                    if(choice1 == 3){
+                        choice1 = 0;
+                    } else {
+                        choice2 = 0;
                     }
                     Log.d("debug", Integer.toString(skillCount));
                 }
@@ -233,32 +190,18 @@ public class selectSkillsActivity extends AppCompatActivity{
                 }
                 if (skill_4.isChecked() && skillCount + 1 <= 2){
                     skillCount++;
-                    switch(choice){
-                        case "Cleric":
-                            currentSkills.add(characterClass.getClassSkill("DivineWeapon"));
-                            break;
-                        case "Mage":
-                            currentSkills.add(characterClass.getClassSkill("MagicBarrier"));
-                        case "Warrior":
-                            currentSkills.add(characterClass.getClassSkill("ShieldBreaker"));
-                            break;
-                        case "Rogue":
-                            currentSkills.add(characterClass.getClassSkill("RoguishStealth"));
+                    if(choice1 == 0){
+                        choice1 = 4;
+                    } else {
+                        choice2 = 4;
                     }
                     Log.d("debug", Integer.toString(skillCount));
                 } else if (!skill_4.isChecked() && skillCount - 1 >= 0){
                     skillCount--;
-                    switch(choice){
-                        case "Cleric":
-                            currentSkills.remove(characterClass.getClassSkill("DivineWeapon"));
-                            break;
-                        case "Mage":
-                            currentSkills.remove(characterClass.getClassSkill("MagicBarrier"));
-                        case "Warrior":
-                            currentSkills.remove(characterClass.getClassSkill("ShieldBreaker"));
-                            break;
-                        case "Rogue":
-                            currentSkills.remove(characterClass.getClassSkill("RoguishStealth"));
+                    if(choice1 == 4){
+                        choice1 = 0;
+                    } else {
+                        choice2 = 0;
                     }
                     Log.d("debug", Integer.toString(skillCount));
                 }
@@ -459,19 +402,17 @@ public class selectSkillsActivity extends AppCompatActivity{
 //        if (iceCheck.isChecked()){ i.putExtra("element_ice", elementIce); }
 //        if (lightningCheck.isChecked()){ i.putExtra("element_lightning", elementLightning); }
 
-//        i.putExtra("class", choice);
+        i.putExtra("class", choice);
         i.putExtra("name", name);
-//        i.putExtra("intelligence", finalIntelligence);
-//        i.putExtra("dexterity", finalDexterity);
-//        i.putExtra("strength", finalStrength);
-//        i.putExtra("health", finalHealth);
-//        i.putExtra("mana", finalMana);
-//        i.putExtra("evasion", finalEvasion);
-//        i.putExtra("damage", finalDamage);
-        Gson gson = new Gson();
-        PlayerCharacter c = presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage, currentSkills, characterClass);
-        String json = gson.toJson(c, PlayerCharacter.class);
-        i.putExtra("character", json);
+        i.putExtra("choice1", choice1);
+        i.putExtra("choice2", choice2);
+        i.putExtra("intelligence", finalIntelligence);
+        i.putExtra("dexterity", finalDexterity);
+        i.putExtra("strength", finalStrength);
+        i.putExtra("health", finalHealth);
+        i.putExtra("mana", finalMana);
+        i.putExtra("evasion", finalEvasion);
+        i.putExtra("damage", finalDamage);
 
         startActivity(i);
     }

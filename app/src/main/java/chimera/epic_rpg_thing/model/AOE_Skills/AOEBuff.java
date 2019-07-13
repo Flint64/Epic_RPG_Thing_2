@@ -5,8 +5,10 @@ import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class AOEBuff extends AOEBaseSkill {
+    private final String CLASSNAME;
     Benefit benefit;
     public AOEBuff(){
+        CLASSNAME = getClass().getName();
         setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
@@ -15,7 +17,11 @@ public class AOEBuff extends AOEBaseSkill {
         setMaxTargets(0);
         setDescription("DEFAULT");
     }
+    public String getCLASSNAME(){
+        return CLASSNAME;
+    }
     public AOEBuff(String name, int hpCost, int manaCost, Benefit benefit, ElementalEffect effect, int maxTargets, String description){
+        CLASSNAME = getClass().getName();
         setName(name);
         this.setHpCost(hpCost);
         this.setManaCost(manaCost);

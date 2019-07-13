@@ -1,4 +1,7 @@
 package chimera.epic_rpg_thing.model;
+
+import android.os.Parcelable;
+
 public interface BaseSkill {
     // Getter and setter for the HPcost
     int getHpCost();
@@ -14,4 +17,5 @@ public interface BaseSkill {
     void setDescription(String description);
     void effectTargets();
     String toString();
+    String getCLASSNAME();
 }

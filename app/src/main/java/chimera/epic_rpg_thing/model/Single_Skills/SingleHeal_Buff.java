@@ -4,9 +4,13 @@ import chimera.epic_rpg_thing.model.Benefit;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class SingleHeal_Buff extends SingleBaseSkill {
+    private final String CLASSNAME;
     int healAmount;
     Benefit buff;
 
+    public String getCLASSNAME(){
+        return CLASSNAME;
+    }
     public int getHealAmount() {
         return healAmount;
     }
@@ -33,6 +37,7 @@ public class SingleHeal_Buff extends SingleBaseSkill {
     }
 
     public SingleHeal_Buff(){
+        CLASSNAME = getClass().getName();
         setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
@@ -43,6 +48,7 @@ public class SingleHeal_Buff extends SingleBaseSkill {
     }
 
     public SingleHeal_Buff(String name, int hpCost, int manaCost, int healAmount, Benefit buff, ElementalEffect effect, String description){
+        CLASSNAME = getClass().getName();
         setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);

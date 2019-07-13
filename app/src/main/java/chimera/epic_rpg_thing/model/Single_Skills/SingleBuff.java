@@ -4,6 +4,7 @@ import chimera.epic_rpg_thing.model.Benefit;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class SingleBuff extends SingleBaseSkill {
+    private final String CLASSNAME;
     Benefit buff;
 
     public Benefit getBuff() {
@@ -18,6 +19,7 @@ public class SingleBuff extends SingleBaseSkill {
      * SingleBuff Default Constructor
      */
     public SingleBuff(){
+        CLASSNAME = getClass().getName();
         setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
@@ -25,7 +27,9 @@ public class SingleBuff extends SingleBaseSkill {
         setElementalEffect(new ElementalEffect());
         setDescription(null);
     }
-
+    public String getCLASSNAME(){
+        return CLASSNAME;
+    }
     /**
      * SingleBuff Non-Default Constructor
      * @param hpCost
@@ -35,6 +39,7 @@ public class SingleBuff extends SingleBaseSkill {
      * @param description
      */
     public SingleBuff(String name, int hpCost, int manaCost, Benefit buff, ElementalEffect effect, String description){
+        CLASSNAME = getClass().getName();
         setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);

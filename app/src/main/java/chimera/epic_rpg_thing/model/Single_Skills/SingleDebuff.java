@@ -4,6 +4,7 @@ import chimera.epic_rpg_thing.model.Benefit;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class SingleDebuff extends SingleBaseSkill {
+    private final String CLASSNAME;
     Benefit debuff;
 
     /**
@@ -23,6 +24,7 @@ public class SingleDebuff extends SingleBaseSkill {
     }
 
     public SingleDebuff(){
+        CLASSNAME = getClass().getName();
         setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
@@ -32,6 +34,7 @@ public class SingleDebuff extends SingleBaseSkill {
     }
 
     public SingleDebuff(String name, int hpCost, int manaCost, Benefit debuff, ElementalEffect effect, String description){
+        CLASSNAME = getClass().getName();
         setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
@@ -39,7 +42,9 @@ public class SingleDebuff extends SingleBaseSkill {
         setElementalEffect(effect);
         setDescription(description);
     }
-
+    public String getCLASSNAME(){
+        return CLASSNAME;
+    }
     @Override
     public void effectBuff() {
         getTarget().effectBuff(debuff);

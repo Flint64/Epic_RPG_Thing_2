@@ -21,8 +21,15 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 
+import java.util.ArrayList;
+
 import chimera.epic_rpg_thing.R;
 import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.Classes.CharacterClass;
+import chimera.epic_rpg_thing.model.Classes.ClericClass;
+import chimera.epic_rpg_thing.model.Classes.MageClass;
+import chimera.epic_rpg_thing.model.Classes.RogueClass;
+import chimera.epic_rpg_thing.model.Classes.WarriorClass;
 import chimera.epic_rpg_thing.model.Monster;
 import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.presenter.CombatPresenter;
@@ -37,12 +44,156 @@ public class combatActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_combat);
-        Gson gson = new Gson();
-        Intent i = new Intent();
-        PlayerCharacter c = gson.fromJson(i.getStringExtra("character"), PlayerCharacter.class);
+        Intent i = getIntent();
+        String choice = i.getStringExtra("choice");
+        String name = i.getStringExtra("name");
+        int choice1 = i.getIntExtra("choice1", 1);
+        int choice2 = i.getIntExtra("choice2", 1);
+        int finalIntelligence = i.getIntExtra("intelligence", 0);
+        int finalDexterity = i.getIntExtra("dexterity", 0);
+        int finalStrength = i.getIntExtra("strength", 0);
+        int finalHealth = i.getIntExtra("health", 0);
+        double finalDamage = i.getIntExtra("damage", 0);
+        double finalMana = i.getDoubleExtra("mana", 0);
+        double finalEvasion = i.getDoubleExtra("evasion", 0);
+        CharacterClass characterClass = new WarriorClass();
+        ArrayList<BaseSkill> currentSkills = new ArrayList<>();
+        switch (choice){
+            case "Cleric":
+                characterClass = new ClericClass();
+                switch(choice1){
+                    case 1:
+                        currentSkills.add(characterClass.getClassSkill("DivineBandAid"));
+                        break;
+                    case 2:
+                        currentSkills.add(characterClass.getClassSkill("DivineLight"));
+                        break;
+                    case 3:
+                        currentSkills.add(characterClass.getClassSkill("DivineHandShake"));
+                        break;
+                    case 4:
+                        currentSkills.add(characterClass.getClassSkill("DivineWeapon"));
+                        break;
+                }
+                switch(choice2){
+                    case 1:
+                        currentSkills.add(characterClass.getClassSkill("DivineBandAid"));
+                        break;
+                    case 2:
+                        currentSkills.add(characterClass.getClassSkill("DivineLight"));
+                        break;
+                    case 3:
+                        currentSkills.add(characterClass.getClassSkill("DivineHandShake"));
+                        break;
+                    case 4:
+                        currentSkills.add(characterClass.getClassSkill("DivineWeapon"));
+                        break;
+                }
+                break;
+
+            case "Mage":
+                characterClass = new MageClass();
+                switch(choice1){
+                    case 1:
+                        currentSkills.add(characterClass.getClassSkill("Bolt"));
+                        break;
+                    case 2:
+                        currentSkills.add(characterClass.getClassSkill("Orb"));
+                        break;
+                    case 3:
+                        currentSkills.add(characterClass.getClassSkill("Meditate"));
+                        break;
+                    case 4:
+                        currentSkills.add(characterClass.getClassSkill("MagicBarrier"));
+                        break;
+                }
+                switch(choice2){
+                    case 1:
+                        currentSkills.add(characterClass.getClassSkill("Bolt"));
+                        break;
+                    case 2:
+                        currentSkills.add(characterClass.getClassSkill("Orb"));
+                        break;
+                    case 3:
+                        currentSkills.add(characterClass.getClassSkill("Meditate"));
+                        break;
+                    case 4:
+                        currentSkills.add(characterClass.getClassSkill("MagicBarrier"));
+                        break;
+                }
+                break;
+
+            case "Warrior":
+                characterClass = new WarriorClass();
+                switch(choice1){
+                    case 1:
+                        currentSkills.add(characterClass.getClassSkill("BerserkerScream"));
+                        break;
+                    case 2:
+                        currentSkills.add(characterClass.getClassSkill("PrecisionStabby"));
+                        break;
+                    case 3:
+                        currentSkills.add(characterClass.getClassSkill("ShieldBreaker"));
+                        break;
+                    case 4:
+                        currentSkills.add(characterClass.getClassSkill("IntenseFocus"));
+                        break;
+                }
+                switch(choice2){
+                    case 1:
+                        currentSkills.add(characterClass.getClassSkill("BerserkerScream"));
+                        break;
+                    case 2:
+                        currentSkills.add(characterClass.getClassSkill("PrecisionStabby"));
+                        break;
+                    case 3:
+                        currentSkills.add(characterClass.getClassSkill("ShieldBreaker"));
+                        break;
+                    case 4:
+                        currentSkills.add(characterClass.getClassSkill("IntenseFocus"));
+                        break;
+                }
+                break;
+
+            case "Rogue":
+                characterClass = new RogueClass();
+                switch(choice1){
+                    case 1:
+                        currentSkills.add(characterClass.getClassSkill("StabbyStab"));
+                        break;
+                    case 2:
+                        currentSkills.add(characterClass.getClassSkill("DarkSlash"));
+                        break;
+                    case 3:
+                        currentSkills.add(characterClass.getClassSkill("RoguishStealth"));
+                        break;
+                    case 4:
+                        currentSkills.add(characterClass.getClassSkill("PoisonVial"));
+                        break;
+                }
+                switch(choice2){
+                    case 1:
+                        currentSkills.add(characterClass.getClassSkill("StabbyStab"));
+                        break;
+                    case 2:
+                        currentSkills.add(characterClass.getClassSkill("DarkSlash"));
+                        break;
+                    case 3:
+                        currentSkills.add(characterClass.getClassSkill("RoguishStealth"));
+                        break;
+                    case 4:
+                        currentSkills.add(characterClass.getClassSkill("PoisonVial"));
+                        break;
+                }
+                break;
+                default:
+                    characterClass = new WarriorClass();
+        }
+        PlayerCharacter c = new PlayerCharacter(finalHealth, finalMana, (double)3, currentSkills, finalStrength, finalIntelligence, finalDexterity, finalEvasion, name, characterClass);
         final CombatPresenter cp = new CombatPresenter(c);
         final Button attackButton = findViewById(R.id.attack);
         final Button itemButton = findViewById(R.id.item);

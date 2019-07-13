@@ -5,6 +5,7 @@ import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.ElementalEffect;
 
 public class AOEHeal_Buff extends AOEBaseSkill {
+    private final String CLASSNAME;
     int healAmount;
     Benefit buff;
 
@@ -51,6 +52,7 @@ public class AOEHeal_Buff extends AOEBaseSkill {
      * @param description
      */
     AOEHeal_Buff(String name, int hpCost, int manaCost, int healAmount, Benefit buff, ElementalEffect effect, int maxTargets, String description){
+        CLASSNAME = getClass().getName();
         setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
@@ -60,7 +62,9 @@ public class AOEHeal_Buff extends AOEBaseSkill {
         setMaxTargets(maxTargets);
         setDescription(description);
     }
-
+    public String getCLASSNAME(){
+        return CLASSNAME;
+    }
     @Override
     public void effectHP() {
         for(Creature c : getTargets()){

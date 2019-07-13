@@ -12,7 +12,7 @@ public class SingleDamage extends SingleBaseSkill {
     public int getDamageAmount() {
         return damageAmount;
     }
-
+    private final String CLASSNAME;
     /**
      * Sets the skills damage amount
      * @param damageAmount
@@ -23,6 +23,7 @@ public class SingleDamage extends SingleBaseSkill {
     }
 
     public SingleDamage(){
+        CLASSNAME = getClass().getName();
         setName("DEFAULT");
         setHpCost(0);
         setManaCost(0);
@@ -30,8 +31,11 @@ public class SingleDamage extends SingleBaseSkill {
         setElementalEffect(new ElementalEffect());
         setDescription("DEFAULT");
     }
-
+    public String getCLASSNAME(){
+        return CLASSNAME;
+    }
     public SingleDamage(String name, int hpCost, int manaCost, int damageAmount, ElementalEffect effect, String description){
+        CLASSNAME = getClass().getName();
         setName(name);
         setHpCost(hpCost);
         setManaCost(manaCost);
