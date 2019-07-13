@@ -4,18 +4,38 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.File;
+
 import chimera.epic_rpg_thing.R;
+import android.os.Vibrator;
 
 public class MainActivity extends AppCompatActivity {
+
+    private String path;
+    private String fileName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Plays music when called
+//        audioPlayer();
+
+    }
+
+    public void audioPlayer(){
+
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.warcraft);
+        mediaPlayer.start(); // no need to call prepare(); create() does that for you
+
     }
 
     /***********************************************************************************
@@ -41,6 +61,16 @@ public class MainActivity extends AppCompatActivity {
     public void selectContinue(View view){
 
         //TODO: Add functionality to be able to load a saved game
+
+        //Makes the phone vibrate when the continue button is pressed
+        Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+        // Vibrate for 500 milliseconds
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+        } else {
+            //deprecated in API 26
+            v.vibrate(500);
+        }
 
         //Simply displays "No saved games found", as this has no functionality as of yet
         Context context = getApplicationContext();
