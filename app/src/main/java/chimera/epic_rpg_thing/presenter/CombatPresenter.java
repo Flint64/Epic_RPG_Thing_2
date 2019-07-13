@@ -6,19 +6,18 @@ import java.util.Random;
 
 import chimera.epic_rpg_thing.model.AOE_Skills.AOEBaseSkill;
 import chimera.epic_rpg_thing.model.BaseSkill;
-import chimera.epic_rpg_thing.model.Character;
+import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.FirebaseThings;
 import chimera.epic_rpg_thing.model.Monster;
 import chimera.epic_rpg_thing.model.Single_Skills.SingleBaseSkill;
 import chimera.epic_rpg_thing.model.Story;
-import chimera.epic_rpg_thing.model.User;
 
 public class CombatPresenter {
-    Character character;
+    PlayerCharacter playerCharacter;
     BaseSkill selectedSkill = null;
-    public CombatPresenter(Character character){
-         this.character = character;
+    public CombatPresenter(PlayerCharacter playerCharacter){
+         this.playerCharacter = playerCharacter;
     }
 
     public BaseSkill getSelectedSkill() {
@@ -40,13 +39,13 @@ public class CombatPresenter {
         if(self){
             if(selectedSkill instanceof AOEBaseSkill){
                 if(((AOEBaseSkill) selectedSkill).getMaxTargets() < ((AOEBaseSkill) selectedSkill).getTargets().size()){
-                    ((AOEBaseSkill) selectedSkill).addTarget(character);
+                    ((AOEBaseSkill) selectedSkill).addTarget(playerCharacter);
                     return true;
                 }
                 return false;
             }else if (selectedSkill instanceof SingleBaseSkill){
                 if(((SingleBaseSkill)selectedSkill).getTarget() == null){
-                    ((SingleBaseSkill)selectedSkill).setTarget(character);
+                    ((SingleBaseSkill)selectedSkill).setTarget(playerCharacter);
                     return true;
                 }
                 return false;
@@ -114,18 +113,18 @@ public class CombatPresenter {
     }
 
     /**
-     * Returns a list of the character current skills
+     * Returns a list of the playerCharacter current skills
      * @return
      */
     public List<BaseSkill> getCharacterSkills(){
-        return character.getCurrentSkills();
+        return playerCharacter.getCurrentSkills();
     }
-    public Character getUser(){
-        return character;
+    public PlayerCharacter getUser(){
+        return playerCharacter;
     }
     public void endTurn(){
         Random rand = new Random();
-        character.endTurn();
+        playerCharacter.endTurn();
         List<BaseSkill> monster0 = monsters.get(0).getCurrentSkills();
         BaseSkill monster0skill = monster0.get(rand.nextInt(monster0.size()));
     }

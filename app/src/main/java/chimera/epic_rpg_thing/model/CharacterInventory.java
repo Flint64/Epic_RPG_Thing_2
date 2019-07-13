@@ -28,7 +28,7 @@ public class CharacterInventory extends Inventory {
     }
 
     /**
-     * Generates what items should be equipped on the character
+     * Generates what items should be equipped on the playerCharacter
      */
     public void generateEquipped(){
         for(Map.Entry<String, Item> item : getMap().entrySet()){
@@ -93,7 +93,7 @@ public class CharacterInventory extends Inventory {
     /**
      * Equips the item
      *
-     * Usage will be that you find an item in the inventory and then pass it to this function to equip it to the character.
+     * Usage will be that you find an item in the inventory and then pass it to this function to equip it to the playerCharacter.
      * @param item
      * @param leftHand
      */

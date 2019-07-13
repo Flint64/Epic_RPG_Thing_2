@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.AdapterView;
@@ -20,8 +21,8 @@ import com.google.gson.Gson;
 
 import chimera.epic_rpg_thing.R;
 import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.presenter.CombatPresenter;
-import chimera.epic_rpg_thing.model.Character;
 
 
 public class combatActivity extends AppCompatActivity {
@@ -35,7 +36,7 @@ public class combatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_combat);
         Gson gson = new Gson();
         Intent i = new Intent();
-        Character c = gson.fromJson(i.getStringExtra("character"), Character.class);
+        PlayerCharacter c = gson.fromJson(i.getStringExtra("character"), PlayerCharacter.class);
         final CombatPresenter cp = new CombatPresenter(c);
         final Button attackButton = findViewById(R.id.attack);
         final Button itemButton = findViewById(R.id.item);

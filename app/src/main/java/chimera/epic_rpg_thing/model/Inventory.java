@@ -6,7 +6,7 @@ import chimera.epic_rpg_thing.model.Items.Item;
 
 /**
  * Inventory class for all of our inventory needs.
- * Will be the parent of the different inventory types (i.e. store, character, chest)
+ * Will be the parent of the different inventory types (i.e. store, playerCharacter, chest)
  * @Version 1.0
  * @Author Chimera
  */

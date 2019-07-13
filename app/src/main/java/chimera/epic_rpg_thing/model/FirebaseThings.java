@@ -16,12 +16,12 @@ import java.util.List;
 public class FirebaseThings {
     FirebaseDatabase database;
     DatabaseReference myRef;
-    List<Character> characters = new ArrayList<>();
+    List<PlayerCharacter> playerCharacters = new ArrayList<>();
     List<Monster> monsters = new ArrayList<>();
     public FirebaseThings() {
         //Setting up the database references so that we can read/write to Firebase
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("characters");
+        myRef = database.getReference("playerCharacters");
     }
 
     public void setMyRef(String pathName) {
@@ -33,8 +33,8 @@ public class FirebaseThings {
 
 
     /**
-     * This wil read every character that is on the Firebase database and return them in
-     * a list of characters.
+     * This wil read every playerCharacter that is on the Firebase database and return them in
+     * a list of playerCharacters.
      */
     public void readCharacter() {
 
@@ -42,12 +42,12 @@ public class FirebaseThings {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot ds : dataSnapshot.getChildren()){
-                    Character c = ds.getValue(Character.class);
-                    characters.add(c);
+                    PlayerCharacter c = ds.getValue(PlayerCharacter.class);
+                    playerCharacters.add(c);
                 }
 
-                for(Character character : characters){
-                    System.out.println(character.toString());
+                for(PlayerCharacter playerCharacter : playerCharacters){
+                    System.out.println(playerCharacter.toString());
 
                 }
             }
@@ -60,34 +60,34 @@ public class FirebaseThings {
     }
 
     /**
-     * A simple one-liner to write a character to the Firebase database
+     * A simple one-liner to write a playerCharacter to the Firebase database
      */
 
-    public void writeCharacter(Character character){
-        setMyRef("characters");
-        myRef.child(character.getName()).setValue(character);
+    public void writeCharacter(PlayerCharacter playerCharacter){
+        setMyRef("playerCharacters");
+        myRef.child(playerCharacter.getName()).setValue(playerCharacter);
     }
 
-    Character characterNew;
+    PlayerCharacter playerCharacterNew;
 
-    public Character readOneCharacter(){
+    public PlayerCharacter readOneCharacter(){
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-            Character character = dataSnapshot.child("Ron").getValue(Character.class);
-            characterNew = character;
+            PlayerCharacter playerCharacter = dataSnapshot.getValue(PlayerCharacter.class);
+            playerCharacterNew = playerCharacter;
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                Log.w(TAG, "Failed to read character.",databaseError.toException());
+                Log.w(TAG, "Failed to read playerCharacter.",databaseError.toException());
             }
         });
-        return characterNew;
+        return playerCharacterNew;
     }
 
-    public List<Character> getCharacters(){
-        return characters;
+    public List<PlayerCharacter> getPlayerCharacters(){
+        return playerCharacters;
     }
 
     public List<Monster> getMonsters(){

@@ -14,18 +14,16 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 
-import java.lang.annotation.ElementType;
 import java.util.ArrayList;
 
 import chimera.epic_rpg_thing.R;
 import chimera.epic_rpg_thing.model.BaseSkill;
-import chimera.epic_rpg_thing.model.Character;
+import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.model.Classes.CharacterClass;
 import chimera.epic_rpg_thing.model.Classes.ClericClass;
 import chimera.epic_rpg_thing.model.Classes.MageClass;
 import chimera.epic_rpg_thing.model.Classes.RogueClass;
 import chimera.epic_rpg_thing.model.Classes.WarriorClass;
-import chimera.epic_rpg_thing.model.ElementalType;
 import chimera.epic_rpg_thing.presenter.CharacterPresenter;
 
 public class selectSkillsActivity extends AppCompatActivity{
@@ -466,8 +464,8 @@ public class selectSkillsActivity extends AppCompatActivity{
 //        i.putExtra("evasion", finalEvasion);
 //        i.putExtra("damage", finalDamage);
         Gson gson = new Gson();
-        Character c = presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage, currentSkills, characterClass);
-        String json = gson.toJson(c, Character.class);
+        PlayerCharacter c = presenter.createCharacter(choice, name, finalIntelligence, finalDexterity, finalStrength, finalHealth, finalMana, finalEvasion, finalDamage, currentSkills, characterClass);
+        String json = gson.toJson(c, PlayerCharacter.class);
         i.putExtra("character", json);
 
         startActivity(i);

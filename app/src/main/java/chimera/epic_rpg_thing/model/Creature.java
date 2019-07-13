@@ -26,11 +26,11 @@ public abstract class Creature {
     private double defense;
     // Evasion: Chance to dodge an attack
     private double evasion;
-    // Character attributes
+    // PlayerCharacter attributes
     private int strength;
     private int intelligence;
     private int dexterity;
-    // Character name
+    // PlayerCharacter name
     private String name;
     // List of weaknesses
     private List<ElementalEffect> weakeness;
@@ -206,7 +206,7 @@ public abstract class Creature {
     }
 
     /**
-     * applies a benefit to the character
+     * applies a benefit to the playerCharacter
      * @param buff
      */
     public void effectBuff(Benefit buff){
@@ -290,13 +290,13 @@ public abstract class Creature {
     }
 
     /**
-     * Returns the name of the character
+     * Returns the name of the playerCharacter
      * @return string
      */
     public String getName() {return name;}
 
     /**
-     * Sets the character name
+     * Sets the playerCharacter name
      * @param name
      */
     public void setName(String name){this.name = name;}

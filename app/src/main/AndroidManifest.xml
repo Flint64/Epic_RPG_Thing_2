@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".view.combatActivity"
+        <activity android:name=".view.selectCharacterActivity" android:screenOrientation="sensorLandscape"></activity>
+        <activity
+            android:name=".view.combatActivity"
             android:screenOrientation="sensorLandscape" />
         <activity
             android:name=".view.storyActivity"
