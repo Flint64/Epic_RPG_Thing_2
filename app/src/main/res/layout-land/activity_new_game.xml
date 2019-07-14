@@ -11,28 +11,23 @@
         android:id="@+id/newCharacter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="88dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="20dp"
         android:fontFamily="@font/medievalsharp"
         android:onClick="createNewCharacter"
         android:text="New Character"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.499"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/loadCharacter"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/loadCharacter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="96dp"
+        android:layout_marginEnd="228dp"
         android:fontFamily="@font/medievalsharp"
         android:onClick="loadCharacter"
         android:text="Load Character"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/newCharacter" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
