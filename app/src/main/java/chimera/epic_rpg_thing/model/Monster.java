@@ -15,7 +15,7 @@ public class Monster extends Creature {
 
     public Monster(int baseHp, double baseMana, double attack, List<BaseSkill> currentSkills, int strength, int mana, int dexterity, double evasion, int hpMulti, int manaMulti, String name, List<ElementalEffect> weakness, int XPvalue, int goldValue, boolean canRun) {
         super(baseHp, baseMana, attack, currentSkills, strength, mana, dexterity, evasion, hpMulti, manaMulti, name, weakness);
-        initializeLevel();
+        //initializeLevel();
         setXPvalue(XPvalue);
         setGoldValue(goldValue);
         setCanRun(canRun);
@@ -62,6 +62,6 @@ public class Monster extends Creature {
      * Level shouldn't be changed after initialization
      */
     public void initializeLevel() {
-        level = (getMaxHP() / 10) + ((int) getMaxMana() / 10) + getCurrentSkills().size();
+//        level = (getMaxHP() / 10) + ((int) getMaxMana() / 10) + getCurrentSkills().size();
     }
 }
