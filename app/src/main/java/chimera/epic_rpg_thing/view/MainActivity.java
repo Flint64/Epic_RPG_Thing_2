@@ -32,8 +32,19 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
 
+        //Starts music
+        audioPlayer();
 
+    }
 
+    public void audioPlayer(){
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.warcraft);
+        mediaPlayer.start(); // no need to call prepare(); create() does that for you
+    }
+
+    public void changeMusic(){
+        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.warcraft);
+        mediaPlayer.start(); // no need to call prepare(); create() does that for you
     }
 
     /***********************************************************************************
@@ -64,6 +75,7 @@ public class MainActivity extends AppCompatActivity {
         Context context = getApplicationContext();
         CharSequence text = "No saved games found";
         int duration = Toast.LENGTH_SHORT;
+
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
