@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
@@ -12,9 +13,11 @@ import android.widget.Toast;
 
 import chimera.epic_rpg_thing.model.FirebaseThings;
 import chimera.epic_rpg_thing.R;
+import chimera.epic_rpg_thing.presenter.musicPresenter;
 
 public class newGameActivity extends AppCompatActivity {
     private boolean characterLoaded;
+    private musicPresenter mp = MainActivity.mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

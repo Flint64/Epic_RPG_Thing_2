@@ -16,13 +16,13 @@ import android.widget.Toast;
 import java.io.File;
 
 import chimera.epic_rpg_thing.R;
-import android.os.Vibrator;
+import chimera.epic_rpg_thing.presenter.musicPresenter;
 
 
 public class MainActivity extends AppCompatActivity {
 
-    private String path;
-    private String fileName;
+    public MediaPlayer mediaPlayer;
+    public static musicPresenter mp = new musicPresenter();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,19 +33,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         //Starts music
-        audioPlayer();
+//        audioPlayer();
+
+//        musicPresenter mp = new musicPresenter();
+        Context c = getApplicationContext();
+        mp.backgroundPlayer(c);
+
 
     }
 
-    public void audioPlayer(){
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.warcraft);
-        mediaPlayer.start(); // no need to call prepare(); create() does that for you
-    }
 
-    public void changeMusic(){
-        MediaPlayer mediaPlayer = MediaPlayer.create(this, R.raw.warcraft);
-        mediaPlayer.start(); // no need to call prepare(); create() does that for you
-    }
 
     /***********************************************************************************
      *   NEW GAME - Simply goes to the new game screen that has the option to create a
@@ -71,12 +68,12 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO: Add functionality to be able to load a saved game
 
+        mp.stopBackgroundMusic();
+
         //Simply displays "No saved games found", as this has no functionality as of yet
         Context context = getApplicationContext();
         CharSequence text = "No saved games found";
         int duration = Toast.LENGTH_SHORT;
-
-
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
     }

@@ -2,6 +2,7 @@ package chimera.epic_rpg_thing.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -31,12 +32,14 @@ import chimera.epic_rpg_thing.model.Classes.WarriorClass;
 import chimera.epic_rpg_thing.model.Monster;
 import chimera.epic_rpg_thing.model.PlayerCharacter;
 import chimera.epic_rpg_thing.presenter.CombatPresenter;
+import chimera.epic_rpg_thing.presenter.musicPresenter;
 
 
 public class combatActivity extends AppCompatActivity {
 
     boolean itemBtn = false;
     boolean magicBtn = false;
+    private musicPresenter mp = MainActivity.mp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +49,12 @@ public class combatActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_combat);
+
+        mp.stopBackgroundMusic();
+
+        Context context = getApplicationContext();
+        mp.combatPlayer(context);
+
         Intent i = getIntent();
         String choice = i.getStringExtra("class");
         String name = i.getStringExtra("name");

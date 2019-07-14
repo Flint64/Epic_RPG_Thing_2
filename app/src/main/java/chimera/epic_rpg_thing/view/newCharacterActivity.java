@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import chimera.epic_rpg_thing.R;
+import chimera.epic_rpg_thing.presenter.musicPresenter;
 
 @SuppressWarnings("DanglingJavadoc")
 public class newCharacterActivity extends AppCompatActivity {
