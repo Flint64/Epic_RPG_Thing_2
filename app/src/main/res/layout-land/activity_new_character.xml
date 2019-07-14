@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/create_character_background"
     tools:context=".view.newCharacterActivity">
 
     <!-- Dummy item to prevent AutoCompleteTextView from receiving focus -->
@@ -59,11 +60,10 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:background="@android:color/background_light"
         app:layout_constraintEnd_toStartOf="@+id/mageButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/double_dagger" />
+        app:srcCompat="@drawable/t_double_dagger" />
 
     <TextView
         android:id="@+id/rogueLabel"
@@ -82,11 +82,10 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:background="@android:color/background_light"
         app:layout_constraintEnd_toStartOf="@+id/rogueButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/double_sword" />
+        app:srcCompat="@drawable/t_double_sword" />
 
     <ImageButton
         android:id="@+id/mageButton"
@@ -94,11 +93,10 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
         android:background="@android:color/background_light"
         app:layout_constraintEnd_toStartOf="@+id/clericButton"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/double_magic" />
+        app:srcCompat="@drawable/t_double_magic" />
 
     <ImageButton
         android:id="@+id/clericButton"
@@ -106,11 +104,10 @@
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="50dp"
-        android:layout_marginRight="50dp"
         android:background="@android:color/background_light"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/double_cross" />
+        app:srcCompat="@drawable/t_double_cross" />
 
     <TextView
         android:id="@+id/mageLabel"
@@ -333,7 +330,7 @@
         app:layout_constraintHorizontal_bias="0.375"
         app:layout_constraintStart_toStartOf="@+id/strengthValue"
         app:layout_constraintTop_toBottomOf="@+id/strengthValue"
-        app:srcCompat="@drawable/double_up_arrow"
+        app:srcCompat="@drawable/t_up"
         tools:visibility="invisible" />
 
     <ImageButton
@@ -359,7 +356,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/str_up"
         app:layout_constraintTop_toBottomOf="@+id/str_up"
-        app:srcCompat="@drawable/double_down_arrow"
+        app:srcCompat="@drawable/t_down"
         tools:visibility="invisible" />
 
     <ImageButton
@@ -372,7 +369,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/dex_up"
         app:layout_constraintTop_toBottomOf="@+id/dex_up"
-        app:srcCompat="@drawable/double_down_arrow"
+        app:srcCompat="@drawable/t_down"
         tools:visibility="invisible" />
 
     <ImageButton
@@ -384,7 +381,7 @@
         app:layout_constraintEnd_toEndOf="@+id/dexterityValue"
         app:layout_constraintStart_toStartOf="@+id/dexterityValue"
         app:layout_constraintTop_toBottomOf="@+id/dexterityValue"
-        app:srcCompat="@drawable/double_up_arrow"
+        app:srcCompat="@drawable/t_up"
         tools:visibility="invisible" />
 
     <ImageButton
@@ -396,7 +393,7 @@
         app:layout_constraintEnd_toEndOf="@+id/intelligenceValue"
         app:layout_constraintStart_toStartOf="@+id/intelligenceValue"
         app:layout_constraintTop_toBottomOf="@+id/intelligenceValue"
-        app:srcCompat="@drawable/double_up_arrow"
+        app:srcCompat="@drawable/t_up"
         tools:visibility="invisible" />
 
     <ImageButton
@@ -409,7 +406,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/int_up"
         app:layout_constraintTop_toBottomOf="@+id/int_up"
-        app:srcCompat="@drawable/double_down_arrow"
+        app:srcCompat="@drawable/t_down"
         tools:visibility="invisible" />
 
     <TextView

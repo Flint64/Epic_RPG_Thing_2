@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/create_character_background"
     tools:context=".view.selectSkillsActivity">
 
     <TextView
@@ -116,6 +117,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="28dp"
+        android:fontFamily="@font/medievalsharp"
         android:onClick="createCharacter"
         android:text="Create Character"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -129,20 +131,22 @@
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="28dp"
+        android:background="@drawable/t_lightning"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/lightning" />
+        app:srcCompat="@drawable/t_lightning" />
 
     <ImageButton
         android:id="@+id/elementFire"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
+        android:background="@drawable/t_fire"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/iceLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/fire" />
+        app:srcCompat="@drawable/t_fire" />
 
     <ImageButton
         android:id="@+id/elementIce"
@@ -150,10 +154,11 @@
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="4dp"
+        android:background="@drawable/t_ice"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/lightningLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ice" />
+        app:srcCompat="@drawable/t_ice" />
 
     <ImageButton
         android:id="@+id/elementEarth"
@@ -161,10 +166,11 @@
         android:layout_height="50dp"
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@drawable/t_earth"
         android:visibility="invisible"
         app:layout_constraintBottom_toTopOf="@+id/fireLabel"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/earth" />
+        app:srcCompat="@drawable/t_earth" />
 
     <TextView
         android:id="@+id/earthLabel"
