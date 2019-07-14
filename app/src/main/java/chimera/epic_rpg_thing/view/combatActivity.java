@@ -1,13 +1,19 @@
 package chimera.epic_rpg_thing.view;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.VibrationEffect;
+import android.os.Vibrator;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -190,7 +196,8 @@ public class combatActivity extends AppCompatActivity {
                     break;
             }
         }
-        PlayerCharacter c = new PlayerCharacter(finalHealth, finalMana, (double)3, currentSkills, finalStrength, finalIntelligence, finalDexterity, finalEvasion, name, characterClass);
+        Log.d("Health", "Start Health: " + finalHealth);
+        PlayerCharacter c = new PlayerCharacter(100, finalMana, (double)3, currentSkills, finalStrength, finalIntelligence, finalDexterity, finalEvasion, name, characterClass);
         final CombatPresenter cp = new CombatPresenter(c);
         final Button attackButton = findViewById(R.id.attack);
         final Button itemButton = findViewById(R.id.item);
@@ -216,9 +223,19 @@ public class combatActivity extends AppCompatActivity {
         final CheckBox enemy_3 = findViewById(R.id.selectEnemy_3);
         final CheckBox enemy_4 = findViewById(R.id.selectEnemy_4);
         cp.addMonsters();
-        ArrayAdapter<BaseSkill> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cp.getCharacterSkills());
+        ArrayAdapter<BaseSkill> arrayAdapter = new ArrayAdapter<BaseSkill>(this, android.R.layout.simple_list_item_1, cp.getCharacterSkills()){
+            @NonNull
+            @Override
+            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView textView = (TextView) view.findViewById(android.R.id.text1);
+
+                textView.setTextColor(Color.WHITE);
+
+                return view;
+            }
+        };
         list.setAdapter(arrayAdapter);
-        list.setBackgroundColor(Color.WHITE);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -243,6 +260,44 @@ public class combatActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "You must select a skill before you can attack", Toast.LENGTH_SHORT).show();
                 } else {
                     cp.useSelectedSkill();
+                    //Makes the phone vibrate when the continue button is pressed
+                    Vibrator v = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
+                    // Vibrate for 500 milliseconds
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        v.vibrate(VibrationEffect.createOneShot(500, VibrationEffect.DEFAULT_AMPLITUDE));
+                    } else {
+                        //deprecated in API 26
+                        v.vibrate(500);
+                    }
+                    cp.endTurn();
+                    int index = 1;
+                    for(Monster m : cp.getMonsters()){
+                        if(m.isAlive()){
+                            Log.d("MonsterHealth", "Monster" + index + " HP:" + m.getCurrentHP());
+                            Log.d("Health", "Character Health: " + cp.getPlayerCharacter().getCurrentHP());
+                        } else {
+                            switch(index){
+                                case 1:
+                                    monster1.setVisibility(View.INVISIBLE);
+                                    break;
+                                case 2:
+                                    monster2.setVisibility(View.INVISIBLE);
+                                    break;
+                                case 3:
+                                    monster3.setVisibility(View.INVISIBLE);
+                                    break;
+                                case 4:
+                                    monster4.setVisibility(View.INVISIBLE);
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                        index++;
+                    }
+                    if(cp.isGameDone()){
+                        Toast.makeText(getApplicationContext(), "The game is done.", Toast.LENGTH_LONG).show();
+                    }
                 }
         }});
 
@@ -316,28 +371,44 @@ public class combatActivity extends AppCompatActivity {
 
         enemy_1.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
-                cp.addSelectedTarget(0,false);
+                if(cp.getSelectedSkill() != null){
+                    cp.addSelectedTargetToSkill(0, false);
+                } else {
+                    Toast.makeText(getApplicationContext(), "You must select a skill before you can attack", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         enemy_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cp.addSelectedTarget(1,false);
+                if(cp.getSelectedSkill() != null){
+                    cp.addSelectedTargetToSkill(1, false);
+                } else {
+                    Toast.makeText(getApplicationContext(), "You must select a skill before you can attack", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         enemy_3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cp.addSelectedTarget(2,false);
+                if(cp.getSelectedSkill() != null){
+                    cp.addSelectedTargetToSkill(2, false);
+                } else {
+                    Toast.makeText(getApplicationContext(), "You must select a skill before you can attack", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
         enemy_4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                cp.addSelectedTarget(3,false);
+                if(cp.getSelectedSkill() != null){
+                    cp.addSelectedTargetToSkill(3,false);
+                } else {
+                    Toast.makeText(getApplicationContext(), "You must select a skill before you can attack", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }

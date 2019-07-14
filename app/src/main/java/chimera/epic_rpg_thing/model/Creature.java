@@ -66,7 +66,9 @@ public abstract class Creature {
         this.attack = attack;
         this.evasion = evasion;
         this.maxHP = this.baseHp + this.strength * this.hpMulti;
+        currentHP = this.maxHP;
         this.maxMana = this.baseMana + this.intelligence * this.manaMulti;
+        currentMana = this.maxMana;
         this.defense = this.strength * 5;
         this.name = name;
         this.weakeness = weaknesses;
@@ -280,7 +282,9 @@ public abstract class Creature {
     public int getDexterity() {
         return dexterity;
     }
-
+    public boolean isAlive(){
+        return currentHP > 0;
+    }
     /**
      * Setter for the dexterity stat
      * @param
