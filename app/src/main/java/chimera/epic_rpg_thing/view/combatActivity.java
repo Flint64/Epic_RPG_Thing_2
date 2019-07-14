@@ -3,6 +3,7 @@ package chimera.epic_rpg_thing.view;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -208,6 +209,7 @@ public class combatActivity extends AppCompatActivity {
         cp.addMonsters();
         ArrayAdapter<BaseSkill> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cp.getCharacterSkills());
         list.setAdapter(arrayAdapter);
+        list.setBackgroundColor(Color.WHITE);
         list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
