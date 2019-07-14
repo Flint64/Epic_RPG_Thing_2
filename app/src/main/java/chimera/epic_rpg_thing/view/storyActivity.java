@@ -11,7 +11,11 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+
 import chimera.epic_rpg_thing.R;
+import chimera.epic_rpg_thing.model.BaseSkill;
+import chimera.epic_rpg_thing.model.Classes.CharacterClass;
 
 public class storyActivity extends AppCompatActivity {
 
@@ -22,7 +26,19 @@ public class storyActivity extends AppCompatActivity {
     //      changes to inventory and skills to allow/disallow doing things if you are/aren't in combat
 
     private short pressed = 0;
-
+    private String choice;
+    private String name;
+    private int finalIntelligence;
+    private int finalDexterity;
+    private int finalStrength;
+    private int finalHealth;
+    private double finalDamage;
+    private double finalMana;
+    private double finalEvasion;
+    private CharacterClass characterClass;
+    private ArrayList<BaseSkill> currentSkills = new ArrayList<>();
+    private int choice1;
+    private int choice2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +49,17 @@ public class storyActivity extends AppCompatActivity {
 
         final Button continueButton = findViewById(R.id.continueButton);
         final TextView storyText = findViewById(R.id.storyText);
+        name = getIntent().getStringExtra("name");
+        choice = getIntent().getStringExtra("class");
+        choice1 = getIntent().getIntExtra("choice1", 1);
+        choice2 = getIntent().getIntExtra("choice2", 1);
+        finalIntelligence = getIntent().getIntExtra("intelligence", 0);
+        finalDexterity = getIntent().getIntExtra("dexterity", 0);
+        finalStrength = getIntent().getIntExtra("strength",  0);
+        finalHealth = getIntent().getIntExtra("health", 0);
+        finalMana = getIntent().getDoubleExtra("mana", (double) 0);
+        finalDamage = getIntent().getDoubleExtra("damage", (double) 0);
+        finalEvasion = getIntent().getDoubleExtra("evasion", (double) 0);
 
         storyText.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
@@ -68,6 +95,19 @@ public class storyActivity extends AppCompatActivity {
     //Starts the combat activity
     private void startCombat() {
         Intent i = new Intent(this, combatActivity.class);
+        i.putExtra("class", choice);
+        i.putExtra("name", name);
+        i.putExtra("choice1", choice1);
+        i.putExtra("choice2", choice2);
+        i.putExtra("intelligence", finalIntelligence);
+        i.putExtra("dexterity", finalDexterity);
+        i.putExtra("strength", finalStrength);
+        i.putExtra("health", finalHealth);
+        i.putExtra("mana", finalMana);
+        i.putExtra("evasion", finalEvasion);
+        i.putExtra("damage", finalDamage);
+
+        startActivity(i);
         startActivity(i);
     }
 }

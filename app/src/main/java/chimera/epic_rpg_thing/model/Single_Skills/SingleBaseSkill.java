@@ -1,5 +1,8 @@
 package chimera.epic_rpg_thing.model.Single_Skills;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import chimera.epic_rpg_thing.model.BaseSkill;
 import chimera.epic_rpg_thing.model.Creature;
 import chimera.epic_rpg_thing.model.ElementalEffect;

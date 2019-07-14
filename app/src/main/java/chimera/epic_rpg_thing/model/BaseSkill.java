@@ -2,6 +2,8 @@ package chimera.epic_rpg_thing.model;
 
 import android.os.Parcelable;
 
+import java.util.List;
+
 public interface BaseSkill {
     // Getter and setter for the HPcost
     int getHpCost();
