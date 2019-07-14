@@ -39,7 +39,7 @@ public class CombatPresenter {
     public boolean addSelectedTarget(int position, boolean self){
         if(self){
             if(selectedSkill instanceof AOEBaseSkill){
-                if(((AOEBaseSkill) selectedSkill).getMaxTargets() < ((AOEBaseSkill) selectedSkill).getTargets().size()){
+                if(((AOEBaseSkill) selectedSkill).getTargets() != null &&((AOEBaseSkill) selectedSkill).getMaxTargets() < ((AOEBaseSkill) selectedSkill).getTargets().size()){
                     ((AOEBaseSkill) selectedSkill).addTarget(playerCharacter);
                     return true;
                 }
@@ -55,7 +55,7 @@ public class CombatPresenter {
             }
         } else {
             if(selectedSkill instanceof AOEBaseSkill){
-                if(((AOEBaseSkill) selectedSkill).getMaxTargets() < ((AOEBaseSkill) selectedSkill).getTargets().size()){
+                if(((AOEBaseSkill) selectedSkill).getTargets() != null &&((AOEBaseSkill) selectedSkill).getMaxTargets() < ((AOEBaseSkill) selectedSkill).getTargets().size()){
                     ((AOEBaseSkill) selectedSkill).addTarget(monsters.get(position));
                     return true;
                 }

@@ -1,5 +1,6 @@
 package chimera.epic_rpg_thing.model.AOE_Skills;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import chimera.epic_rpg_thing.model.BaseSkill;
@@ -13,7 +14,7 @@ public abstract class AOEBaseSkill implements BaseSkill {
     private int manaCost;
     private int maxTargets;
     private String description;
-    private List<Creature> targets;
+    private List<Creature> targets = new ArrayList<>();
 
     public ElementalEffect getElementalEffect() {
         return elementalEffect;
