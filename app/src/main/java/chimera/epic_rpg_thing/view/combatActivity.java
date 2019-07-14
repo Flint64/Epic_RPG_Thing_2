@@ -296,7 +296,7 @@ public class combatActivity extends AppCompatActivity {
                         index++;
                     }
                     if(cp.isGameDone()){
-                        Toast.makeText(getApplicationContext(), "The game is done.", Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), "The game is done.", Toast.LENGTH_SHORT).show();
                     }
                 }
         }});
